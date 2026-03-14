@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>AJStore.com — Digital Audit 2026 | Ajlan & Brothers</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --ink:#1A1410;--ink-2:#3D322A;--ink-3:#7A6A5A;
+  --cream:#FDFAF5;--sand:#F5EFE3;--sand-2:#EAE0CE;
+  --gold:#C49A3C;--gold-l:#E8C45A;--gold-pale:#F7ECC8;
+  --red:#B83232;--red-pale:#FAE8E8;
+  --amber:#C97010;--amber-pale:#FDF0DC;
+  --green:#2D7A4A;--green-pale:#E5F4EC;
+  --blue:#2456A4;--blue-pale:#E8EFFE;
+  --border:rgba(196,154,60,0.22);
+  --sh:0 2px 20px rgba(26,20,16,0.07);
+  --sh-lg:0 8px 48px rgba(26,20,16,0.13);
+  --nav-w:240px;--top-h:60px;--radius:12px;
+  --ease:cubic-bezier(0.4,0,0.2,1);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:15px}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);line-height:1.7;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+button{cursor:pointer;border:none;background:none;font-family:inherit}
+
+/* LAYOUT */
+.sidebar{width:var(--nav-w);flex-shrink:0;background:var(--ink);position:fixed;top:0;left:0;height:100vh;display:flex;flex-direction:column;z-index:100;transition:transform 0.3s var(--ease);overflow-y:auto}
+.sidebar::-webkit-scrollbar{width:4px}.sidebar::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.1);border-radius:2px}
+.sb-logo{padding:26px 24px 18px;border-bottom:1px solid rgba(255,255,255,0.07);flex-shrink:0}
+.sb-logo-mark{font-family:'Playfair Display',serif;font-size:21px;font-weight:900;color:var(--gold)}
+.sb-logo-sub{font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-top:3px}
+.nav-sec{font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,0.22);padding:16px 24px 5px}
+.nav-item{display:flex;align-items:center;gap:10px;padding:10px 24px;font-size:13px;color:rgba(255,255,255,0.52);cursor:pointer;transition:all 0.18s;border-left:2px solid transparent}
+.nav-item:hover{color:rgba(255,255,255,0.88);background:rgba(255,255,255,0.04)}
+.nav-item.active{color:#fff;border-left-color:var(--gold);background:rgba(196,154,60,0.09)}
+.nav-num{font-family:'DM Mono',monospace;font-size:10px;color:var(--gold);width:18px;flex-shrink:0}
+.nav-badge{margin-left:auto;font-size:9px;padding:2px 7px;border-radius:10px;background:var(--red);color:#fff;font-weight:600}
+.nav-badge.g{background:var(--green)}.nav-badge.a{background:var(--amber)}
+.sb-footer{margin-top:auto;padding:14px 24px;border-top:1px solid rgba(255,255,255,0.07);font-size:10px;color:rgba(255,255,255,0.22);flex-shrink:0}
+
+.topbar{position:fixed;top:0;left:var(--nav-w);right:0;height:var(--top-h);background:rgba(253,250,245,0.93);backdrop-filter:blur(14px);border-bottom:1px solid var(--sand-2);display:flex;align-items:center;justify-content:space-between;padding:0 36px;z-index:90}
+.tb-title{font-family:'Playfair Display',serif;font-size:15px;font-weight:700}
+.tb-meta{font-size:11px;color:var(--ink-3)}
+.tb-actions{display:flex;gap:9px;align-items:center}
+.btn{padding:7px 15px;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;transition:all 0.18s;display:inline-flex;align-items:center;gap:5px}
+.btn-o{border:1px solid var(--border);color:var(--ink-2);background:transparent}.btn-o:hover{border-color:var(--gold);color:var(--gold)}
+.btn-g{background:var(--gold);color:var(--ink);border:1px solid var(--gold)}.btn-g:hover{background:var(--gold-l)}
+.burger{display:none;flex-direction:column;gap:4px;padding:8px;cursor:pointer}
+.burger span{width:20px;height:2px;background:var(--ink);border-radius:2px;transition:0.3s}
+
+.main{margin-left:var(--nav-w);margin-top:var(--top-h);flex:1;min-width:0}
+.page{display:none;animation:fadeUp 0.32s var(--ease)}.page.active{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+
+/* COMMON SECTION */
+.s-inner{padding:50px 60px 70px;max-width:1100px}
+.s-tag{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.s-h{font-family:'Playfair Display',serif;font-size:35px;font-weight:700;line-height:1.12;margin-bottom:10px}
+.s-lead{font-size:15px;color:var(--ink-2);max-width:660px;margin-bottom:40px;font-weight:300;line-height:1.8}
+
+/* COVER */
+.cover-bg{background:var(--ink);min-height:calc(100vh - var(--top-h));display:flex;flex-direction:column;justify-content:center;padding:72px 72px 56px;position:relative;overflow:hidden}
+.cg-a,.cg-b{position:absolute;border-radius:50%;pointer-events:none}
+.cg-a{top:-160px;right:-160px;width:560px;height:560px;background:radial-gradient(circle,rgba(196,154,60,0.17) 0%,transparent 68%)}
+.cg-b{bottom:-100px;left:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(196,154,60,0.08) 0%,transparent 68%)}
+.c-chip{display:inline-flex;align-items:center;gap:8px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);border:1px solid rgba(196,154,60,0.35);padding:5px 13px;border-radius:4px;margin-bottom:32px;width:fit-content}
+.c-chip::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--gold);animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.25}}
+.c-h1{font-family:'Playfair Display',serif;font-size:clamp(44px,6vw,76px);font-weight:900;color:#fff;line-height:1.0;margin-bottom:10px}
+.c-h1 em{color:var(--gold);font-style:normal}
+.c-sub{font-size:16px;color:rgba(255,255,255,0.42);max-width:480px;margin-bottom:48px;font-weight:300;line-height:1.75}
+.c-pills{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:52px}
+.cp{padding:8px 16px;border-radius:28px;font-size:12px;font-weight:600;letter-spacing:0.3px}
+.cp-r{background:rgba(184,50,50,0.18);color:#ff8c8c;border:1px solid rgba(184,50,50,0.33)}
+.cp-a{background:rgba(201,112,16,0.18);color:#ffb84d;border:1px solid rgba(201,112,16,0.33)}
+.cp-g{background:rgba(45,122,74,0.18);color:#6dd98c;border:1px solid rgba(45,122,74,0.33)}
+.c-ctas{display:flex;gap:12px;flex-wrap:wrap}
+.c-btn-p{background:var(--gold);color:var(--ink);font-weight:700;font-size:14px;padding:13px 26px;border-radius:8px;cursor:pointer;transition:all 0.2s;display:inline-flex;align-items:center;gap:7px}
+.c-btn-p:hover{background:var(--gold-l);transform:translateY(-1px)}
+.c-btn-s{color:rgba(255,255,255,0.55);font-size:14px;font-weight:500;padding:13px 22px;border-radius:8px;cursor:pointer;transition:all 0.2s;border:1px solid rgba(255,255,255,0.11)}
+.c-btn-s:hover{color:#fff;border-color:rgba(255,255,255,0.28)}
+.c-meta{display:flex;gap:42px;padding-top:44px;margin-top:44px;border-top:1px solid rgba(255,255,255,0.08);flex-wrap:wrap}
+.c-meta label{display:block;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.28);margin-bottom:4px}
+.c-meta span{font-size:13px;color:rgba(255,255,255,0.72);font-weight:500}
+
+/* SCORE GAUGES */
+.dash-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:14px;margin-bottom:36px}
+.sc{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:22px;box-shadow:var(--sh);transition:transform 0.2s,box-shadow 0.2s}
+.sc:hover{transform:translateY(-2px);box-shadow:var(--sh-lg)}
+.sc-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px}
+.sc-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--ink-3)}
+.sc-icon{font-size:19px}
+.sc-ring{display:flex;align-items:center;gap:14px}
+.ring-track{fill:none;stroke:var(--sand-2);stroke-width:6}
+.ring-fill{fill:none;stroke-width:6;stroke-linecap:round;transition:stroke-dashoffset 1.3s var(--ease)}
+.sc-num{font-family:'Playfair Display',serif;font-size:30px;font-weight:700}
+.sc-denom{font-size:11px;color:var(--ink-3)}
+.sc-grade{font-size:10px;font-weight:700;padding:2px 8px;border-radius:16px;margin-top:7px;display:inline-block}
+.g-bad{background:var(--red-pale);color:var(--red)}.g-warn{background:var(--amber-pale);color:var(--amber)}.g-ok{background:var(--green-pale);color:var(--green)}
+
+/* KPI STRIP */
+.kpi-strip{display:grid;grid-template-columns:repeat(4,1fr);background:var(--ink);border-radius:var(--radius);overflow:hidden;margin-bottom:36px}
+.kpi-i{padding:26px 22px;text-align:center;border-right:1px solid rgba(255,255,255,0.06)}
+.kpi-i:last-child{border-right:none}
+.kpi-n{font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:var(--gold);line-height:1;margin-bottom:5px}
+.kpi-l{font-size:11px;color:rgba(255,255,255,0.48);text-transform:uppercase;letter-spacing:1px}
+.kpi-s{font-size:10px;color:rgba(255,255,255,0.24);margin-top:3px}
+
+/* CALLOUTS */
+.callout{border-radius:var(--radius);padding:18px 22px;margin-bottom:14px;display:flex;gap:13px;align-items:flex-start;border:1px solid transparent}
+.co-r{background:var(--red-pale);border-color:rgba(184,50,50,0.2)}.co-r h4{color:var(--red)}
+.co-g{background:var(--green-pale);border-color:rgba(45,122,74,0.2)}.co-g h4{color:var(--green)}
+.co-a{background:var(--amber-pale);border-color:rgba(201,112,16,0.2)}.co-a h4{color:var(--amber)}
+.co-gold{background:var(--gold-pale);border-color:rgba(196,154,60,0.25)}.co-gold h4{color:#7a5a00}
+.callout .ci{font-size:19px;flex-shrink:0;margin-top:2px}
+.callout h4{font-size:14px;font-weight:600;margin-bottom:4px}
+.callout p{font-size:13.5px;color:var(--ink-2);line-height:1.65}
+.callout ul{font-size:13.5px;color:var(--ink-2);line-height:1.65;padding-left:16px}
+.callout li{margin-bottom:4px}
+
+/* STRENGTHS */
+.str-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px}
+.str-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:22px;box-shadow:var(--sh);transition:all 0.2s}
+.str-card:hover{transform:translateY(-2px);box-shadow:var(--sh-lg)}
+.str-cat{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--green);background:var(--green-pale);padding:3px 9px;border-radius:10px;display:inline-block;margin-bottom:10px}
+.str-icon{font-size:24px;margin-bottom:8px}
+.str-card h3{font-size:14px;font-weight:600;margin-bottom:7px}
+.str-card p{font-size:13px;color:var(--ink-2);line-height:1.6}
+.str-impact{margin-top:12px;font-size:12px;color:var(--ink-3);display:flex;align-items:flex-start;gap:5px;padding-top:10px;border-top:1px dashed var(--sand-2)}
+
+/* FILTER BAR */
+.filter-bar{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:18px;align-items:center}
+.fc{padding:6px 13px;border-radius:18px;font-size:12px;font-weight:500;border:1px solid var(--border);color:var(--ink-2);cursor:pointer;transition:all 0.15s;background:#fff}
+.fc:hover{border-color:var(--gold);color:var(--gold)}
+.fc.active{background:var(--gold);color:var(--ink);border-color:var(--gold);font-weight:700}
+.f-count{margin-left:auto;font-size:12px;color:var(--ink-3);font-family:'DM Mono',monospace}
+
+/* FINDINGS */
+.findings-list{display:flex;flex-direction:column;gap:10px}
+.fc-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:box-shadow 0.2s;cursor:pointer}
+.fc-card:hover{box-shadow:var(--sh-lg)}
+.fc-card.hidden{display:none!important}
+.fc-hdr{padding:16px 20px;display:flex;align-items:center;gap:12px}
+.sev-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+.fc-id{font-family:'DM Mono',monospace;font-size:10px;color:var(--ink-3);background:var(--sand);padding:2px 7px;border-radius:4px;flex-shrink:0}
+.fc-title{font-size:14px;font-weight:600;flex:1}
+.fc-tags{display:flex;gap:6px;flex-shrink:0;flex-wrap:wrap}
+.tag{font-size:10px;font-weight:600;padding:2px 8px;border-radius:10px;letter-spacing:0.3px}
+.t-c{background:var(--red-pale);color:var(--red)}.t-h{background:var(--amber-pale);color:var(--amber)}
+.t-m{background:var(--blue-pale);color:var(--blue)}.t-l{background:var(--green-pale);color:var(--green)}
+.fc-arrow{font-size:15px;color:var(--ink-3);transition:transform 0.25s;flex-shrink:0}
+.fc-card.open .fc-arrow{transform:rotate(180deg)}
+.fc-body{max-height:0;overflow:hidden;transition:max-height 0.4s var(--ease)}
+.fc-card.open .fc-body{max-height:500px}
+.fc-body-inner{padding:16px 20px 20px;border-top:1px solid var(--sand-2);display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.fc-bs h4{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--ink-3);font-weight:600;margin-bottom:7px}
+.fc-bs p{font-size:13px;color:var(--ink-2);line-height:1.6}
+.imp-row{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+.imp-b{font-size:11px;padding:3px 9px;border-radius:6px;font-weight:600;display:flex;align-items:center;gap:4px}
+
+/* RECS */
+.rec-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:14px}
+.rc{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:20px;box-shadow:var(--sh);transition:all 0.2s;position:relative;overflow:hidden;cursor:pointer}
+.rc::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.rc.p1::before{background:linear-gradient(90deg,var(--green),#5cb88a)}
+.rc.p2::before{background:linear-gradient(90deg,var(--amber),#f0a030)}
+.rc.p3::before{background:linear-gradient(90deg,var(--blue),#4a7ae8)}
+.rc:hover{transform:translateY(-2px);box-shadow:var(--sh-lg)}
+.rc.hidden{display:none!important}
+.rc-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px}
+.rc-id{font-family:'DM Mono',monospace;font-size:10px;color:var(--ink-3)}
+.rc-pl{font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px}
+.pl1{background:var(--green-pale);color:var(--green)}.pl2{background:var(--amber-pale);color:var(--amber)}.pl3{background:var(--blue-pale);color:var(--blue)}
+.rc h3{font-size:13.5px;font-weight:600;margin-bottom:7px;line-height:1.4}
+.rc p{font-size:12px;color:var(--ink-2);line-height:1.6;margin-bottom:12px}
+.rc-meta{display:flex;gap:8px;flex-wrap:wrap}
+.rc-meta span{font-size:11px;padding:3px 8px;border-radius:6px;background:var(--sand);color:var(--ink-2);font-weight:500}
+.rc-owner{margin-top:10px;font-size:11px;color:var(--ink-3)}
+
+/* ROADMAP */
+.rm-phases{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:36px}
+.rm-phase{border-radius:var(--radius);padding:26px;background:#fff;border:1px solid var(--border);box-shadow:var(--sh);position:relative;overflow:hidden}
+.rm-phase::before{content:'';position:absolute;top:0;left:0;right:0;height:4px}
+.rp1::before{background:linear-gradient(90deg,var(--green),#5cb88a)}
+.rp2::before{background:linear-gradient(90deg,var(--amber),#f0a030)}
+.rp3::before{background:linear-gradient(90deg,var(--blue),#4a7ae8)}
+.rp-tl{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:7px}
+.rp1 .rp-tl{color:var(--green)}.rp2 .rp-tl{color:var(--amber)}.rp3 .rp-tl{color:var(--blue)}
+.rm-phase h3{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;margin-bottom:3px}
+.rp-desc{font-size:12px;color:var(--ink-3);margin-bottom:16px}
+.rp-tasks{list-style:none;display:flex;flex-direction:column;gap:0}
+.rpt{display:flex;gap:9px;align-items:flex-start;padding:8px 0;border-bottom:1px dashed var(--sand-2)}
+.rpt:last-child{border-bottom:none}
+.rpt-ck{width:17px;height:17px;border-radius:4px;border:1.5px solid var(--sand-2);flex-shrink:0;margin-top:2px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.18s;font-size:9px}
+.rpt.done .rpt-ck{background:var(--green);border-color:var(--green);color:#fff}
+.rpt.done .rpt-txt{text-decoration:line-through;color:var(--ink-3)}
+.rpt-txt{font-size:12.5px;color:var(--ink-2);line-height:1.4}
+.prog-wrap{margin-bottom:26px}
+.prog-label{display:flex;justify-content:space-between;font-size:12px;color:var(--ink-3);margin-bottom:6px}
+.prog-track{height:7px;background:var(--sand-2);border-radius:4px;overflow:hidden}
+.prog-fill{height:100%;border-radius:4px;transition:width 1s var(--ease)}
+.pf1{background:linear-gradient(90deg,var(--green),#5cb88a)}
+.pf2{background:linear-gradient(90deg,var(--amber),#f0a030)}
+.pf3{background:linear-gradient(90deg,var(--blue),#4a7ae8)}
+
+/* CHARTS */
+.ch-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:28px}
+.ch-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:26px;box-shadow:var(--sh)}
+.ch-card.full{grid-column:1/-1}
+.ch-title{font-size:14px;font-weight:600;margin-bottom:5px}
+.ch-sub{font-size:12px;color:var(--ink-3);margin-bottom:20px}
+.bc-chart{display:flex;flex-direction:column;gap:9px}
+.bc-row{display:flex;align-items:center;gap:9px}
+.bc-lbl{font-size:11px;color:var(--ink-2);width:150px;flex-shrink:0;text-align:right}
+.bc-track{flex:1;height:24px;background:var(--sand);border-radius:5px;overflow:hidden}
+.bc-fill{height:100%;border-radius:5px;width:0;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;transition:width 1.2s var(--ease)}
+.bc-fill span{font-size:10px;font-weight:700;color:#fff;white-space:nowrap}
+.bfr{background:linear-gradient(90deg,#b83232,#d85050)}
+.bfa{background:linear-gradient(90deg,var(--amber),#e8901a)}
+.bfg{background:linear-gradient(90deg,var(--green),#3da362)}
+.bfb{background:linear-gradient(90deg,var(--blue),#3a72d4)}
+.bfgold{background:linear-gradient(90deg,#b8862a,var(--gold-l))}
+.dn-wrap{display:flex;align-items:center;gap:26px}
+.dn-legend{display:flex;flex-direction:column;gap:8px}
+.dl-i{display:flex;align-items:center;gap:8px;font-size:12px}
+.dl-dot{width:10px;height:10px;border-radius:3px;flex-shrink:0}
+
+/* IMPACT */
+.imp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:32px}
+.imp-card{border-radius:var(--radius);padding:20px;text-align:center;background:var(--green-pale);border:1px solid rgba(45,122,74,0.18)}
+.imp-n{font-family:'Playfair Display',serif;font-size:32px;font-weight:700;color:var(--green);line-height:1;margin-bottom:6px}
+.imp-l{font-size:11px;color:var(--ink-2);font-weight:600;text-transform:uppercase;letter-spacing:0.5px}
+.imp-note{font-size:10px;color:var(--ink-3);margin-top:3px}
+
+/* BENCH TABLE */
+.bt{width:100%;border-collapse:collapse;font-size:13px}
+.bt th{background:var(--ink);color:#fff;padding:11px 14px;text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:0.8px;font-weight:600}
+.bt th:first-child{border-radius:8px 0 0 0}.bt th:last-child{border-radius:0 8px 0 0}
+.bt td{padding:11px 14px;border-bottom:1px solid var(--sand-2);vertical-align:middle}
+.bt tr:last-child td{border-bottom:none}
+.bt tr:nth-child(even) td{background:rgba(245,239,227,0.38)}
+.bs{display:flex;align-items:center;gap:5px;font-size:12px;font-weight:500}
+.bs-ok{color:var(--green)}.bs-wn{color:var(--amber)}.bs-ms{color:var(--red)}
+
+/* RECO PAGE */
+.reco-bg{background:var(--ink);min-height:calc(100vh - var(--top-h));padding:56px 60px}
+.reco-bg .s-tag{color:var(--gold)}.reco-bg .s-h{color:#fff}.reco-bg .s-lead{color:rgba(255,255,255,0.52)}
+.rp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:32px}
+.rp-card{background:rgba(255,255,255,0.05);border:1px solid rgba(196,154,60,0.17);border-radius:var(--radius);padding:26px}
+.rp-icon{font-size:26px;margin-bottom:12px}
+.rp-card h3{font-size:15px;font-weight:600;color:var(--gold-l);margin-bottom:8px}
+.rp-card p{font-size:13px;color:rgba(255,255,255,0.52);line-height:1.68}
+.quote{background:rgba(196,154,60,0.06);border:1px solid rgba(196,154,60,0.24);border-radius:var(--radius);padding:28px;margin-top:44px}
+.quote-t{font-family:'Playfair Display',serif;font-size:19px;font-style:italic;color:var(--gold-l);line-height:1.6;margin-bottom:12px}
+.quote-a{font-size:11px;color:rgba(255,255,255,0.3)}
+.reco-cta{margin-top:36px;padding:28px;background:var(--gold);border-radius:var(--radius);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+.reco-cta h3{font-size:18px;font-weight:700;color:var(--ink);margin-bottom:3px}
+.reco-cta p{font-size:12px;color:var(--ink-2)}
+.reco-cta-btn{background:var(--ink);color:var(--gold);font-weight:700;font-size:13px;padding:11px 22px;border-radius:8px;cursor:pointer;transition:all 0.2s;white-space:nowrap}
+.reco-cta-btn:hover{background:#2d2218}
+
+/* MODAL */
+.modal-ov{position:fixed;inset:0;background:rgba(26,20,16,0.62);z-index:500;display:none;align-items:center;justify-content:center;backdrop-filter:blur(4px)}
+.modal-ov.open{display:flex}
+.modal{background:var(--cream);border-radius:16px;width:540px;max-width:92vw;max-height:84vh;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 24px 80px rgba(0,0,0,0.28);animation:mIn 0.28s var(--ease)}
+@keyframes mIn{from{opacity:0;transform:scale(0.95)}to{opacity:1;transform:scale(1)}}
+.modal-hdr{padding:22px 26px;border-bottom:1px solid var(--sand-2);display:flex;justify-content:space-between;align-items:center;flex-shrink:0}
+.modal-hdr h2{font-family:'Playfair Display',serif;font-size:20px}
+.modal-x{width:30px;height:30px;border-radius:7px;background:var(--sand);display:flex;align-items:center;justify-content:center;font-size:15px;cursor:pointer;transition:background 0.15s}
+.modal-x:hover{background:var(--sand-2)}
+.modal-body{padding:22px 26px;overflow-y:auto;flex:1}
+.modal-body h3{font-size:13px;font-weight:600;margin-bottom:6px}
+.modal-body p{font-size:13px;color:var(--ink-2);margin-bottom:14px;line-height:1.6}
+.m-metrics{display:flex;flex-direction:column;gap:7px}
+.m-metric{display:flex;align-items:center;justify-content:space-between;font-size:12px;padding:8px 11px;background:var(--sand);border-radius:8px}
+.m-metric span:last-child{font-weight:600;color:var(--green)}
+
+/* TOAST */
+.toast{position:fixed;bottom:26px;right:26px;z-index:999;background:var(--ink);color:#fff;padding:12px 18px;border-radius:10px;font-size:13px;display:flex;align-items:center;gap:9px;box-shadow:var(--sh-lg);transform:translateY(70px);opacity:0;transition:all 0.3s var(--ease);pointer-events:none;max-width:300px}
+.toast.show{transform:translateY(0);opacity:1}
+
+/* RESPONSIVE */
+@media(max-width:860px){
+  :root{--nav-w:0px}
+  .sidebar{transform:translateX(-240px);width:240px}
+  .sidebar.open{transform:translateX(0)}
+  .topbar{left:0}.main{margin-left:0}.burger{display:flex}
+  .s-inner{padding:32px 22px 52px}.cover-bg{padding:44px 26px 38px}
+  .kpi-strip{grid-template-columns:1fr 1fr}.ch-grid{grid-template-columns:1fr}
+  .ch-card.full{grid-column:1}.rm-phases{grid-template-columns:1fr}
+  .imp-grid{grid-template-columns:1fr 1fr}.rp-grid{grid-template-columns:1fr}
+  .reco-bg{padding:38px 22px 52px}.fc-body-inner{grid-template-columns:1fr}
+  .rec-grid{grid-template-columns:1fr}.dash-grid{grid-template-columns:1fr 1fr}
+}
+.hidden{display:none!important}
+.mono{font-family:'DM Mono',monospace}
+</style>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<nav class="sidebar" id="sidebar">
+  <div class="sb-logo">
+    <div class="sb-logo-mark">AJ Store</div>
+    <div class="sb-logo-sub">Digital Audit · 2026</div>
+  </div>
+  <div class="nav-sec">Overview</div>
+  <div class="nav-item active" data-page="cover"><span class="nav-num">—</span>Cover &amp; Overview</div>
+  <div class="nav-item" data-page="summary"><span class="nav-num">01</span>Executive Summary</div>
+  <div class="nav-sec">Analysis</div>
+  <div class="nav-item" data-page="strengths"><span class="nav-num">02</span>Strengths<span class="nav-badge g">6</span></div>
+  <div class="nav-item" data-page="findings"><span class="nav-num">03</span>Issues Found<span class="nav-badge">12</span></div>
+  <div class="nav-sec">Action</div>
+  <div class="nav-item" data-page="recommendations"><span class="nav-num">04</span>Recommendations<span class="nav-badge a">24</span></div>
+  <div class="nav-item" data-page="roadmap"><span class="nav-num">05</span>Roadmap</div>
+  <div class="nav-sec">Data</div>
+  <div class="nav-item" data-page="charts"><span class="nav-num">06</span>Charts &amp; Data</div>
+  <div class="nav-item" data-page="benchmark"><span class="nav-num">07</span>Competitive Bench</div>
+  <div class="nav-item" data-page="impact"><span class="nav-num">08</span>Business Impact</div>
+  <div class="nav-sec">Conclusion</div>
+  <div class="nav-item" data-page="reco"><span class="nav-num">09</span>Final Recommendation</div>
+  <div class="sb-footer">v1.0.0 · Confidential · March 2026</div>
+</nav>
+
+<!-- TOPBAR -->
+<header class="topbar">
+  <div style="display:flex;align-items:center;gap:14px">
+    <div class="burger" id="burger" onclick="document.getElementById('sidebar').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </div>
+    <div>
+      <div class="tb-title" id="tbTitle">AJStore.com — Digital Audit</div>
+      <div class="tb-meta">Ajlan &amp; Brothers · March 2026 · Confidential</div>
+    </div>
+  </div>
+  <div class="tb-actions">
+    <button class="btn btn-o" onclick="openProgress()">📊 Progress</button>
+    <button class="btn btn-g" onclick="window.print()">↓ Export PDF</button>
+  </div>
+</header>
+
+<!-- MAIN -->
+<main class="main">
+
+<!-- COVER -->
+<div class="page active" id="page-cover">
+  <div class="cover-bg">
+    <div class="cg-a"></div><div class="cg-b"></div>
+    <div class="c-chip">Live Audit Report</div>
+    <h1 class="c-h1">Digital<br/>Commerce<br/><em>Audit</em></h1>
+    <p class="c-sub">UX · Conversion Rate Optimisation · Technical Performance — For the Management Team of Ajlan &amp; Brothers Company</p>
+    <div class="c-pills">
+      <span class="cp cp-r">⚠ UX 46/100</span>
+      <span class="cp cp-r">⚠ Mobile 38/100</span>
+      <span class="cp cp-a">◑ SEO 52/100</span>
+      <span class="cp cp-a">◑ CRO 44/100</span>
+      <span class="cp cp-g">✓ Brand 72/100</span>
+    </div>
+    <div class="c-ctas">
+      <button class="c-btn-p" onclick="nav('summary')">View Report →</button>
+      <button class="c-btn-s" onclick="nav('roadmap')">Jump to Roadmap</button>
+    </div>
+    <div class="c-meta">
+      <div><label>Client</label><span>Ajlan &amp; Brothers Co.</span></div>
+      <div><label>Website</label><span>ajstore.com</span></div>
+      <div><label>Date</label><span>March 2026</span></div>
+      <div><label>Issues Found</label><span>12 Identified</span></div>
+      <div><label>Recommendations</label><span>24 Actions</span></div>
+      <div><label>Revenue Upside</label><span>2.5 – 3.5×</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- EXECUTIVE SUMMARY -->
+<div class="page" id="page-summary">
+  <div class="s-inner">
+    <div class="s-tag">Section 01</div>
+    <h2 class="s-h">Executive Summary</h2>
+    <p class="s-lead">AJStore.com has one of the most powerful brand assets in Saudi retail yet significantly under-performs digitally. The path to closing the gap is clear, executable, and high-return.</p>
+    <div class="dash-grid" id="gaugesWrap"></div>
+    <div class="kpi-strip">
+      <div class="kpi-i"><div class="kpi-n">~1.2%</div><div class="kpi-l">Est. Conversion Rate</div><div class="kpi-s">Industry avg: 2.5–3.5%</div></div>
+      <div class="kpi-i"><div class="kpi-n">~4–6s</div><div class="kpi-l">Mobile Load Time</div><div class="kpi-s">Target LCP: &lt;2.5s</div></div>
+      <div class="kpi-i"><div class="kpi-n">38/100</div><div class="kpi-l">Mobile UX Score</div><div class="kpi-s">Critical failure zone</div></div>
+      <div class="kpi-i"><div class="kpi-n">3×</div><div class="kpi-l">Revenue Upside</div><div class="kpi-s">If all gaps closed</div></div>
+    </div>
+    <div class="callout co-r"><span class="ci">🚨</span><div><h4>Critical: JavaScript-Only Rendering</h4><p>The site is built on Magento PWA Venia with no SSR configured. Search engines see a blank page. This single issue suppresses all organic traffic and mobile performance simultaneously — the highest-urgency fix in the entire audit.</p></div></div>
+    <div class="callout co-gold"><span class="ci">🏆</span><div><h4>The Core Opportunity</h4><p>45 years of brand equity, dominant KSA market position, and an architecturally capable PWA platform. The gap between brand reputation and digital execution is the central challenge — and the central opportunity. Fixing it is a question of execution, not brand.</p></div></div>
+    <div class="callout co-g"><span class="ci">✅</span><div><h4>Three Strategic Priorities</h4><ul><li><strong>Performance &amp; Technical:</strong> Fix JS rendering, implement SSR to unlock SEO and mobile speed</li><li><strong>Conversion Optimization:</strong> Add trust signals, reviews, BNPL, abandoned cart recovery</li><li><strong>Brand Elevation:</strong> Make the digital experience as premium as the physical stores</li></ul></div></div>
+  </div>
+</div>
+
+<!-- STRENGTHS -->
+<div class="page" id="page-strengths">
+  <div class="s-inner">
+    <div class="s-tag">Section 02</div>
+    <h2 class="s-h">Website Strengths</h2>
+    <p class="s-lead">Six genuine strengths form a solid foundation. These should be protected, amplified, and used as anchors for all improvement work.</p>
+    <div class="str-grid" id="strGrid"></div>
+  </div>
+</div>
+
+<!-- FINDINGS -->
+<div class="page" id="page-findings">
+  <div class="s-inner">
+    <div class="s-tag">Section 03</div>
+    <h2 class="s-h">Issues Found</h2>
+    <p class="s-lead">12 issues identified across UX, performance, SEO, conversion, and checkout. Click any row to expand full details. Filter by severity.</p>
+    <div class="filter-bar" id="findFilters">
+      <button class="fc active" data-f="all">All Issues</button>
+      <button class="fc" data-f="CRITICAL">🔴 Critical</button>
+      <button class="fc" data-f="HIGH">🟠 High</button>
+      <button class="fc" data-f="MEDIUM">🔵 Medium</button>
+      <button class="fc" data-f="LOW">🟢 Low</button>
+      <span class="f-count" id="findCount">12 issues</span>
+    </div>
+    <div class="findings-list" id="findList"></div>
+  </div>
+</div>
+
+<!-- RECOMMENDATIONS -->
+<div class="page" id="page-recommendations">
+  <div class="s-inner">
+    <div class="s-tag">Section 04</div>
+    <h2 class="s-h">Recommendations</h2>
+    <p class="s-lead">24 actionable improvements across 3 phases. Filter by phase or priority. Click any card for full details and success metrics.</p>
+    <div class="filter-bar" id="recFilters">
+      <button class="fc active" data-f="all">All (24)</button>
+      <button class="fc" data-f="1">⚡ Phase 1</button>
+      <button class="fc" data-f="2">🔧 Phase 2</button>
+      <button class="fc" data-f="3">🚀 Phase 3</button>
+      <button class="fc" data-f="CRITICAL">🔴 Critical</button>
+      <button class="fc" data-f="HIGH">🟠 High</button>
+    </div>
+    <div class="rec-grid" id="recGrid"></div>
+  </div>
+</div>
+
+<!-- ROADMAP -->
+<div class="page" id="page-roadmap">
+  <div class="s-inner">
+    <div class="s-tag">Section 05</div>
+    <h2 class="s-h">Implementation Roadmap</h2>
+    <p class="s-lead">A 3-phase, 6-month plan. Check off tasks as they are completed — progress is saved to your browser. Use ← → arrow keys to navigate sections.</p>
+    <div id="progBars"></div>
+    <div class="rm-phases" id="rmPhases"></div>
+  </div>
+</div>
+
+<!-- CHARTS -->
+<div class="page" id="page-charts">
+  <div class="s-inner">
+    <div class="s-tag">Section 06</div>
+    <h2 class="s-h">Data Visualizations</h2>
+    <p class="s-lead">Animated charts illustrating issue distribution, estimated impact by improvement category, and Core Web Vitals diagnostics.</p>
+    <div class="ch-grid" id="chGrid"></div>
+  </div>
+</div>
+
+<!-- BENCHMARK -->
+<div class="page" id="page-benchmark">
+  <div class="s-inner">
+    <div class="s-tag">Section 07</div>
+    <h2 class="s-h">Competitive Benchmark</h2>
+    <p class="s-lead">Feature-by-feature comparison of AJStore.com against Namshi, Noon Fashion, and Ounass — the leading MENA e-commerce platforms.</p>
+    <div style="overflow-x:auto"><table class="bt" id="benchTable"></table></div>
+  </div>
+</div>
+
+<!-- IMPACT -->
+<div class="page" id="page-impact">
+  <div class="s-inner">
+    <div class="s-tag">Section 08</div>
+    <h2 class="s-h">Estimated Business Impact</h2>
+    <p class="s-lead">Conservative projections based on MENA e-commerce apparel benchmarks. Assumes no increase in paid acquisition spend.</p>
+    <div class="imp-grid">
+      <div class="imp-card"><div class="imp-n">+1.8%</div><div class="imp-l">Conversion Lift</div><div class="imp-note">~1.2% → ~3.0%</div></div>
+      <div class="imp-card"><div class="imp-n">+35%</div><div class="imp-l">Avg Order Value</div><div class="imp-note">Via BNPL &amp; cross-sell</div></div>
+      <div class="imp-card"><div class="imp-n">+50%</div><div class="imp-l">Organic Traffic</div><div class="imp-note">Via SSR + SEO content</div></div>
+      <div class="imp-card"><div class="imp-n">+15%</div><div class="imp-l">Recovered Revenue</div><div class="imp-note">Cart abandonment sequences</div></div>
+    </div>
+    <div id="impactTableWrap"></div>
+  </div>
+</div>
+
+<!-- FINAL RECO -->
+<div class="page" id="page-reco">
+  <div class="reco-bg">
+    <div class="s-tag">Section 09</div>
+    <h2 class="s-h">Final Strategic Recommendation</h2>
+    <p class="s-lead">AJStore.com has the most powerful asset in Saudi e-commerce: a trusted, heritage brand with genuine product quality. The digital channel is not performing at the level this brand deserves.</p>
+    <div class="rp-grid">
+      <div class="rp-card"><div class="rp-icon">⚡</div><h3>Fix the Foundation First</h3><p>Technical issues are the ceiling on every other improvement. No CRO strategy overcomes a 5-second load time. SSR in the first 30 days simultaneously unlocks SEO and mobile conversions — the single highest-ROI action in this audit.</p></div>
+      <div class="rp-card"><div class="rp-icon">📈</div><h3>Convert Before Spending More</h3><p>Reviews, BNPL, abandoned cart sequences, and guest checkout increase conversion rates by 50–150% in apparel without increasing ad spend. Maximize the value of existing traffic before scaling acquisition budgets.</p></div>
+      <div class="rp-card"><div class="rp-icon">🏆</div><h3>Build a Brand-Worthy Digital Home</h3><p>Ajlan &amp; Brothers is a premium institution. The long-term vision should be an editorial, storytelling-rich experience that celebrates Saudi sartorial heritage — not just another online shop. Match the physical store experience digitally.</p></div>
+    </div>
+    <div class="quote">
+      <p class="quote-t">"The gap between where AJStore.com is today and where it should be is not a brand problem — it is an execution problem. The brand is powerful. The opportunity is significant. The roadmap is clear."</p>
+      <div class="quote-a">— Senior E-Commerce, UX &amp; CRO Consultant · March 2026</div>
+    </div>
+    <div class="reco-cta">
+      <div><h3>Ready to begin Phase 1?</h3><p>Start tracking implementation directly in this report.</p></div>
+      <button class="reco-cta-btn" onclick="nav('roadmap')">Open Roadmap →</button>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<!-- MODAL -->
+<div class="modal-ov" id="modalOv" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <div class="modal-hdr"><h2 id="modalTitle">Details</h2><button class="modal-x" onclick="closeModal()">✕</button></div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"><span id="toastIcon">✅</span><span id="toastMsg"></span></div>
+
+<script>
+/* ── DATA ── */
+const SCORES=[
+  {l:'UX',s:46,icon:'🖱️',c:'#B83232',g:'Poor'},
+  {l:'Mobile',s:38,icon:'📱',c:'#B83232',g:'Critical'},
+  {l:'SEO',s:52,icon:'🔍',c:'#C97010',g:'Needs Work'},
+  {l:'CRO',s:44,icon:'📈',c:'#B83232',g:'Poor'},
+  {l:'Brand',s:72,icon:'🏅',c:'#2D7A4A',g:'Good'},
+  {l:'Performance',s:17,icon:'⚡',c:'#B83232',g:'Critical'},
+];
+const STRENGTHS=[
+  {cat:'Brand',icon:'👔',title:'45-Year Brand Heritage',desc:'Dominant brand recognition across KSA and Gulf markets. High baseline trust reduces customer acquisition cost and drives direct traffic.',impact:'Lowers CAC vs competitors'},
+  {cat:'Catalog',icon:'📂',title:'Structured Product Catalog',desc:'Logical category hierarchy across men, women, children — traditional and contemporary menswear with solid breadth and depth.',impact:'Solid base for filtering & SEO architecture'},
+  {cat:'Localization',icon:'🌐',title:'Bilingual Arabic/English',desc:'Arabic-first design acknowledges primary audience preference. RTL layout is properly implemented throughout.',impact:'Reduces bounce rate for Arabic-speaking customers'},
+  {cat:'CRO',icon:'🚚',title:'Free Delivery Threshold (199 SAR)',desc:'Free delivery incentive prominently announced in header. A proven mechanism to increase basket size and reduce purchase friction.',impact:'AOV-boosting mechanic already in place'},
+  {cat:'Technical',icon:'⚡',title:'PWA Architecture Potential',desc:'Magento PWA Studio foundation, when properly configured with SSR, enables push notifications, offline capability, and home screen install.',impact:'Competitive advantage over traditional Magento sites'},
+  {cat:'Authority',icon:'🏢',title:'Enterprise Scale',desc:'25+ countries, 5,000+ employees, major partnerships: Bahri, Marubeni, QNB.',impact:'Credibility signals that smaller competitors cannot replicate'},
+];
+const FINDINGS=[
+  {id:'F-001',title:'JavaScript-only rendering (Venia PWA default)',sev:'CRITICAL',cat:'Technical/SEO',rev:'Very High',ph:1,
+   desc:'The entire site requires JS to render. Without SSR, search engines index a blank page. Organic traffic is severely suppressed.',
+   fix:'Deploy Prerender.io or configure Next.js SSR. Resolves SEO and improves mobile load speed. Est. 1–2 weeks.'},
+  {id:'F-002',title:'Slow mobile load time (~4–6s estimated LCP)',sev:'CRITICAL',cat:'Performance',rev:'Very High',ph:1,
+   desc:'Venia PWA PageSpeed can score as low as 9/100 on mobile. Each extra second reduces conversions by 7–20%.',
+   fix:'WebP images, code splitting, CDN with KSA edge nodes. SSR fix provides the majority of the improvement.'},
+  {id:'F-003',title:'No customer reviews or social proof',sev:'HIGH',cat:'CRO',rev:'High',ph:2,
+   desc:'Product pages lack ratings, reviews, and UGC. In traditional menswear, fit and fabric are major purchase concerns — without social proof, buyers abandon.',
+   fix:'Integrate Stamped.io or Yotpo. Display ratings on listing pages. Automated post-purchase review requests. Est. 1–2 weeks.'},
+  {id:'F-004',title:'Missing urgency and scarcity signals',sev:'MEDIUM',cat:'CRO',rev:'Medium',ph:2,
+   desc:'No "low stock" indicators, promotion countdown timers, or "X people viewing" social proof.',
+   fix:'Add low-stock warnings (≤5 units), delivery date estimates, countdown timers on promotional pages. Est. 1 week.'},
+  {id:'F-005',title:'Weak product discovery — limited faceted filtering',sev:'HIGH',cat:'UX/Navigation',rev:'High',ph:2,
+   desc:'With a large catalog across styles, sizes, and fabrics, customers cannot effectively narrow results. Poor discovery drives high bounce rates.',
+   fix:'Deploy Elasticsearch (Algolia or Elastic Suite). Filter by occasion, fabric, style, size, color, price. Est. 3–4 weeks.'},
+  {id:'F-006',title:'No guest checkout or optimized checkout flow',sev:'HIGH',cat:'Checkout',rev:'High',ph:1,
+   desc:'Mandatory account creation before checkout is the #1 cart abandonment cause globally.',
+   fix:'Enable Magento guest checkout. Reduce to 3 steps maximum. Optional post-purchase account creation. Est. 1–3 days.'},
+  {id:'F-007',title:'Thin SEO content on category and product pages',sev:'MEDIUM',cat:'SEO',rev:'Medium',ph:2,
+   desc:'Category pages lack descriptive copy, FAQs, or buying guides. Invisible for non-branded searches like "best thobe Saudi Arabia".',
+   fix:'150–200 word intros for top 10 categories. FAQ sections. Schema.org structured data. Ongoing content calendar.'},
+  {id:'F-008',title:'Poor size guidance and fabric information',sev:'MEDIUM',cat:'Product Page',rev:'Medium',ph:2,
+   desc:'Traditional menswear buyers need fit guides and fabric details (GSM, composition, season). Missing this content increases returns.',
+   fix:'Interactive size calculator. Fabric detail panels: composition, weight, care, season suitability. Est. 2–3 weeks.'},
+  {id:'F-009',title:'No abandoned cart email/SMS recovery sequence',sev:'HIGH',cat:'CRO/Retention',rev:'Very High',ph:1,
+   desc:'Without recovery sequences (1hr, 6hr, 24hr), the site has no mechanism to recover the 75–80% of visitors who abandon their cart.',
+   fix:'Implement Klaviyo. 3-touch recovery sequence. Target 10–15% cart recovery rate. Est. 1–2 weeks.'},
+  {id:'F-010',title:'No personalization or recommendation engine',sev:'MEDIUM',cat:'UX',rev:'Medium',ph:3,
+   desc:'The homepage shows identical content to every visitor regardless of purchase history. Personalization lifts revenue per visitor by 10–30%.',
+   fix:'Integrate Nosto or Algolia Recommend. History-based recommendations. Est. 6–8 weeks.'},
+  {id:'F-011',title:'No BNPL payment options (Tamara / Tabby)',sev:'MEDIUM',cat:'Checkout',rev:'Medium',ph:1,
+   desc:'In KSA, Tamara and Tabby are now standard. Without BNPL, the site loses conversions on premium thobes (249–599 SAR range).',
+   fix:'Install Tamara + Tabby Magento extensions. Display BNPL messaging on product pages and cart. Est. 3–5 days each.'},
+  {id:'F-012',title:'Accessibility gaps (ARIA, keyboard navigation)',sev:'LOW',cat:'Accessibility',rev:'Low',ph:3,
+   desc:'As a React PWA, ARIA labels, keyboard navigation, and color contrast are often overlooked, limiting reach and creating legal exposure.',
+   fix:'WCAG 2.1 AA audit. Fix ARIA, ensure 4.5:1 contrast, test keyboard navigation. Est. 2–4 weeks.'},
+];
+const RECS=[
+  {id:'R-001',ph:1,title:'Deploy Prerender.io — fix JS rendering',cat:'Technical/SEO',pri:'CRITICAL',eff:'Medium',imp:'Very High',own:'Engineering',tl:'1–2 weeks',desc:'Deploy Prerender.io or Next.js SSR. Lifts PageSpeed from ~9 to 90+ and dramatically improves Core Web Vitals.',metrics:['Google: all pages indexed','PageSpeed mobile: 65+','LCP < 2.5s']},
+  {id:'R-002',ph:1,title:'Add trust strip above-fold',cat:'CRO/Trust',pri:'HIGH',eff:'Low',imp:'Medium',own:'UX + Frontend',tl:'2–3 days',desc:'Horizontal trust bar on every page: Free Delivery | 30-Day Returns | 45 Years Quality | Secure Checkout.',metrics:['Checkout initiation rate lift','Heatmap: 80%+ visibility']},
+  {id:'R-003',ph:1,title:'Image optimization — WebP + lazy loading',cat:'Performance',pri:'CRITICAL',eff:'Low',imp:'High',own:'Engineering',tl:'3–5 days',desc:'Convert all product images to WebP (50–80% smaller). Enable lazy loading. Implement responsive srcset.',metrics:['Average image < 100KB','LCP improvement 1–2s']},
+  {id:'R-004',ph:1,title:'Enable guest checkout',cat:'Checkout',pri:'HIGH',eff:'Low',imp:'High',own:'Engineering',tl:'1–3 days',desc:'Remove mandatory account creation. Guest checkout as primary with optional post-purchase account creation.',metrics:['Cart-to-order rate improvement','Abandonment rate decrease']},
+  {id:'R-005',ph:1,title:'Integrate Tamara + Tabby BNPL',cat:'Payment',pri:'HIGH',eff:'Low',imp:'High',own:'Engineering + Finance',tl:'3–5 days each',desc:'Install BNPL extensions. Display "Pay in 4" messaging on product pages and cart to lift AOV.',metrics:['BNPL adoption: 15–25% of orders','AOV on BNPL orders']},
+  {id:'R-006',ph:1,title:'Abandoned cart email + SMS sequence',cat:'CRO/Retention',pri:'HIGH',eff:'Medium',imp:'Very High',own:'Marketing + Engineering',tl:'1–2 weeks',desc:'3-touch sequence: 1hr reminder, 6hr reinforcement, 24hr incentive. Target 10–15% recovery rate.',metrics:['Cart recovery rate: 10–15%','Revenue from sequences']},
+  {id:'R-007',ph:1,title:'Sticky mobile Add-to-Cart button',cat:'Mobile UX',pri:'HIGH',eff:'Low',imp:'High',own:'Frontend/UX',tl:'2–3 days',desc:'Fixed bottom bar on mobile: product name, price, Add-to-Cart CTA. Removes need to scroll up.',metrics:['Mobile add-to-cart rate lift','Scroll depth heatmap']},
+  {id:'R-008',ph:1,title:'Install heatmap + session recording',cat:'Analytics',pri:'MEDIUM',eff:'Low',imp:'Medium',own:'Analytics',tl:'1 day',desc:'Install Microsoft Clarity (free) or Hotjar to validate all subsequent UX decisions with real user data.',metrics:['Data collection active across key pages','First insights reviewed in 2 weeks']},
+  {id:'R-009',ph:2,title:'Implement customer review platform',cat:'CRO/Social Proof',pri:'HIGH',eff:'Medium',imp:'High',own:'Engineering + Marketing',tl:'1–2 weeks',desc:'Integrate Stamped.io or Yotpo. Show ratings on listing pages. Filter reviews by Fit, Quality, Delivery.',metrics:['Review collection: 8%+ of orders','CR lift: reviewed vs unreviewed']},
+  {id:'R-010',ph:2,title:'Build size guide + fit calculator',cat:'Product UX',pri:'HIGH',eff:'Medium',imp:'High',own:'UX + Engineering',tl:'2–3 weeks',desc:'"Find My Size" calculator for thobes and menswear. Reduces wrong-size orders 20–30%.',metrics:['Return rate reduction','Add-to-cart rate on sized items']},
+  {id:'R-011',ph:2,title:'Advanced faceted filtering + Elasticsearch',cat:'UX/Navigation',pri:'HIGH',eff:'Medium',imp:'High',own:'Engineering',tl:'3–4 weeks',desc:'Deploy Algolia or Elastic Suite. Filter by occasion, fabric, style, size, color, price. Arabic synonyms.',metrics:['Filter usage rate','Search-to-purchase CR','Zero-results rate < 5%']},
+  {id:'R-012',ph:2,title:'Enhanced product photography (top 50 SKUs)',cat:'Product Content',pri:'HIGH',eff:'High',imp:'High',own:'Creative',tl:'4–6 weeks',desc:'6–8 images per product: flat lay, on-model front/back, detail close-up, fabric, lifestyle with ghutrah/agal.',metrics:['CR on re-photographed products','Return rate on re-shot items']},
+  {id:'R-013',ph:2,title:'Mobile bottom tab bar navigation',cat:'Mobile UX',pri:'HIGH',eff:'Medium',imp:'High',own:'UX + Frontend',tl:'2–3 weeks',desc:'Persistent bottom tab: Home | Categories | Search | Wishlist | Account. 44×44px touch targets.',metrics:['Mobile pages/session increase','Mobile CR improvement']},
+  {id:'R-014',ph:2,title:'Urgency and scarcity signals',cat:'CRO',pri:'MEDIUM',eff:'Low',imp:'Medium',own:'Engineering',tl:'1–2 weeks',desc:'"Only X left" at ≤5 units. "Y people viewing." Delivery date estimates. Countdown timers.',metrics:['Add-to-cart on low-stock items','A/B: urgency vs control']},
+  {id:'R-015',ph:2,title:'SEO category content (Arabic + English)',cat:'SEO',pri:'MEDIUM',eff:'Medium',imp:'Medium',own:'Content/SEO',tl:'Ongoing',desc:'150–200 word intros for top 10 categories. FAQ sections. Schema.org structured data.',metrics:['Organic impressions for category keywords','CTR from Google Search Console']},
+  {id:'R-016',ph:2,title:'Fabric and product details panel',cat:'Product Page',pri:'MEDIUM',eff:'Medium',imp:'Medium',own:'Product Data',tl:'2–3 weeks',desc:'Tabbed panel: fabric composition, GSM/weight, season suitability, care instructions, collar style.',metrics:['Return rate reduction','Time on product page']},
+  {id:'R-017',ph:2,title:'CDN + edge caching deployment',cat:'Performance',pri:'HIGH',eff:'Medium',imp:'High',own:'DevOps',tl:'1–2 weeks',desc:'Deploy Fastly or CloudFront with KSA/UAE edge nodes. Full-page caching. Target TTFB <400ms for GCC.',metrics:['TTFB < 400ms for KSA users','PageSpeed improvement']},
+  {id:'R-018',ph:2,title:'"Complete the Look" cross-sell',cat:'CRO/AOV',pri:'MEDIUM',eff:'Medium',imp:'Medium',own:'Engineering + Merch',tl:'2–3 weeks',desc:'Curated pairings: thobes + ghutrah, agal, belt. Target 15–20% of PDP visitors engage with cross-sell.',metrics:['Cross-sell CTR','AOV change','Units per transaction']},
+  {id:'R-019',ph:3,title:'Full SSR migration (Next.js / Nuxt.js)',cat:'Technical',pri:'HIGH',eff:'High',imp:'Very High',own:'Engineering',tl:'8–12 weeks',desc:'Full SSR headless frontend connected to Magento via GraphQL API. Definitive fix for all CWV and SEO.',metrics:['PageSpeed mobile: 88+','LCP < 2.5s','100% pages indexed']},
+  {id:'R-020',ph:3,title:'AI personalization engine',cat:'Personalization',pri:'MEDIUM',eff:'High',imp:'High',own:'Engineering + Marketing',tl:'6–8 weeks',desc:'Integrate Nosto or Algolia Recommend. History-based recommendations. Target 15–25% revenue from recs.',metrics:['Revenue from recommendations','Repeat purchase rate']},
+  {id:'R-021',ph:3,title:'Editorial content hub — "Saudi Style Guide"',cat:'SEO/Brand',pri:'MEDIUM',eff:'High',imp:'High',own:'Content Team',tl:'Ongoing',desc:'Blog: style guides, fabric education, occasion guides. 2 articles/week Arabic, 1/week English.',metrics:['Organic traffic from blog','Blog-to-category CTR']},
+  {id:'R-022',ph:3,title:'Homepage campaign redesign',cat:'UX/Brand',pri:'MEDIUM',eff:'High',imp:'High',own:'UX + Design',tl:'8–10 weeks',desc:'Campaign-quality seasonal hero. Bestseller bar. Brand story. UGC Instagram feed. Cultural calendar.',metrics:['Homepage bounce rate','Category visits from homepage']},
+  {id:'R-023',ph:3,title:'Loyalty programme',cat:'Retention',pri:'MEDIUM',eff:'High',imp:'High',own:'Product + Marketing',tl:'10–12 weeks',desc:'Points on purchases. Birthday rewards. Ramadan exclusives. Early access. Target: +30% repeat purchase.',metrics:['Loyalty enrollment rate','Repeat purchase rate']},
+  {id:'R-024',ph:3,title:'PWA install prompt + push notifications',cat:'Mobile/PWA',pri:'LOW',eff:'Medium',imp:'Medium',own:'Engineering',tl:'2–3 weeks',desc:'Home screen install prompt after 3+ page views. Push notifications for new arrivals, cart recovery.',metrics:['PWA install rate: 5–10%','Push opt-in rate']},
+];
+const TASKS={
+  1:[
+    {id:'t1-1',txt:'Deploy Prerender.io — fix JS rendering'},
+    {id:'t1-2',txt:'Enable WebP images + lazy loading'},
+    {id:'t1-3',txt:'Enable guest checkout'},
+    {id:'t1-4',txt:'Add trust strip above-fold'},
+    {id:'t1-5',txt:'Integrate Tamara + Tabby BNPL'},
+    {id:'t1-6',txt:'Sticky mobile Add-to-Cart button'},
+    {id:'t1-7',txt:'Install Hotjar / Clarity heatmaps'},
+    {id:'t1-8',txt:'Configure abandoned cart sequences'},
+  ],
+  2:[
+    {id:'t2-1',txt:'Implement customer review platform'},
+    {id:'t2-2',txt:'Build size guide + fit calculator'},
+    {id:'t2-3',txt:'Advanced faceted filtering + search'},
+    {id:'t2-4',txt:'Mobile bottom tab bar navigation'},
+    {id:'t2-5',txt:'Enhanced photography — top 50 SKUs'},
+    {id:'t2-6',txt:'Urgency + scarcity signals'},
+    {id:'t2-7',txt:'SEO category content (AR + EN)'},
+    {id:'t2-8',txt:'CDN + edge caching deployment'},
+    {id:'t2-9',txt:'Fabric details panel on product pages'},
+    {id:'t2-10',txt:'"Complete the Look" cross-sell'},
+  ],
+  3:[
+    {id:'t3-1',txt:'Full SSR migration (Next.js)'},
+    {id:'t3-2',txt:'Homepage campaign redesign'},
+    {id:'t3-3',txt:'Launch editorial content hub'},
+    {id:'t3-4',txt:'AI personalization engine'},
+    {id:'t3-5',txt:'Loyalty programme'},
+    {id:'t3-6',txt:'PWA install + push notifications'},
+  ],
+};
+const BENCH={
+  headers:['Feature','Category','AJStore.com','Namshi','Noon Fashion','Ounass'],
+  rows:[
+    ['Customer Reviews','CRO','MISSING','STRONG','STRONG','STRONG'],
+    ['Size Guide','Product UX','MISSING','STRONG','PRESENT','STRONG'],
+    ['BNPL (Tamara/Tabby)','Payment','MISSING','STRONG','STRONG','STRONG'],
+    ['Faceted Filtering','Navigation','WEAK','STRONG','STRONG','STRONG'],
+    ['Guest Checkout','Checkout','UNCLEAR','STRONG','STRONG','STRONG'],
+    ['Mobile PageSpeed','Performance','9–25','68–75','55–70','72–82'],
+    ['Abandoned Cart Recovery','CRO','MISSING','STRONG','STRONG','STRONG'],
+    ['Wishlist','UX','BASIC','STRONG','PRESENT','STRONG'],
+    ['Arabic Content Quality','Localization','GOOD','GOOD','GOOD','MODERATE'],
+    ['Brand Heritage Story','Brand','POTENTIAL','WEAK','WEAK','STRONG'],
+    ['Product Video','Content','MISSING','PRESENT','WEAK','STRONG'],
+    ['Live Chat / WhatsApp','Support','UNCLEAR','PRESENT','PRESENT','STRONG'],
+  ],
+};
+const IMPACT_TBL=[
+  {kpi:'Conversion Rate (Desktop)',c:'~1.2%',p1:'~1.6%',p2:'~2.2%',p3:'~3.0%'},
+  {kpi:'Conversion Rate (Mobile)',c:'~0.7%',p1:'~1.1%',p2:'~1.7%',p3:'~2.4%'},
+  {kpi:'Mobile PageSpeed',c:'9–25',p1:'65–75',p2:'75–85',p3:'88–95'},
+  {kpi:'Organic Search Traffic',c:'Baseline',p1:'+20%',p2:'+40%',p3:'+60–80%'},
+  {kpi:'Cart Abandonment Rate',c:'~75–80%',p1:'~65%',p2:'~55%',p3:'~45%'},
+  {kpi:'Average Order Value',c:'Baseline',p1:'+10%',p2:'+20%',p3:'+30–40%'},
+  {kpi:'Repeat Purchase Rate',c:'Baseline',p1:'—',p2:'+15%',p3:'+30%'},
+];
+
+/* ── STATE ── */
+let curPage='cover', chartsGone=false, gaugesGone=false;
+const getProg=()=>{try{return JSON.parse(localStorage.getItem('aj-prog')||'{}')}catch{return{}}};
+const setProg=d=>{try{localStorage.setItem('aj-prog',JSON.stringify(d))}catch{}};
+
+/* ── NAVIGATION ── */
+const PAGE_TITLES={cover:'AJStore.com — Digital Audit',summary:'01 — Executive Summary',strengths:'02 — Website Strengths',findings:'03 — Issues Found',recommendations:'04 — Recommendations',roadmap:'05 — Implementation Roadmap',charts:'06 — Data Visualizations',benchmark:'07 — Competitive Benchmark',impact:'08 — Business Impact',reco:'09 — Final Recommendation'};
+const PAGES=['cover','summary','strengths','findings','recommendations','roadmap','charts','benchmark','impact','reco'];
+
+function nav(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
+  const pg=document.getElementById('page-'+id);
+  if(pg)pg.classList.add('active');
+  const ni=document.querySelector(`[data-page="${id}"]`);
+  if(ni)ni.classList.add('active');
+  curPage=id;
+  document.getElementById('tbTitle').textContent=PAGE_TITLES[id]||'AJStore Audit';
+  window.scrollTo({top:0,behavior:'smooth'});
+  if(id==='summary'&&!gaugesGone){setTimeout(animGauges,200);gaugesGone=true}
+  if(id==='charts'&&!chartsGone){setTimeout(animCharts,200);chartsGone=true}
+  if(window.innerWidth<=860)document.getElementById('sidebar').classList.remove('open');
+}
+document.querySelectorAll('.nav-item').forEach(el=>el.addEventListener('click',()=>nav(el.dataset.page)));
+document.addEventListener('keydown',e=>{
+  if(['INPUT','TEXTAREA'].includes(e.target.tagName))return;
+  const i=PAGES.indexOf(curPage);
+  if(e.key==='ArrowRight'&&i<PAGES.length-1)nav(PAGES[i+1]);
+  if(e.key==='ArrowLeft'&&i>0)nav(PAGES[i-1]);
+  if(e.key==='Escape')closeModal();
+});
+
+/* ── GAUGES ── */
+function buildGauges(){
+  document.getElementById('gaugesWrap').innerHTML=SCORES.map(s=>{
+    const r=44,c=2*Math.PI*r,dash=c*(s.s/100);
+    const gc=s.s>=70?'g-ok':s.s>=50?'g-warn':'g-bad';
+    return`<div class="sc">
+      <div class="sc-top"><div class="sc-label">${s.l}</div><div class="sc-icon">${s.icon}</div></div>
+      <div class="sc-ring">
+        <svg width="96" height="96" viewBox="0 0 100 100">
+          <circle class="ring-track" cx="50" cy="50" r="${r}"/>
+          <circle class="ring-fill" cx="50" cy="50" r="${r}" stroke="${s.c}"
+            stroke-dasharray="${c}" stroke-dashoffset="${c}" data-d="${c-dash}"
+            transform="rotate(-90 50 50)" id="rg-${s.l}"/>
+        </svg>
+        <div>
+          <div class="sc-num" style="color:${s.c}">${s.s}</div>
+          <div class="sc-denom">/100</div>
+          <div class="sc-grade ${gc}">${s.g}</div>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+function animGauges(){
+  document.querySelectorAll('.ring-fill').forEach(el=>el.style.strokeDashoffset=el.dataset.d);
+}
+
+/* ── STRENGTHS ── */
+function buildStrengths(){
+  document.getElementById('strGrid').innerHTML=STRENGTHS.map(s=>`
+    <div class="str-card">
+      <div class="str-cat">${s.cat}</div>
+      <div class="str-icon">${s.icon}</div>
+      <h3>${s.title}</h3>
+      <p>${s.desc}</p>
+      <div class="str-impact">→ ${s.impact}</div>
+    </div>`).join('');
+}
+
+/* ── FINDINGS ── */
+function scCol(s){return{CRITICAL:'#B83232',HIGH:'#C97010',MEDIUM:'#2456A4',LOW:'#2D7A4A'}[s]||'#999'}
+function scTag(s){return{CRITICAL:'t-c',HIGH:'t-h',MEDIUM:'t-m',LOW:'t-l'}[s]||''}
+function buildFindings(){
+  document.getElementById('findList').innerHTML=FINDINGS.map(f=>`
+    <div class="fc-card" id="fcc-${f.id}" onclick="toggleFind('${f.id}',event)">
+      <div class="fc-hdr">
+        <div class="sev-dot" style="background:${scCol(f.sev)}"></div>
+        <div class="fc-id mono">${f.id}</div>
+        <div class="fc-title">${f.title}</div>
+        <div class="fc-tags">
+          <span class="tag ${scTag(f.sev)}">${f.sev}</span>
+          <span class="tag" style="background:var(--sand);color:var(--ink-2)">${f.cat}</span>
+        </div>
+        <div class="fc-arrow">⌄</div>
+      </div>
+      <div class="fc-body">
+        <div class="fc-body-inner">
+          <div class="fc-bs"><h4>Description</h4><p>${f.desc}</p></div>
+          <div class="fc-bs"><h4>Recommended Fix</h4><p>${f.fix}</p>
+            <div class="imp-row">
+              <span class="imp-b" style="background:var(--sand);color:var(--ink-2)">📅 Phase ${f.ph}</span>
+              <span class="imp-b" style="background:${f.rev==='Very High'?'var(--red-pale)':f.rev==='High'?'var(--amber-pale)':'var(--blue-pale)'};color:${f.rev==='Very High'?'var(--red)':f.rev==='High'?'var(--amber)':'var(--blue)'}">💰 ${f.rev} Impact</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>`).join('');
+  document.querySelectorAll('#findFilters .fc').forEach(b=>b.addEventListener('click',()=>{
+    document.querySelectorAll('#findFilters .fc').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    let count=0;
+    FINDINGS.forEach(f=>{
+      const el=document.getElementById('fcc-'+f.id);
+      const show=b.dataset.f==='all'||f.sev===b.dataset.f;
+      el.classList.toggle('hidden',!show);
+      if(show)count++;
+    });
+    document.getElementById('findCount').textContent=count+' issue'+(count!==1?'s':'');
+  }));
+}
+function toggleFind(id,e){
+  if(e.target.closest('.fc-body'))return;
+  document.getElementById('fcc-'+id).classList.toggle('open');
+}
+
+/* ── RECS ── */
+function buildRecs(){
+  document.getElementById('recGrid').innerHTML=RECS.map(r=>`
+    <div class="rc p${r.ph}" id="rcc-${r.id}" onclick="openRecModal('${r.id}')">
+      <div class="rc-top">
+        <span class="rc-id mono">${r.id}</span>
+        <span class="rc-pl pl${r.ph}">Phase ${r.ph}</span>
+      </div>
+      <h3>${r.title}</h3>
+      <p>${r.desc}</p>
+      <div class="rc-meta">
+        <span>⚡ ${r.eff}</span><span>📈 ${r.imp}</span><span>⏱ ${r.tl}</span>
+      </div>
+      <div class="rc-owner">👤 ${r.own}</div>
+    </div>`).join('');
+  document.querySelectorAll('#recFilters .fc').forEach(b=>b.addEventListener('click',()=>{
+    document.querySelectorAll('#recFilters .fc').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    RECS.forEach(r=>{
+      const el=document.getElementById('rcc-'+r.id);
+      const f=b.dataset.f;
+      const show=f==='all'||(f==='1'&&r.ph===1)||(f==='2'&&r.ph===2)||(f==='3'&&r.ph===3)||r.pri===f;
+      el.classList.toggle('hidden',!show);
+    });
+  }));
+}
+function openRecModal(id){
+  const r=RECS.find(x=>x.id===id);if(!r)return;
+  document.getElementById('modalTitle').textContent=r.id+' — '+r.title;
+  document.getElementById('modalBody').innerHTML=`
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px">
+      <span class="tag" style="background:var(--sand);color:var(--ink-2)">${r.cat}</span>
+      <span class="rc-pl pl${r.ph}">Phase ${r.ph}</span>
+      <span class="tag ${scTag(r.pri)}">${r.pri}</span>
+    </div>
+    <p>${r.desc}</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0">
+      ${[['Effort',r.eff],['Impact',r.imp],['Timeline',r.tl],['Owner',r.own]].map(([l,v])=>`
+      <div style="background:var(--sand);padding:11px;border-radius:8px">
+        <div style="font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--ink-3);margin-bottom:3px">${l}</div>
+        <div style="font-weight:600;font-size:13px">${v}</div>
+      </div>`).join('')}
+    </div>
+    <h3>Success Metrics</h3>
+    <div class="m-metrics">${r.metrics.map(m=>`<div class="m-metric"><span>${m}</span><span>Target</span></div>`).join('')}</div>`;
+  document.getElementById('modalOv').classList.add('open');
+}
+
+/* ── ROADMAP ── */
+const PH_META=[
+  {n:1,cls:'rp1',pc:'pf1',tl:'0–30 Days',name:'Quick Wins',desc:'High impact · Low effort'},
+  {n:2,cls:'rp2',pc:'pf2',tl:'1–3 Months',name:'UX Overhaul',desc:'Medium effort · High impact'},
+  {n:3,cls:'rp3',pc:'pf3',tl:'3–6 Months',name:'Strategic Elevation',desc:'Higher effort · Long-term value'},
+];
+function buildRoadmap(){
+  const prog=getProg();
+  document.getElementById('progBars').innerHTML=PH_META.map(p=>{
+    const t=TASKS[p.n],done=t.filter(x=>prog[x.id]).length,pct=Math.round(done/t.length*100);
+    return`<div class="prog-wrap">
+      <div class="prog-label"><span><strong>Phase ${p.n}:</strong> ${p.name}</span><span class="mono" id="plbl-${p.n}">${done}/${t.length} tasks · ${pct}%</span></div>
+      <div class="prog-track"><div class="prog-fill ${p.pc}" id="pbar-${p.n}" style="width:0" data-t="${pct}%"></div></div>
+    </div>`;
+  }).join('');
+  document.getElementById('rmPhases').innerHTML=PH_META.map(p=>`
+    <div class="rm-phase ${p.cls}">
+      <div class="rp-tl">${p.tl}</div>
+      <h3>${p.name}</h3>
+      <div class="rp-desc">${p.desc}</div>
+      <ul class="rp-tasks" id="rptl-${p.n}">
+        ${TASKS[p.n].map(t=>`
+          <li class="rpt${prog[t.id]?' done':''}" id="rpti-${t.id}">
+            <div class="rpt-ck" onclick="toggleTask('${t.id}',event)">${prog[t.id]?'✓':''}</div>
+            <span class="rpt-txt">${t.txt}</span>
+          </li>`).join('')}
+      </ul>
+    </div>`).join('');
+  setTimeout(()=>document.querySelectorAll('.prog-fill[data-t]').forEach(el=>el.style.width=el.dataset.t),300);
+}
+function toggleTask(id,e){
+  e.stopPropagation();
+  const prog=getProg();
+  prog[id]=!prog[id];
+  setProg(prog);
+  const item=document.getElementById('rpti-'+id);
+  item.classList.toggle('done',!!prog[id]);
+  item.querySelector('.rpt-ck').textContent=prog[id]?'✓':'';
+  // update all progress bars
+  PH_META.forEach(p=>{
+    const t=TASKS[p.n],done=t.filter(x=>prog[x.id]).length,pct=Math.round(done/t.length*100);
+    const bar=document.getElementById('pbar-'+p.n);
+    const lbl=document.getElementById('plbl-'+p.n);
+    if(bar)bar.style.width=pct+'%';
+    if(lbl)lbl.textContent=`${done}/${t.length} tasks · ${pct}%`;
+  });
+  showToast(prog[id]?'✅':'↩️',prog[id]?'Task marked complete':'Task unmarked');
+}
+
+/* ── CHARTS ── */
+function buildCharts(){
+  document.getElementById('chGrid').innerHTML=`
+    <div class="ch-card">
+      <div class="ch-title">Estimated Conversion Lift by Improvement</div>
+      <div class="ch-sub">Percentage of max potential impact · MENA apparel benchmarks</div>
+      <div class="bc-chart" id="bcChart"></div>
+    </div>
+    <div class="ch-card">
+      <div class="ch-title">Issue Distribution by Category</div>
+      <div class="ch-sub">12 total issues across 5 categories</div>
+      <div class="dn-wrap">
+        <svg width="156" height="156" viewBox="0 0 160 160" id="donutSvg">
+          <circle cx="80" cy="80" r="56" fill="none" stroke="var(--sand-2)" stroke-width="26"/>
+        </svg>
+        <div class="dn-legend" id="dnLegend"></div>
+      </div>
+    </div>
+    <div class="ch-card full">
+      <div class="ch-title">Core Web Vitals — Current vs Target</div>
+      <div class="ch-sub">Estimated metrics for Magento Venia PWA without SSR optimization</div>
+      <div id="cwvWrap"></div>
+    </div>`;
+  // Bar chart
+  const bars=[
+    {l:'SSR / Performance',w:'92%',v:'+0.8% CR',c:'bfr'},
+    {l:'Mobile UX Overhaul',w:'88%',v:'+0.7% CR',c:'bfr'},
+    {l:'Abandoned Cart',w:'84%',v:'Recover 15%',c:'bfgold'},
+    {l:'Reviews & Proof',w:'78%',v:'+0.6% CR',c:'bfa'},
+    {l:'SEO Content',w:'70%',v:'+40% traffic',c:'bfa'},
+    {l:'Product Page Depth',w:'66%',v:'+0.4% CR',c:'bfb'},
+    {l:'BNPL Integration',w:'55%',v:'+0.3% CR',c:'bfg'},
+  ];
+  document.getElementById('bcChart').innerHTML=bars.map(b=>`
+    <div class="bc-row">
+      <div class="bc-lbl">${b.l}</div>
+      <div class="bc-track"><div class="bc-fill ${b.c}" style="width:0" data-w="${b.w}"><span>${b.v}</span></div></div>
+    </div>`).join('');
+  // Donut
+  const segs=[
+    {l:'CRO / Conversion',p:30,c:'#C97010'},
+    {l:'Technical / Performance',p:25,c:'#B83232'},
+    {l:'UX / Navigation',p:20,c:'#C49A3C'},
+    {l:'SEO & Content',p:15,c:'#2456A4'},
+    {l:'Checkout & Payment',p:10,c:'#2D7A4A'},
+  ];
+  const svg=document.getElementById('donutSvg');
+  const r=56,circ=2*Math.PI*r;
+  let off=0;
+  segs.forEach(s=>{
+    const len=circ*(s.p/100);
+    const el=document.createElementNS('http://www.w3.org/2000/svg','circle');
+    el.setAttribute('cx','80');el.setAttribute('cy','80');el.setAttribute('r',String(r));
+    el.setAttribute('fill','none');el.setAttribute('stroke',s.c);el.setAttribute('stroke-width','26');
+    el.setAttribute('stroke-dasharray',`0 ${circ}`);
+    el.setAttribute('data-da',`${len} ${circ-len}`);
+    el.setAttribute('data-do',String(-off));
+    el.setAttribute('transform','rotate(-90 80 80)');
+    off+=len;svg.appendChild(el);
+  });
+  [['80','83','22','700',SCORES.length>0?'12':''],['80','97','9','400','Issues']].forEach(([x,y,fs,fw,t])=>{
+    const tx=document.createElementNS('http://www.w3.org/2000/svg','text');
+    tx.setAttribute('x',x);tx.setAttribute('y',y);tx.setAttribute('text-anchor','middle');
+    tx.setAttribute('font-family','Playfair Display');tx.setAttribute('font-size',fs);
+    tx.setAttribute('font-weight',fw);tx.setAttribute('fill','var(--ink)');tx.textContent=t;
+    svg.appendChild(tx);
+  });
+  document.getElementById('dnLegend').innerHTML=segs.map(s=>`
+    <div class="dl-i"><div class="dl-dot" style="background:${s.c}"></div><span>${s.l} <strong>(${s.p}%)</strong></span></div>`).join('');
+  // CWV table
+  const cwv=[
+    ['LCP (Largest Contentful Paint)','~5.5s','≤ 2.5s','1.8–2.2s','FAIL'],
+    ['INP (Interaction to Next Paint)','~280ms','≤ 200ms','< 100ms','FAIL'],
+    ['CLS (Cumulative Layout Shift)','~0.18','≤ 0.1','< 0.05','NEEDS WORK'],
+    ['TTFB (Time to First Byte)','~800ms','≤ 800ms','< 400ms','BORDERLINE'],
+    ['PageSpeed Score (Mobile)','9–25','≥ 90','88–95','CRITICAL'],
+    ['SEO Crawl-ability','~0% (JS-only)','100% indexable','100%','CRITICAL'],
+  ];
+  document.getElementById('cwvWrap').innerHTML=`<table class="bt">
+    <thead><tr><th>Metric</th><th>Current</th><th>Good Threshold</th><th>Post-Fix Target</th><th>Status</th></tr></thead>
+    <tbody>${cwv.map(r=>`<tr><td><strong>${r[0]}</strong></td>
+      <td style="color:var(--red);font-weight:600">${r[1]}</td>
+      <td>${r[2]}</td>
+      <td style="color:var(--green);font-weight:600">${r[3]}</td>
+      <td style="color:${r[4]==='FAIL'||r[4]==='CRITICAL'?'var(--red)':r[4]==='NEEDS WORK'||r[4]==='BORDERLINE'?'var(--amber)':'var(--green)'};font-weight:600">⚠ ${r[4]}</td>
+    </tr>`).join('')}</tbody></table>`;
+}
+function animCharts(){
+  document.querySelectorAll('.bc-fill[data-w]').forEach(el=>el.style.width=el.dataset.w);
+  document.querySelectorAll('#donutSvg circle[data-da]').forEach(el=>{
+    el.setAttribute('stroke-dasharray',el.getAttribute('data-da'));
+    el.setAttribute('stroke-dashoffset',el.getAttribute('data-do'));
+    el.style.transition='stroke-dasharray 1s ease,stroke-dashoffset 1s ease';
+  });
+}
+
+/* ── BENCHMARK ── */
+function buildBench(){
+  const sHTML=s=>{
+    const m={STRONG:'<span class="bs bs-ok">✅ Strong</span>',PRESENT:'<span class="bs" style="color:var(--blue)">✓ Present</span>',MODERATE:'<span class="bs bs-wn">⚠ Moderate</span>',WEAK:'<span class="bs bs-wn">⚠ Weak</span>',MISSING:'<span class="bs bs-ms">✕ Missing</span>',UNCLEAR:'<span class="bs bs-wn">? Unclear</span>',BASIC:'<span class="bs bs-wn">~ Basic</span>',GOOD:'<span class="bs bs-ok">✓ Good</span>',POTENTIAL:'<span class="bs" style="color:var(--gold)">◆ Potential</span>'};
+    return m[s]||`<span class="bs ${s.includes('9–25')||s.includes('9-25')?'bs-ms':'bs-ok'}">${s}</span>`;
+  };
+  document.getElementById('benchTable').innerHTML=`
+    <thead><tr>${BENCH.headers.map(h=>`<th>${h}</th>`).join('')}</tr></thead>
+    <tbody>${BENCH.rows.map(r=>`<tr>
+      <td><strong>${r[0]}</strong></td><td style="font-size:11px;color:var(--ink-3)">${r[1]}</td>
+      <td>${sHTML(r[2])}</td><td>${sHTML(r[3])}</td><td>${sHTML(r[4])}</td><td>${sHTML(r[5])}</td>
+    </tr>`).join('')}</tbody>`;
+}
+
+/* ── IMPACT TABLE ── */
+function buildImpact(){
+  document.getElementById('impactTableWrap').innerHTML=`
+    <table class="bt">
+      <thead><tr><th>KPI</th><th>Current</th><th>After Phase 1</th><th>After Phase 2</th><th>After Phase 3</th></tr></thead>
+      <tbody>${IMPACT_TBL.map(r=>`<tr>
+        <td><strong>${r.kpi}</strong></td>
+        <td>${r.c}</td>
+        <td style="color:var(--amber);font-weight:${r.p1==='—'?'400':'600'}">${r.p1}</td>
+        <td style="color:var(--amber);font-weight:600">${r.p2}</td>
+        <td style="color:var(--green);font-weight:700">${r.p3}</td>
+      </tr>`).join('')}</tbody>
+    </table>
+    <div class="callout co-gold" style="margin-top:20px"><span class="ci">💰</span>
+      <div><h4>Overall Revenue Impact Estimate</h4>
+      <p>Combining a conversion rate improvement from ~1.2% to ~3.0%, +35% AOV, 15% cart recovery lift, and 50% organic traffic growth — the cumulative impact over 12 months is estimated at <strong>2.5×–3.5× current digital revenue</strong>. This assumes no increase in paid acquisition spend.</p>
+      </div></div>`;
+}
+
+/* ── PROGRESS MODAL ── */
+function openProgress(){
+  const prog=getProg();
+  const total=Object.values(TASKS).flat().length;
+  const done=Object.values(TASKS).flat().filter(t=>prog[t.id]).length;
+  let html=`<div style="background:var(--ink);color:#fff;padding:13px 15px;border-radius:var(--radius);margin-bottom:18px;display:flex;justify-content:space-between;align-items:center">
+    <span style="font-weight:600">Overall Progress</span>
+    <span style="color:var(--gold-l);font-family:'DM Mono',monospace;font-size:16px;font-weight:700">${done}/${total}</span>
+  </div>`;
+  PH_META.forEach(p=>{
+    const t=TASKS[p.n],d=t.filter(x=>prog[x.id]).length;
+    html+=`<h3 style="margin:${p.n>1?'18px':0} 0 6px;font-size:14px">Phase ${p.n} — ${p.name} (${d}/${t.length})</h3>`;
+    html+=`<div class="m-metrics">${t.map(task=>`<div class="m-metric"><span>${task.txt}</span><span style="color:${prog[task.id]?'var(--green)':'var(--ink-3)'}">${prog[task.id]?'✅ Done':'⬜ Pending'}</span></div>`).join('')}</div>`;
+  });
+  document.getElementById('modalTitle').textContent='Implementation Progress';
+  document.getElementById('modalBody').innerHTML=html;
+  document.getElementById('modalOv').classList.add('open');
+}
+function closeModal(){document.getElementById('modalOv').classList.remove('open')}
+
+/* ── TOAST ── */
+let tt=null;
+function showToast(icon,msg){
+  const t=document.getElementById('toast');
+  document.getElementById('toastIcon').textContent=icon;
+  document.getElementById('toastMsg').textContent=msg;
+  t.classList.add('show');
+  if(tt)clearTimeout(tt);
+  tt=setTimeout(()=>t.classList.remove('show'),2400);
+}
+
+/* ── INIT ── */
+buildGauges();buildStrengths();buildFindings();buildRecs();buildRoadmap();buildCharts();buildBench();buildImpact();
+setTimeout(()=>showToast('⌨️','Use ← → arrow keys to navigate'),800);
+</script>
+</body>
+</html>

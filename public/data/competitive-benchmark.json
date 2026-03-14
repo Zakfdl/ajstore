@@ -1,0 +1,140 @@
+{
+  "meta": {
+    "analysis_date": "2026-03-14",
+    "region": "MENA / GCC",
+    "market": "Online Fashion & Traditional Menswear"
+  },
+  "competitors": [
+    {
+      "id": "ajstore",
+      "name": "AJStore.com",
+      "company": "Ajlan & Brothers Co.",
+      "type": "Brand-owned D2C",
+      "market": "KSA + GCC",
+      "founded": 1978,
+      "primary_category": "Traditional Saudi Menswear"
+    },
+    {
+      "id": "namshi",
+      "name": "Namshi",
+      "company": "Namshi (Emaar Malls)",
+      "type": "Multi-brand marketplace",
+      "market": "MENA",
+      "primary_category": "Fashion Marketplace"
+    },
+    {
+      "id": "noon",
+      "name": "Noon Fashion",
+      "company": "Noon",
+      "type": "Marketplace",
+      "market": "KSA + UAE + Egypt",
+      "primary_category": "Fashion Marketplace"
+    },
+    {
+      "id": "ounass",
+      "name": "Ounass",
+      "company": "Al Tayer Group",
+      "type": "Luxury brand marketplace",
+      "market": "UAE + KSA",
+      "primary_category": "Luxury Fashion"
+    }
+  ],
+  "feature_comparison": [
+    {
+      "feature": "Customer Reviews",
+      "category": "CRO",
+      "ajstore": { "status": "MISSING", "notes": "No review system configured" },
+      "namshi": { "status": "STRONG", "notes": "Full review system with photos" },
+      "noon": { "status": "STRONG", "notes": "Full system, verified purchases" },
+      "ounass": { "status": "STRONG", "notes": "Detailed review system" }
+    },
+    {
+      "feature": "Interactive Size Guide",
+      "category": "Product UX",
+      "ajstore": { "status": "MISSING", "notes": "No size guide present" },
+      "namshi": { "status": "STRONG", "notes": "Interactive calculator" },
+      "noon": { "status": "PRESENT", "notes": "Basic size charts" },
+      "ounass": { "status": "STRONG", "notes": "Detailed brand-specific guides" }
+    },
+    {
+      "feature": "BNPL (Buy Now Pay Later)",
+      "category": "Payment",
+      "ajstore": { "status": "MISSING", "notes": "No Tamara/Tabby integration" },
+      "namshi": { "status": "STRONG", "notes": "Tabby + Tamara" },
+      "noon": { "status": "STRONG", "notes": "Postpay + Tabby" },
+      "ounass": { "status": "STRONG", "notes": "Tabby integration" }
+    },
+    {
+      "feature": "Faceted Filtering",
+      "category": "Navigation",
+      "ajstore": { "status": "WEAK", "notes": "Limited filter options" },
+      "namshi": { "status": "STRONG", "notes": "Advanced multi-attribute filtering" },
+      "noon": { "status": "STRONG", "notes": "Advanced filtering" },
+      "ounass": { "status": "STRONG", "notes": "Designer + category filtering" }
+    },
+    {
+      "feature": "Guest Checkout",
+      "category": "Checkout",
+      "ajstore": { "status": "UNCLEAR", "notes": "Account creation may be mandatory" },
+      "namshi": { "status": "STRONG", "notes": "Streamlined guest checkout" },
+      "noon": { "status": "STRONG", "notes": "Guest checkout available" },
+      "ounass": { "status": "STRONG", "notes": "One-page checkout" }
+    },
+    {
+      "feature": "Mobile PageSpeed",
+      "category": "Performance",
+      "ajstore": { "status": "CRITICAL", "score": "9-25", "notes": "Venia PWA unoptimized" },
+      "namshi": { "status": "GOOD", "score": "68-75", "notes": "Optimized React frontend" },
+      "noon": { "status": "MODERATE", "score": "55-70", "notes": "Progressive improvements" },
+      "ounass": { "status": "GOOD", "score": "72-82", "notes": "Well-optimized frontend" }
+    },
+    {
+      "feature": "Abandoned Cart Recovery",
+      "category": "CRO",
+      "ajstore": { "status": "MISSING", "notes": "No observed recovery sequence" },
+      "namshi": { "status": "STRONG", "notes": "Email + SMS recovery" },
+      "noon": { "status": "STRONG", "notes": "Multi-channel recovery" },
+      "ounass": { "status": "STRONG", "notes": "Premium email recovery" }
+    },
+    {
+      "feature": "Wishlist / Save Items",
+      "category": "UX",
+      "ajstore": { "status": "BASIC", "notes": "Basic wishlist present" },
+      "namshi": { "status": "STRONG", "notes": "Sharable wishlists" },
+      "noon": { "status": "PRESENT", "notes": "Standard wishlist" },
+      "ounass": { "status": "STRONG", "notes": "Advanced save features" }
+    },
+    {
+      "feature": "Arabic Content Quality",
+      "category": "Localization",
+      "ajstore": { "status": "GOOD", "notes": "Professional Arabic, RTL layout" },
+      "namshi": { "status": "GOOD", "notes": "Professional Arabic" },
+      "noon": { "status": "GOOD", "notes": "Full Arabic support" },
+      "ounass": { "status": "MODERATE", "notes": "Variable quality" }
+    },
+    {
+      "feature": "Brand Heritage Story",
+      "category": "Brand",
+      "ajstore": { "status": "STRONG_POTENTIAL", "notes": "45yr heritage not well communicated digitally" },
+      "namshi": { "status": "WEAK", "notes": "Marketplace — limited brand story" },
+      "noon": { "status": "WEAK", "notes": "Marketplace — limited brand story" },
+      "ounass": { "status": "STRONG", "notes": "Luxury narrative well executed" }
+    },
+    {
+      "feature": "Product Video",
+      "category": "Product Content",
+      "ajstore": { "status": "MISSING", "notes": "No product videos observed" },
+      "namshi": { "status": "PRESENT", "notes": "Select products have videos" },
+      "noon": { "status": "WEAK", "notes": "Limited video content" },
+      "ounass": { "status": "STRONG", "notes": "High-quality video for key items" }
+    },
+    {
+      "feature": "Live Chat / WhatsApp Support",
+      "category": "Support",
+      "ajstore": { "status": "UNCLEAR", "notes": "Not prominently featured" },
+      "namshi": { "status": "PRESENT", "notes": "Live chat available" },
+      "noon": { "status": "PRESENT", "notes": "Chat support" },
+      "ounass": { "status": "STRONG", "notes": "Dedicated stylist chat" }
+    }
+  ]
+}

@@ -5,6 +5,9 @@ node_modules/
 # Build output
 dist/
 
+# Vite
+.vite/
+
 # Generated PDFs
 docs/*.pdf
 

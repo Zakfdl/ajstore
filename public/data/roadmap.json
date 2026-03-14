@@ -1,0 +1,259 @@
+{
+  "meta": {
+    "version": "1.0.0",
+    "created": "2026-03-14",
+    "total_phases": 3,
+    "total_duration_months": 6
+  },
+  "phases": [
+    {
+      "phase": 1,
+      "name": "Quick Wins",
+      "timeline": "0–30 days",
+      "theme": "Fix the Foundation & Convert More",
+      "color": "#2D7A4A",
+      "effort": "Low-Medium",
+      "investment_level": "Low",
+      "expected_roi_timeline": "30-60 days after launch",
+      "tasks": [
+        {
+          "rec_id": "R-001",
+          "title": "Deploy Prerender.io — fix JS rendering",
+          "owner": "Engineering",
+          "week": 1,
+          "duration_days": 7,
+          "kpi": "Pages indexed in Google"
+        },
+        {
+          "rec_id": "R-003",
+          "title": "Image optimization — WebP + lazy loading",
+          "owner": "Engineering",
+          "week": 1,
+          "duration_days": 5,
+          "kpi": "PageSpeed mobile score"
+        },
+        {
+          "rec_id": "R-004",
+          "title": "Enable guest checkout",
+          "owner": "Engineering",
+          "week": 1,
+          "duration_days": 3,
+          "kpi": "Checkout conversion rate"
+        },
+        {
+          "rec_id": "R-002",
+          "title": "Add trust strip above-fold",
+          "owner": "UX + Frontend",
+          "week": 1,
+          "duration_days": 3,
+          "kpi": "Checkout initiation rate"
+        },
+        {
+          "rec_id": "R-005",
+          "title": "Integrate Tamara + Tabby BNPL",
+          "owner": "Engineering + Finance",
+          "week": 2,
+          "duration_days": 8,
+          "kpi": "BNPL adoption rate"
+        },
+        {
+          "rec_id": "R-007",
+          "title": "Sticky mobile Add-to-Cart button",
+          "owner": "Frontend",
+          "week": 2,
+          "duration_days": 3,
+          "kpi": "Mobile add-to-cart rate"
+        },
+        {
+          "rec_id": "R-008",
+          "title": "Install heatmap + session recording",
+          "owner": "Analytics",
+          "week": 2,
+          "duration_days": 1,
+          "kpi": "Behavioral data collection"
+        },
+        {
+          "rec_id": "R-006",
+          "title": "Configure abandoned cart email + SMS",
+          "owner": "Marketing + Engineering",
+          "week": 3,
+          "duration_days": 10,
+          "kpi": "Cart recovery rate"
+        }
+      ],
+      "success_metrics": {
+        "conversion_rate": "1.2% → 1.6%",
+        "mobile_pagespeed": "~17 → 65+",
+        "cart_recovery_revenue": "+15% of abandoned cart value",
+        "organic_traffic": "+20% (crawl unlocked)"
+      }
+    },
+    {
+      "phase": 2,
+      "name": "UX Overhaul",
+      "timeline": "1–3 months",
+      "theme": "Reduce Friction & Deepen the Experience",
+      "color": "#D4780A",
+      "effort": "Medium",
+      "investment_level": "Medium",
+      "expected_roi_timeline": "60-90 days after launch",
+      "tasks": [
+        {
+          "rec_id": "R-009",
+          "title": "Implement customer review platform",
+          "owner": "Engineering + Marketing",
+          "month": 2,
+          "duration_weeks": 2,
+          "kpi": "Review collection rate"
+        },
+        {
+          "rec_id": "R-010",
+          "title": "Build size guide + fit calculator",
+          "owner": "UX + Engineering",
+          "month": 2,
+          "duration_weeks": 3,
+          "kpi": "Return rate reduction"
+        },
+        {
+          "rec_id": "R-011",
+          "title": "Advanced faceted filtering + Elasticsearch",
+          "owner": "Engineering",
+          "month": 2,
+          "duration_weeks": 4,
+          "kpi": "Filter usage rate"
+        },
+        {
+          "rec_id": "R-013",
+          "title": "Mobile bottom tab bar navigation",
+          "owner": "UX + Frontend",
+          "month": 2,
+          "duration_weeks": 3,
+          "kpi": "Mobile pages/session"
+        },
+        {
+          "rec_id": "R-012",
+          "title": "Enhanced product photography (top 50 SKUs)",
+          "owner": "Creative",
+          "month": 2,
+          "duration_weeks": 6,
+          "kpi": "Conversion on re-shot products"
+        },
+        {
+          "rec_id": "R-014",
+          "title": "Urgency and scarcity signals",
+          "owner": "Engineering",
+          "month": 2,
+          "duration_weeks": 2,
+          "kpi": "Add-to-cart on low-stock items"
+        },
+        {
+          "rec_id": "R-015",
+          "title": "SEO category page content",
+          "owner": "Content/SEO",
+          "month": 2,
+          "duration_weeks": 8,
+          "kpi": "Organic ranking for category keywords"
+        },
+        {
+          "rec_id": "R-016",
+          "title": "Fabric and product details panel",
+          "owner": "Product Data + Engineering",
+          "month": 3,
+          "duration_weeks": 3,
+          "kpi": "Return rate"
+        },
+        {
+          "rec_id": "R-017",
+          "title": "CDN + edge caching deployment",
+          "owner": "DevOps",
+          "month": 3,
+          "duration_weeks": 2,
+          "kpi": "TTFB for KSA users"
+        },
+        {
+          "rec_id": "R-018",
+          "title": "Cross-sell 'Complete the Look'",
+          "owner": "Engineering + Merchandising",
+          "month": 3,
+          "duration_weeks": 3,
+          "kpi": "AOV increase"
+        }
+      ],
+      "success_metrics": {
+        "conversion_rate": "1.6% → 2.2%",
+        "mobile_pagespeed": "65+ → 80+",
+        "average_order_value": "+20%",
+        "organic_traffic": "+40%",
+        "return_rate": "-20%"
+      }
+    },
+    {
+      "phase": 3,
+      "name": "Strategic Elevation",
+      "timeline": "3–6 months",
+      "theme": "Build a Premium Brand-Worthy Digital Home",
+      "color": "#2456A4",
+      "effort": "High",
+      "investment_level": "High",
+      "expected_roi_timeline": "6-12 months after launch",
+      "tasks": [
+        {
+          "rec_id": "R-019",
+          "title": "Full SSR migration (Next.js/Nuxt.js)",
+          "owner": "Engineering",
+          "month": 4,
+          "duration_weeks": 10,
+          "kpi": "PageSpeed 88+, full indexation"
+        },
+        {
+          "rec_id": "R-022",
+          "title": "Homepage campaign redesign",
+          "owner": "UX + Design + Engineering",
+          "month": 4,
+          "duration_weeks": 10,
+          "kpi": "Bounce rate, category CTR"
+        },
+        {
+          "rec_id": "R-021",
+          "title": "Editorial content hub launch",
+          "owner": "Content Team",
+          "month": 4,
+          "duration_weeks": 8,
+          "kpi": "Blog organic traffic"
+        },
+        {
+          "rec_id": "R-020",
+          "title": "AI personalization engine",
+          "owner": "Engineering + Marketing",
+          "month": 5,
+          "duration_weeks": 8,
+          "kpi": "Revenue from recommendations"
+        },
+        {
+          "rec_id": "R-023",
+          "title": "Loyalty programme",
+          "owner": "Product + Marketing + Engineering",
+          "month": 5,
+          "duration_weeks": 10,
+          "kpi": "Repeat purchase rate"
+        },
+        {
+          "rec_id": "R-024",
+          "title": "PWA install prompt + push notifications",
+          "owner": "Engineering + Marketing",
+          "month": 6,
+          "duration_weeks": 3,
+          "kpi": "PWA install rate"
+        }
+      ],
+      "success_metrics": {
+        "conversion_rate": "2.2% → 3.0%",
+        "mobile_pagespeed": "80+ → 88-95",
+        "average_order_value": "+30-40%",
+        "organic_traffic": "+60-80%",
+        "repeat_purchase_rate": "+30%",
+        "overall_revenue_multiplier": "2.5×–3.5×"
+      }
+    }
+  ]
+}
