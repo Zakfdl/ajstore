@@ -3,1630 +3,1042 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>AJStore.com – UX, CRO & Performance Audit | Ajlan & Bros</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<title>AJStore.com — Digital Audit 2026 | Ajlan & Brothers</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
-  :root {
-    --sand: #F5EFE3;
-    --sand-dark: #E8DDCA;
-    --cream: #FDFAF5;
-    --ink: #1A1410;
-    --ink-light: #3D322A;
-    --gold: #C49A3C;
-    --gold-light: #E8C45A;
-    --gold-pale: #F7ECC8;
-    --red: #B83232;
-    --red-pale: #FAE8E8;
-    --green: #2D7A4A;
-    --green-pale: #E6F4EC;
-    --blue: #2456A4;
-    --blue-pale: #E8EFFE;
-    --amber: #D4780A;
-    --amber-pale: #FDF0DC;
-    --border: rgba(196,154,60,0.25);
-    --shadow: 0 4px 32px rgba(26,20,16,0.08);
-    --shadow-lg: 0 12px 48px rgba(26,20,16,0.14);
-  }
+:root{
+  --ink:#1A1410;--ink-2:#3D322A;--ink-3:#7A6A5A;
+  --cream:#FDFAF5;--sand:#F5EFE3;--sand-2:#EAE0CE;
+  --gold:#C49A3C;--gold-l:#E8C45A;--gold-pale:#F7ECC8;
+  --red:#B83232;--red-pale:#FAE8E8;
+  --amber:#C97010;--amber-pale:#FDF0DC;
+  --green:#2D7A4A;--green-pale:#E5F4EC;
+  --blue:#2456A4;--blue-pale:#E8EFFE;
+  --border:rgba(196,154,60,0.22);
+  --sh:0 2px 20px rgba(26,20,16,0.07);
+  --sh-lg:0 8px 48px rgba(26,20,16,0.13);
+  --nav-w:240px;--top-h:60px;--radius:12px;
+  --ease:cubic-bezier(0.4,0,0.2,1);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:15px}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);line-height:1.7;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+button{cursor:pointer;border:none;background:none;font-family:inherit}
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+/* LAYOUT */
+.sidebar{width:var(--nav-w);flex-shrink:0;background:var(--ink);position:fixed;top:0;left:0;height:100vh;display:flex;flex-direction:column;z-index:100;transition:transform 0.3s var(--ease);overflow-y:auto}
+.sidebar::-webkit-scrollbar{width:4px}.sidebar::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.1);border-radius:2px}
+.sb-logo{padding:26px 24px 18px;border-bottom:1px solid rgba(255,255,255,0.07);flex-shrink:0}
+.sb-logo-mark{font-family:'Playfair Display',serif;font-size:21px;font-weight:900;color:var(--gold)}
+.sb-logo-sub{font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-top:3px}
+.nav-sec{font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,0.22);padding:16px 24px 5px}
+.nav-item{display:flex;align-items:center;gap:10px;padding:10px 24px;font-size:13px;color:rgba(255,255,255,0.52);cursor:pointer;transition:all 0.18s;border-left:2px solid transparent}
+.nav-item:hover{color:rgba(255,255,255,0.88);background:rgba(255,255,255,0.04)}
+.nav-item.active{color:#fff;border-left-color:var(--gold);background:rgba(196,154,60,0.09)}
+.nav-num{font-family:'DM Mono',monospace;font-size:10px;color:var(--gold);width:18px;flex-shrink:0}
+.nav-badge{margin-left:auto;font-size:9px;padding:2px 7px;border-radius:10px;background:var(--red);color:#fff;font-weight:600}
+.nav-badge.g{background:var(--green)}.nav-badge.a{background:var(--amber)}
+.sb-footer{margin-top:auto;padding:14px 24px;border-top:1px solid rgba(255,255,255,0.07);font-size:10px;color:rgba(255,255,255,0.22);flex-shrink:0}
 
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--cream);
-    color: var(--ink);
-    line-height: 1.7;
-    font-size: 15px;
-  }
+.topbar{position:fixed;top:0;left:var(--nav-w);right:0;height:var(--top-h);background:rgba(253,250,245,0.93);backdrop-filter:blur(14px);border-bottom:1px solid var(--sand-2);display:flex;align-items:center;justify-content:space-between;padding:0 36px;z-index:90}
+.tb-title{font-family:'Playfair Display',serif;font-size:15px;font-weight:700}
+.tb-meta{font-size:11px;color:var(--ink-3)}
+.tb-actions{display:flex;gap:9px;align-items:center}
+.btn{padding:7px 15px;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;transition:all 0.18s;display:inline-flex;align-items:center;gap:5px}
+.btn-o{border:1px solid var(--border);color:var(--ink-2);background:transparent}.btn-o:hover{border-color:var(--gold);color:var(--gold)}
+.btn-g{background:var(--gold);color:var(--ink);border:1px solid var(--gold)}.btn-g:hover{background:var(--gold-l)}
+.burger{display:none;flex-direction:column;gap:4px;padding:8px;cursor:pointer}
+.burger span{width:20px;height:2px;background:var(--ink);border-radius:2px;transition:0.3s}
 
-  /* ── COVER PAGE ── */
-  .cover {
-    min-height: 100vh;
-    background: var(--ink);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 80px 100px;
-    position: relative;
-    overflow: hidden;
-    page-break-after: always;
-  }
-  .cover::before {
-    content: '';
-    position: absolute;
-    top: -200px; right: -200px;
-    width: 700px; height: 700px;
-    background: radial-gradient(circle, rgba(196,154,60,0.15) 0%, transparent 70%);
-    border-radius: 50%;
-  }
-  .cover::after {
-    content: '';
-    position: absolute;
-    bottom: -100px; left: -100px;
-    width: 500px; height: 500px;
-    background: radial-gradient(circle, rgba(196,154,60,0.08) 0%, transparent 70%);
-    border-radius: 50%;
-  }
-  .cover-badge {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 32px;
-    border: 1px solid var(--gold);
-    padding: 6px 14px;
-    display: inline-block;
-  }
-  .cover h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 68px;
-    font-weight: 900;
-    color: #fff;
-    line-height: 1.05;
-    max-width: 700px;
-    margin-bottom: 12px;
-  }
-  .cover h1 span { color: var(--gold); }
-  .cover-subtitle {
-    font-size: 20px;
-    color: rgba(255,255,255,0.55);
-    max-width: 520px;
-    margin-bottom: 60px;
-    font-weight: 300;
-  }
-  .cover-meta {
-    display: grid;
-    grid-template-columns: repeat(4, auto);
-    gap: 40px;
-    margin-bottom: 60px;
-  }
-  .cover-meta-item label {
-    display: block;
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 6px;
-  }
-  .cover-meta-item span {
-    font-size: 14px;
-    color: rgba(255,255,255,0.8);
-    font-weight: 500;
-  }
-  .cover-scores {
-    display: flex;
-    gap: 24px;
-    flex-wrap: wrap;
-  }
-  .score-pill {
-    padding: 10px 22px;
-    border-radius: 40px;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-  }
-  .score-pill.red { background: rgba(184,50,50,0.2); color: #ff7a7a; border: 1px solid rgba(184,50,50,0.4); }
-  .score-pill.amber { background: rgba(212,120,10,0.2); color: #ffa94d; border: 1px solid rgba(212,120,10,0.4); }
-  .score-pill.green { background: rgba(45,122,74,0.2); color: #69db7c; border: 1px solid rgba(45,122,74,0.4); }
-  .cover-logo {
-    position: absolute;
-    top: 60px; right: 80px;
-    width: 120px; height: 120px;
-    border: 2px solid var(--border);
-    border-radius: 12px;
-    background: rgba(255,255,255,0.04);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .cover-logo-text {
-    font-family: 'Playfair Display', serif;
-    font-size: 28px;
-    font-weight: 700;
-    color: var(--gold);
-    text-align: center;
-    line-height: 1.1;
-  }
-  .cover-divider {
-    width: 80px;
-    height: 3px;
-    background: var(--gold);
-    margin-bottom: 32px;
-  }
+.main{margin-left:var(--nav-w);margin-top:var(--top-h);flex:1;min-width:0}
+.page{display:none;animation:fadeUp 0.32s var(--ease)}.page.active{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
 
-  /* ── NAVIGATION ── */
-  .toc-page {
-    background: var(--sand);
-    padding: 80px 100px;
-    page-break-after: always;
-  }
-  .toc-page h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 36px;
-    margin-bottom: 8px;
-  }
-  .toc-sub { color: var(--ink-light); margin-bottom: 48px; font-size: 14px; }
-  .toc-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-  }
-  .toc-item {
-    background: #fff;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 18px 22px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    text-decoration: none;
-    color: var(--ink);
-    transition: all 0.2s;
-  }
-  .toc-item:hover { border-color: var(--gold); box-shadow: var(--shadow); }
-  .toc-num {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    color: var(--gold);
-    background: var(--gold-pale);
-    width: 28px; height: 28px;
-    border-radius: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-  .toc-label { font-size: 14px; font-weight: 500; }
-  .toc-desc { font-size: 12px; color: #888; margin-top: 2px; }
+/* COMMON SECTION */
+.s-inner{padding:50px 60px 70px;max-width:1100px}
+.s-tag{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.s-h{font-family:'Playfair Display',serif;font-size:35px;font-weight:700;line-height:1.12;margin-bottom:10px}
+.s-lead{font-size:15px;color:var(--ink-2);max-width:660px;margin-bottom:40px;font-weight:300;line-height:1.8}
 
-  /* ── SECTION STRUCTURE ── */
-  .section {
-    padding: 72px 100px;
-    border-bottom: 1px solid var(--sand-dark);
-  }
-  .section:nth-child(even) { background: var(--sand); }
-  .section:nth-child(odd) { background: var(--cream); }
+/* COVER */
+.cover-bg{background:var(--ink);min-height:calc(100vh - var(--top-h));display:flex;flex-direction:column;justify-content:center;padding:72px 72px 56px;position:relative;overflow:hidden}
+.cg-a,.cg-b{position:absolute;border-radius:50%;pointer-events:none}
+.cg-a{top:-160px;right:-160px;width:560px;height:560px;background:radial-gradient(circle,rgba(196,154,60,0.17) 0%,transparent 68%)}
+.cg-b{bottom:-100px;left:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(196,154,60,0.08) 0%,transparent 68%)}
+.c-chip{display:inline-flex;align-items:center;gap:8px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);border:1px solid rgba(196,154,60,0.35);padding:5px 13px;border-radius:4px;margin-bottom:32px;width:fit-content}
+.c-chip::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--gold);animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.25}}
+.c-h1{font-family:'Playfair Display',serif;font-size:clamp(44px,6vw,76px);font-weight:900;color:#fff;line-height:1.0;margin-bottom:10px}
+.c-h1 em{color:var(--gold);font-style:normal}
+.c-sub{font-size:16px;color:rgba(255,255,255,0.42);max-width:480px;margin-bottom:48px;font-weight:300;line-height:1.75}
+.c-pills{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:52px}
+.cp{padding:8px 16px;border-radius:28px;font-size:12px;font-weight:600;letter-spacing:0.3px}
+.cp-r{background:rgba(184,50,50,0.18);color:#ff8c8c;border:1px solid rgba(184,50,50,0.33)}
+.cp-a{background:rgba(201,112,16,0.18);color:#ffb84d;border:1px solid rgba(201,112,16,0.33)}
+.cp-g{background:rgba(45,122,74,0.18);color:#6dd98c;border:1px solid rgba(45,122,74,0.33)}
+.c-ctas{display:flex;gap:12px;flex-wrap:wrap}
+.c-btn-p{background:var(--gold);color:var(--ink);font-weight:700;font-size:14px;padding:13px 26px;border-radius:8px;cursor:pointer;transition:all 0.2s;display:inline-flex;align-items:center;gap:7px}
+.c-btn-p:hover{background:var(--gold-l);transform:translateY(-1px)}
+.c-btn-s{color:rgba(255,255,255,0.55);font-size:14px;font-weight:500;padding:13px 22px;border-radius:8px;cursor:pointer;transition:all 0.2s;border:1px solid rgba(255,255,255,0.11)}
+.c-btn-s:hover{color:#fff;border-color:rgba(255,255,255,0.28)}
+.c-meta{display:flex;gap:42px;padding-top:44px;margin-top:44px;border-top:1px solid rgba(255,255,255,0.08);flex-wrap:wrap}
+.c-meta label{display:block;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.28);margin-bottom:4px}
+.c-meta span{font-size:13px;color:rgba(255,255,255,0.72);font-weight:500}
 
-  .section-tag {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 12px;
-  }
-  .section h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 38px;
-    font-weight: 700;
-    margin-bottom: 8px;
-    line-height: 1.15;
-  }
-  .section-intro {
-    font-size: 16px;
-    color: var(--ink-light);
-    max-width: 680px;
-    margin-bottom: 44px;
-    font-weight: 300;
-    line-height: 1.8;
-  }
+/* SCORE GAUGES */
+.dash-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:14px;margin-bottom:36px}
+.sc{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:22px;box-shadow:var(--sh);transition:transform 0.2s,box-shadow 0.2s}
+.sc:hover{transform:translateY(-2px);box-shadow:var(--sh-lg)}
+.sc-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px}
+.sc-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--ink-3)}
+.sc-icon{font-size:19px}
+.sc-ring{display:flex;align-items:center;gap:14px}
+.ring-track{fill:none;stroke:var(--sand-2);stroke-width:6}
+.ring-fill{fill:none;stroke-width:6;stroke-linecap:round;transition:stroke-dashoffset 1.3s var(--ease)}
+.sc-num{font-family:'Playfair Display',serif;font-size:30px;font-weight:700}
+.sc-denom{font-size:11px;color:var(--ink-3)}
+.sc-grade{font-size:10px;font-weight:700;padding:2px 8px;border-radius:16px;margin-top:7px;display:inline-block}
+.g-bad{background:var(--red-pale);color:var(--red)}.g-warn{background:var(--amber-pale);color:var(--amber)}.g-ok{background:var(--green-pale);color:var(--green)}
 
-  /* ── CALLOUT BOXES ── */
-  .callout {
-    border-radius: 12px;
-    padding: 20px 24px;
-    margin-bottom: 20px;
-    display: flex;
-    gap: 16px;
-    align-items: flex-start;
-    border: 1px solid transparent;
-  }
-  .callout-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
-  .callout-body h4 { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
-  .callout-body p, .callout-body ul { font-size: 13.5px; line-height: 1.65; color: var(--ink-light); }
-  .callout-body ul { padding-left: 18px; }
-  .callout-body li { margin-bottom: 4px; }
-  .callout.red { background: var(--red-pale); border-color: rgba(184,50,50,0.2); }
-  .callout.red .callout-body h4 { color: var(--red); }
-  .callout.green { background: var(--green-pale); border-color: rgba(45,122,74,0.2); }
-  .callout.green .callout-body h4 { color: var(--green); }
-  .callout.amber { background: var(--amber-pale); border-color: rgba(212,120,10,0.2); }
-  .callout.amber .callout-body h4 { color: var(--amber); }
-  .callout.blue { background: var(--blue-pale); border-color: rgba(36,86,164,0.2); }
-  .callout.blue .callout-body h4 { color: var(--blue); }
-  .callout.gold { background: var(--gold-pale); border-color: rgba(196,154,60,0.25); }
-  .callout.gold .callout-body h4 { color: #8a6500; }
+/* KPI STRIP */
+.kpi-strip{display:grid;grid-template-columns:repeat(4,1fr);background:var(--ink);border-radius:var(--radius);overflow:hidden;margin-bottom:36px}
+.kpi-i{padding:26px 22px;text-align:center;border-right:1px solid rgba(255,255,255,0.06)}
+.kpi-i:last-child{border-right:none}
+.kpi-n{font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:var(--gold);line-height:1;margin-bottom:5px}
+.kpi-l{font-size:11px;color:rgba(255,255,255,0.48);text-transform:uppercase;letter-spacing:1px}
+.kpi-s{font-size:10px;color:rgba(255,255,255,0.24);margin-top:3px}
 
-  /* ── CARDS GRID ── */
-  .cards { display: grid; gap: 20px; }
-  .cards-2 { grid-template-columns: 1fr 1fr; }
-  .cards-3 { grid-template-columns: 1fr 1fr 1fr; }
-  .card {
-    background: #fff;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 24px;
-    box-shadow: var(--shadow);
-  }
-  .card-icon { font-size: 24px; margin-bottom: 12px; }
-  .card h3 { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
-  .card p { font-size: 13.5px; color: var(--ink-light); line-height: 1.65; }
-  .card-tag {
-    display: inline-block;
-    font-size: 11px;
-    font-weight: 600;
-    padding: 3px 10px;
-    border-radius: 20px;
-    margin-bottom: 10px;
-  }
-  .tag-green { background: var(--green-pale); color: var(--green); }
-  .tag-red { background: var(--red-pale); color: var(--red); }
-  .tag-amber { background: var(--amber-pale); color: var(--amber); }
-  .tag-blue { background: var(--blue-pale); color: var(--blue); }
+/* CALLOUTS */
+.callout{border-radius:var(--radius);padding:18px 22px;margin-bottom:14px;display:flex;gap:13px;align-items:flex-start;border:1px solid transparent}
+.co-r{background:var(--red-pale);border-color:rgba(184,50,50,0.2)}.co-r h4{color:var(--red)}
+.co-g{background:var(--green-pale);border-color:rgba(45,122,74,0.2)}.co-g h4{color:var(--green)}
+.co-a{background:var(--amber-pale);border-color:rgba(201,112,16,0.2)}.co-a h4{color:var(--amber)}
+.co-gold{background:var(--gold-pale);border-color:rgba(196,154,60,0.25)}.co-gold h4{color:#7a5a00}
+.callout .ci{font-size:19px;flex-shrink:0;margin-top:2px}
+.callout h4{font-size:14px;font-weight:600;margin-bottom:4px}
+.callout p{font-size:13.5px;color:var(--ink-2);line-height:1.65}
+.callout ul{font-size:13.5px;color:var(--ink-2);line-height:1.65;padding-left:16px}
+.callout li{margin-bottom:4px}
 
-  /* ── TABLE ── */
-  .audit-table { width: 100%; border-collapse: collapse; margin-top: 16px; }
-  .audit-table th {
-    background: var(--ink);
-    color: #fff;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.8px;
-    text-transform: uppercase;
-    padding: 14px 18px;
-    text-align: left;
-  }
-  .audit-table th:first-child { border-radius: 8px 0 0 0; }
-  .audit-table th:last-child { border-radius: 0 8px 0 0; }
-  .audit-table td {
-    padding: 14px 18px;
-    font-size: 13.5px;
-    border-bottom: 1px solid var(--sand-dark);
-    vertical-align: top;
-  }
-  .audit-table tr:last-child td { border-bottom: none; }
-  .audit-table tr:nth-child(even) td { background: rgba(245,239,227,0.4); }
-  .priority-high { color: var(--red); font-weight: 600; }
-  .priority-med { color: var(--amber); font-weight: 600; }
-  .priority-low { color: var(--green); font-weight: 600; }
+/* STRENGTHS */
+.str-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px}
+.str-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:22px;box-shadow:var(--sh);transition:all 0.2s}
+.str-card:hover{transform:translateY(-2px);box-shadow:var(--sh-lg)}
+.str-cat{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--green);background:var(--green-pale);padding:3px 9px;border-radius:10px;display:inline-block;margin-bottom:10px}
+.str-icon{font-size:24px;margin-bottom:8px}
+.str-card h3{font-size:14px;font-weight:600;margin-bottom:7px}
+.str-card p{font-size:13px;color:var(--ink-2);line-height:1.6}
+.str-impact{margin-top:12px;font-size:12px;color:var(--ink-3);display:flex;align-items:flex-start;gap:5px;padding-top:10px;border-top:1px dashed var(--sand-2)}
 
-  /* ── METRIC BANNER ── */
-  .metric-banner {
-    background: var(--ink);
-    border-radius: 16px;
-    padding: 40px 48px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 32px;
-    margin-bottom: 44px;
-  }
-  .metric-item { text-align: center; }
-  .metric-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 42px;
-    font-weight: 700;
-    color: var(--gold);
-    line-height: 1;
-    margin-bottom: 6px;
-  }
-  .metric-label { font-size: 12px; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 1px; }
-  .metric-sub { font-size: 11px; color: rgba(255,255,255,0.35); margin-top: 4px; }
+/* FILTER BAR */
+.filter-bar{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:18px;align-items:center}
+.fc{padding:6px 13px;border-radius:18px;font-size:12px;font-weight:500;border:1px solid var(--border);color:var(--ink-2);cursor:pointer;transition:all 0.15s;background:#fff}
+.fc:hover{border-color:var(--gold);color:var(--gold)}
+.fc.active{background:var(--gold);color:var(--ink);border-color:var(--gold);font-weight:700}
+.f-count{margin-left:auto;font-size:12px;color:var(--ink-3);font-family:'DM Mono',monospace}
 
-  /* ── CHARTS (CSS/SVG) ── */
-  .chart-container {
-    background: #fff;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 28px;
-    box-shadow: var(--shadow);
-  }
-  .chart-title { font-size: 14px; font-weight: 600; margin-bottom: 20px; color: var(--ink); }
+/* FINDINGS */
+.findings-list{display:flex;flex-direction:column;gap:10px}
+.fc-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:box-shadow 0.2s;cursor:pointer}
+.fc-card:hover{box-shadow:var(--sh-lg)}
+.fc-card.hidden{display:none!important}
+.fc-hdr{padding:16px 20px;display:flex;align-items:center;gap:12px}
+.sev-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+.fc-id{font-family:'DM Mono',monospace;font-size:10px;color:var(--ink-3);background:var(--sand);padding:2px 7px;border-radius:4px;flex-shrink:0}
+.fc-title{font-size:14px;font-weight:600;flex:1}
+.fc-tags{display:flex;gap:6px;flex-shrink:0;flex-wrap:wrap}
+.tag{font-size:10px;font-weight:600;padding:2px 8px;border-radius:10px;letter-spacing:0.3px}
+.t-c{background:var(--red-pale);color:var(--red)}.t-h{background:var(--amber-pale);color:var(--amber)}
+.t-m{background:var(--blue-pale);color:var(--blue)}.t-l{background:var(--green-pale);color:var(--green)}
+.fc-arrow{font-size:15px;color:var(--ink-3);transition:transform 0.25s;flex-shrink:0}
+.fc-card.open .fc-arrow{transform:rotate(180deg)}
+.fc-body{max-height:0;overflow:hidden;transition:max-height 0.4s var(--ease)}
+.fc-card.open .fc-body{max-height:500px}
+.fc-body-inner{padding:16px 20px 20px;border-top:1px solid var(--sand-2);display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.fc-bs h4{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--ink-3);font-weight:600;margin-bottom:7px}
+.fc-bs p{font-size:13px;color:var(--ink-2);line-height:1.6}
+.imp-row{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+.imp-b{font-size:11px;padding:3px 9px;border-radius:6px;font-weight:600;display:flex;align-items:center;gap:4px}
 
-  /* Bar chart */
-  .bar-chart { display: flex; flex-direction: column; gap: 12px; }
-  .bar-row { display: flex; align-items: center; gap: 12px; }
-  .bar-label { font-size: 12px; color: var(--ink-light); width: 140px; flex-shrink: 0; text-align: right; }
-  .bar-track { flex: 1; height: 28px; background: var(--sand-dark); border-radius: 6px; overflow: hidden; position: relative; }
-  .bar-fill { height: 100%; border-radius: 6px; display: flex; align-items: center; justify-content: flex-end; padding-right: 10px; transition: width 1s ease; }
-  .bar-fill span { font-size: 11px; font-weight: 700; color: #fff; }
-  .bar-fill.gold-bar { background: linear-gradient(90deg, var(--gold), var(--gold-light)); }
-  .bar-fill.red-bar { background: linear-gradient(90deg, #c94040, #e05555); }
-  .bar-fill.green-bar { background: linear-gradient(90deg, #2d7a4a, #3da362); }
-  .bar-fill.blue-bar { background: linear-gradient(90deg, #2456a4, #3a72d4); }
-  .bar-fill.amber-bar { background: linear-gradient(90deg, #d4780a, #f09020); }
+/* RECS */
+.rec-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:14px}
+.rc{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:20px;box-shadow:var(--sh);transition:all 0.2s;position:relative;overflow:hidden;cursor:pointer}
+.rc::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.rc.p1::before{background:linear-gradient(90deg,var(--green),#5cb88a)}
+.rc.p2::before{background:linear-gradient(90deg,var(--amber),#f0a030)}
+.rc.p3::before{background:linear-gradient(90deg,var(--blue),#4a7ae8)}
+.rc:hover{transform:translateY(-2px);box-shadow:var(--sh-lg)}
+.rc.hidden{display:none!important}
+.rc-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px}
+.rc-id{font-family:'DM Mono',monospace;font-size:10px;color:var(--ink-3)}
+.rc-pl{font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px}
+.pl1{background:var(--green-pale);color:var(--green)}.pl2{background:var(--amber-pale);color:var(--amber)}.pl3{background:var(--blue-pale);color:var(--blue)}
+.rc h3{font-size:13.5px;font-weight:600;margin-bottom:7px;line-height:1.4}
+.rc p{font-size:12px;color:var(--ink-2);line-height:1.6;margin-bottom:12px}
+.rc-meta{display:flex;gap:8px;flex-wrap:wrap}
+.rc-meta span{font-size:11px;padding:3px 8px;border-radius:6px;background:var(--sand);color:var(--ink-2);font-weight:500}
+.rc-owner{margin-top:10px;font-size:11px;color:var(--ink-3)}
 
-  /* Donut chart via SVG */
-  .donut-wrap { display: flex; align-items: center; gap: 32px; }
-  .donut-legend { display: flex; flex-direction: column; gap: 10px; }
-  .legend-item { display: flex; align-items: center; gap: 10px; font-size: 13px; }
-  .legend-dot { width: 12px; height: 12px; border-radius: 3px; flex-shrink: 0; }
+/* ROADMAP */
+.rm-phases{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:36px}
+.rm-phase{border-radius:var(--radius);padding:26px;background:#fff;border:1px solid var(--border);box-shadow:var(--sh);position:relative;overflow:hidden}
+.rm-phase::before{content:'';position:absolute;top:0;left:0;right:0;height:4px}
+.rp1::before{background:linear-gradient(90deg,var(--green),#5cb88a)}
+.rp2::before{background:linear-gradient(90deg,var(--amber),#f0a030)}
+.rp3::before{background:linear-gradient(90deg,var(--blue),#4a7ae8)}
+.rp-tl{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:7px}
+.rp1 .rp-tl{color:var(--green)}.rp2 .rp-tl{color:var(--amber)}.rp3 .rp-tl{color:var(--blue)}
+.rm-phase h3{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;margin-bottom:3px}
+.rp-desc{font-size:12px;color:var(--ink-3);margin-bottom:16px}
+.rp-tasks{list-style:none;display:flex;flex-direction:column;gap:0}
+.rpt{display:flex;gap:9px;align-items:flex-start;padding:8px 0;border-bottom:1px dashed var(--sand-2)}
+.rpt:last-child{border-bottom:none}
+.rpt-ck{width:17px;height:17px;border-radius:4px;border:1.5px solid var(--sand-2);flex-shrink:0;margin-top:2px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.18s;font-size:9px}
+.rpt.done .rpt-ck{background:var(--green);border-color:var(--green);color:#fff}
+.rpt.done .rpt-txt{text-decoration:line-through;color:var(--ink-3)}
+.rpt-txt{font-size:12.5px;color:var(--ink-2);line-height:1.4}
+.prog-wrap{margin-bottom:26px}
+.prog-label{display:flex;justify-content:space-between;font-size:12px;color:var(--ink-3);margin-bottom:6px}
+.prog-track{height:7px;background:var(--sand-2);border-radius:4px;overflow:hidden}
+.prog-fill{height:100%;border-radius:4px;transition:width 1s var(--ease)}
+.pf1{background:linear-gradient(90deg,var(--green),#5cb88a)}
+.pf2{background:linear-gradient(90deg,var(--amber),#f0a030)}
+.pf3{background:linear-gradient(90deg,var(--blue),#4a7ae8)}
 
-  /* ── ROADMAP ── */
-  .roadmap { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
-  .roadmap-phase {
-    border-radius: 14px;
-    padding: 28px;
-    position: relative;
-    overflow: hidden;
-  }
-  .roadmap-phase::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 4px;
-  }
-  .phase-1 { background: #fff; border: 1px solid rgba(45,122,74,0.3); }
-  .phase-1::before { background: linear-gradient(90deg, var(--green), #5cb88a); }
-  .phase-2 { background: #fff; border: 1px solid rgba(212,120,10,0.3); }
-  .phase-2::before { background: linear-gradient(90deg, var(--amber), #f0a030); }
-  .phase-3 { background: #fff; border: 1px solid rgba(36,86,164,0.3); }
-  .phase-3::before { background: linear-gradient(90deg, var(--blue), #4a7ae8); }
-  .phase-header {
-    margin-bottom: 18px;
-  }
-  .phase-timeline {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 8px;
-  }
-  .phase-1 .phase-timeline { color: var(--green); }
-  .phase-2 .phase-timeline { color: var(--amber); }
-  .phase-3 .phase-timeline { color: var(--blue); }
-  .phase-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 20px;
-    font-weight: 700;
-    margin-bottom: 4px;
-  }
-  .phase-desc { font-size: 12px; color: #888; }
-  .phase-tasks { list-style: none; margin-top: 16px; }
-  .phase-tasks li {
-    font-size: 13px;
-    padding: 8px 0;
-    border-bottom: 1px dashed var(--sand-dark);
-    display: flex;
-    gap: 10px;
-    align-items: flex-start;
-  }
-  .phase-tasks li:last-child { border-bottom: none; }
-  .task-icon { font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+/* CHARTS */
+.ch-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:28px}
+.ch-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:26px;box-shadow:var(--sh)}
+.ch-card.full{grid-column:1/-1}
+.ch-title{font-size:14px;font-weight:600;margin-bottom:5px}
+.ch-sub{font-size:12px;color:var(--ink-3);margin-bottom:20px}
+.bc-chart{display:flex;flex-direction:column;gap:9px}
+.bc-row{display:flex;align-items:center;gap:9px}
+.bc-lbl{font-size:11px;color:var(--ink-2);width:150px;flex-shrink:0;text-align:right}
+.bc-track{flex:1;height:24px;background:var(--sand);border-radius:5px;overflow:hidden}
+.bc-fill{height:100%;border-radius:5px;width:0;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;transition:width 1.2s var(--ease)}
+.bc-fill span{font-size:10px;font-weight:700;color:#fff;white-space:nowrap}
+.bfr{background:linear-gradient(90deg,#b83232,#d85050)}
+.bfa{background:linear-gradient(90deg,var(--amber),#e8901a)}
+.bfg{background:linear-gradient(90deg,var(--green),#3da362)}
+.bfb{background:linear-gradient(90deg,var(--blue),#3a72d4)}
+.bfgold{background:linear-gradient(90deg,#b8862a,var(--gold-l))}
+.dn-wrap{display:flex;align-items:center;gap:26px}
+.dn-legend{display:flex;flex-direction:column;gap:8px}
+.dl-i{display:flex;align-items:center;gap:8px;font-size:12px}
+.dl-dot{width:10px;height:10px;border-radius:3px;flex-shrink:0}
 
-  /* ── MOCK SCREENSHOT ANNOTATIONS ── */
-  .screenshot-frame {
-    background: #fff;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: var(--shadow-lg);
-    margin-bottom: 32px;
-  }
-  .screenshot-bar {
-    background: #f0ece4;
-    padding: 10px 16px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    border-bottom: 1px solid var(--sand-dark);
-  }
-  .browser-dot { width: 10px; height: 10px; border-radius: 50%; }
-  .bd-red { background: #ff5f57; }
-  .bd-amber { background: #febc2e; }
-  .bd-green { background: #28c840; }
-  .browser-url {
-    background: #e4dfd5;
-    border-radius: 6px;
-    padding: 4px 14px;
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    color: #666;
-    flex: 1;
-    max-width: 400px;
-    margin-left: 10px;
-  }
-  .screenshot-body { padding: 0; position: relative; }
-  .mock-page {
-    min-height: 300px;
-    position: relative;
-  }
+/* IMPACT */
+.imp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:32px}
+.imp-card{border-radius:var(--radius);padding:20px;text-align:center;background:var(--green-pale);border:1px solid rgba(45,122,74,0.18)}
+.imp-n{font-family:'Playfair Display',serif;font-size:32px;font-weight:700;color:var(--green);line-height:1;margin-bottom:6px}
+.imp-l{font-size:11px;color:var(--ink-2);font-weight:600;text-transform:uppercase;letter-spacing:0.5px}
+.imp-note{font-size:10px;color:var(--ink-3);margin-top:3px}
 
-  /* Homepage mock */
-  .mock-hero {
-    background: linear-gradient(135deg, #1a1410 0%, #2d2218 100%);
-    padding: 60px 48px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    min-height: 280px;
-    position: relative;
-  }
-  .mock-hero-text h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 32px;
-    color: #fff;
-    margin-bottom: 8px;
-  }
-  .mock-hero-text p { color: rgba(255,255,255,0.5); font-size: 13px; margin-bottom: 20px; }
-  .mock-btn {
-    background: var(--gold);
-    color: var(--ink);
-    padding: 10px 22px;
-    border-radius: 6px;
-    font-size: 13px;
-    font-weight: 600;
-    display: inline-block;
-  }
-  .mock-image-box {
-    width: 200px;
-    height: 200px;
-    background: rgba(255,255,255,0.05);
-    border: 1px dashed rgba(255,255,255,0.2);
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: rgba(255,255,255,0.2);
-    font-size: 12px;
-  }
-  .mock-nav {
-    background: #fff;
-    padding: 14px 48px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid var(--sand-dark);
-  }
-  .mock-nav-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--ink);
-  }
-  .mock-nav-links { display: flex; gap: 20px; }
-  .mock-nav-links span { font-size: 12px; color: #666; }
-  .mock-nav-icons { display: flex; gap: 14px; font-size: 16px; }
+/* BENCH TABLE */
+.bt{width:100%;border-collapse:collapse;font-size:13px}
+.bt th{background:var(--ink);color:#fff;padding:11px 14px;text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:0.8px;font-weight:600}
+.bt th:first-child{border-radius:8px 0 0 0}.bt th:last-child{border-radius:0 8px 0 0}
+.bt td{padding:11px 14px;border-bottom:1px solid var(--sand-2);vertical-align:middle}
+.bt tr:last-child td{border-bottom:none}
+.bt tr:nth-child(even) td{background:rgba(245,239,227,0.38)}
+.bs{display:flex;align-items:center;gap:5px;font-size:12px;font-weight:500}
+.bs-ok{color:var(--green)}.bs-wn{color:var(--amber)}.bs-ms{color:var(--red)}
 
-  /* Annotation pins */
-  .annotation {
-    position: absolute;
-    z-index: 10;
-  }
-  .ann-pin {
-    width: 26px; height: 26px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
-    font-weight: 700;
-    color: #fff;
-    cursor: default;
-  }
-  .ann-pin.danger { background: var(--red); box-shadow: 0 0 0 3px rgba(184,50,50,0.25); }
-  .ann-pin.warn { background: var(--amber); box-shadow: 0 0 0 3px rgba(212,120,10,0.25); }
-  .ann-tooltip {
-    position: absolute;
-    left: 34px; top: -4px;
-    background: var(--ink);
-    color: #fff;
-    font-size: 11px;
-    padding: 6px 12px;
-    border-radius: 6px;
-    white-space: nowrap;
-    box-shadow: var(--shadow);
-  }
-  .annotation-legend {
-    background: var(--sand);
-    padding: 16px 20px;
-    border-top: 1px solid var(--sand-dark);
-  }
-  .ann-legend-title { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; color: #888; }
-  .ann-legend-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
-  .ann-item { display: flex; align-items: flex-start; gap: 8px; }
-  .ann-num {
-    width: 20px; height: 20px;
-    border-radius: 50%;
-    font-size: 10px;
-    font-weight: 700;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    margin-top: 1px;
-  }
-  .ann-text { font-size: 12px; color: var(--ink-light); }
+/* RECO PAGE */
+.reco-bg{background:var(--ink);min-height:calc(100vh - var(--top-h));padding:56px 60px}
+.reco-bg .s-tag{color:var(--gold)}.reco-bg .s-h{color:#fff}.reco-bg .s-lead{color:rgba(255,255,255,0.52)}
+.rp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:32px}
+.rp-card{background:rgba(255,255,255,0.05);border:1px solid rgba(196,154,60,0.17);border-radius:var(--radius);padding:26px}
+.rp-icon{font-size:26px;margin-bottom:12px}
+.rp-card h3{font-size:15px;font-weight:600;color:var(--gold-l);margin-bottom:8px}
+.rp-card p{font-size:13px;color:rgba(255,255,255,0.52);line-height:1.68}
+.quote{background:rgba(196,154,60,0.06);border:1px solid rgba(196,154,60,0.24);border-radius:var(--radius);padding:28px;margin-top:44px}
+.quote-t{font-family:'Playfair Display',serif;font-size:19px;font-style:italic;color:var(--gold-l);line-height:1.6;margin-bottom:12px}
+.quote-a{font-size:11px;color:rgba(255,255,255,0.3)}
+.reco-cta{margin-top:36px;padding:28px;background:var(--gold);border-radius:var(--radius);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+.reco-cta h3{font-size:18px;font-weight:700;color:var(--ink);margin-bottom:3px}
+.reco-cta p{font-size:12px;color:var(--ink-2)}
+.reco-cta-btn{background:var(--ink);color:var(--gold);font-weight:700;font-size:13px;padding:11px 22px;border-radius:8px;cursor:pointer;transition:all 0.2s;white-space:nowrap}
+.reco-cta-btn:hover{background:#2d2218}
 
-  /* ── IMPACT TABLE ── */
-  .impact-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
-    margin-bottom: 32px;
-  }
-  .impact-card {
-    border-radius: 12px;
-    padding: 24px;
-    text-align: center;
-    border: 1px solid transparent;
-  }
-  .impact-card.positive { background: var(--green-pale); border-color: rgba(45,122,74,0.2); }
-  .impact-card.positive .impact-num { color: var(--green); }
-  .impact-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 36px;
-    font-weight: 700;
-    line-height: 1;
-    margin-bottom: 8px;
-  }
-  .impact-label { font-size: 12px; color: #555; font-weight: 500; }
-  .impact-direction { font-size: 11px; color: #888; margin-top: 4px; }
+/* MODAL */
+.modal-ov{position:fixed;inset:0;background:rgba(26,20,16,0.62);z-index:500;display:none;align-items:center;justify-content:center;backdrop-filter:blur(4px)}
+.modal-ov.open{display:flex}
+.modal{background:var(--cream);border-radius:16px;width:540px;max-width:92vw;max-height:84vh;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 24px 80px rgba(0,0,0,0.28);animation:mIn 0.28s var(--ease)}
+@keyframes mIn{from{opacity:0;transform:scale(0.95)}to{opacity:1;transform:scale(1)}}
+.modal-hdr{padding:22px 26px;border-bottom:1px solid var(--sand-2);display:flex;justify-content:space-between;align-items:center;flex-shrink:0}
+.modal-hdr h2{font-family:'Playfair Display',serif;font-size:20px}
+.modal-x{width:30px;height:30px;border-radius:7px;background:var(--sand);display:flex;align-items:center;justify-content:center;font-size:15px;cursor:pointer;transition:background 0.15s}
+.modal-x:hover{background:var(--sand-2)}
+.modal-body{padding:22px 26px;overflow-y:auto;flex:1}
+.modal-body h3{font-size:13px;font-weight:600;margin-bottom:6px}
+.modal-body p{font-size:13px;color:var(--ink-2);margin-bottom:14px;line-height:1.6}
+.m-metrics{display:flex;flex-direction:column;gap:7px}
+.m-metric{display:flex;align-items:center;justify-content:space-between;font-size:12px;padding:8px 11px;background:var(--sand);border-radius:8px}
+.m-metric span:last-child{font-weight:600;color:var(--green)}
 
-  /* ── FINAL RECO ── */
-  .final-reco {
-    background: var(--ink);
-    padding: 64px 100px;
-    color: #fff;
-  }
-  .final-reco .section-tag { color: var(--gold); }
-  .final-reco h2 { color: #fff; margin-bottom: 24px; }
-  .final-reco .section-intro { color: rgba(255,255,255,0.65); }
-  .reco-pillars {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 20px;
-    margin-top: 40px;
-  }
-  .reco-pillar {
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(196,154,60,0.2);
-    border-radius: 12px;
-    padding: 28px;
-  }
-  .reco-pillar-icon { font-size: 28px; margin-bottom: 14px; }
-  .reco-pillar h3 { font-size: 16px; font-weight: 600; color: var(--gold-light); margin-bottom: 8px; }
-  .reco-pillar p { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.65; }
+/* TOAST */
+.toast{position:fixed;bottom:26px;right:26px;z-index:999;background:var(--ink);color:#fff;padding:12px 18px;border-radius:10px;font-size:13px;display:flex;align-items:center;gap:9px;box-shadow:var(--sh-lg);transform:translateY(70px);opacity:0;transition:all 0.3s var(--ease);pointer-events:none;max-width:300px}
+.toast.show{transform:translateY(0);opacity:1}
 
-  /* ── FOOTER ── */
-  .report-footer {
-    background: var(--sand);
-    padding: 32px 100px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-top: 2px solid var(--gold);
-    font-size: 12px;
-    color: #888;
-  }
-  .footer-brand { font-family: 'Playfair Display', serif; font-size: 16px; color: var(--ink); font-weight: 700; }
-
-  /* ── DIVIDERS & MISC ── */
-  .gold-divider {
-    height: 2px;
-    background: linear-gradient(90deg, var(--gold), transparent);
-    margin: 40px 0;
-  }
-  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
-  .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
-  strong { font-weight: 600; }
-  .text-red { color: var(--red); }
-  .text-green { color: var(--green); }
-  .text-amber { color: var(--amber); }
-  .text-gold { color: var(--gold); }
-
-  /* Waterfall chart rows */
-  .waterfall { display: flex; flex-direction: column; gap: 8px; }
-  .wf-row { display: flex; align-items: center; gap: 12px; }
-  .wf-label { width: 160px; font-size: 12px; color: var(--ink-light); flex-shrink: 0; }
-  .wf-bar-wrap { flex: 1; position: relative; height: 22px; background: var(--sand-dark); border-radius: 4px; overflow: hidden; }
-  .wf-bar { height: 100%; border-radius: 4px; display: flex; align-items: center; padding: 0 8px; }
-  .wf-bar span { font-size: 10px; font-weight: 700; color: #fff; }
-  .wf-score { width: 36px; text-align: right; font-size: 12px; font-weight: 600; }
-
-  @media print {
-    .section { page-break-inside: avoid; }
-    .cover { page-break-after: always; }
-  }
+/* RESPONSIVE */
+@media(max-width:860px){
+  :root{--nav-w:0px}
+  .sidebar{transform:translateX(-240px);width:240px}
+  .sidebar.open{transform:translateX(0)}
+  .topbar{left:0}.main{margin-left:0}.burger{display:flex}
+  .s-inner{padding:32px 22px 52px}.cover-bg{padding:44px 26px 38px}
+  .kpi-strip{grid-template-columns:1fr 1fr}.ch-grid{grid-template-columns:1fr}
+  .ch-card.full{grid-column:1}.rm-phases{grid-template-columns:1fr}
+  .imp-grid{grid-template-columns:1fr 1fr}.rp-grid{grid-template-columns:1fr}
+  .reco-bg{padding:38px 22px 52px}.fc-body-inner{grid-template-columns:1fr}
+  .rec-grid{grid-template-columns:1fr}.dash-grid{grid-template-columns:1fr 1fr}
+}
+.hidden{display:none!important}
+.mono{font-family:'DM Mono',monospace}
 </style>
 </head>
 <body>
 
-<!-- ═══════════════════ COVER ═══════════════════ -->
-<div class="cover">
-  <div class="cover-logo">
-    <div class="cover-logo-text">AJ<br/>STORE</div>
+<!-- SIDEBAR -->
+<nav class="sidebar" id="sidebar">
+  <div class="sb-logo">
+    <div class="sb-logo-mark">AJ Store</div>
+    <div class="sb-logo-sub">Digital Audit · 2026</div>
   </div>
-  <div class="cover-badge">Confidential · Executive Report</div>
-  <div class="cover-divider"></div>
-  <h1>Digital<br/>Commerce<br/><span>Audit</span></h1>
-  <p class="cover-subtitle">UX, Conversion Rate Optimisation &amp; Technical Performance Audit of ajstore.com — presented to the Management Team of Ajlan &amp; Brothers Company</p>
-  <div class="cover-meta">
-    <div class="cover-meta-item"><label>Client</label><span>Ajlan &amp; Brothers Co.</span></div>
-    <div class="cover-meta-item"><label>Website</label><span>ajstore.com</span></div>
-    <div class="cover-meta-item"><label>Date</label><span>March 2026</span></div>
-    <div class="cover-meta-item"><label>Report Type</label><span>UX · CRO · Technical</span></div>
-  </div>
-  <div class="cover-scores">
-    <span class="score-pill red">⚠ UX Score: 46/100</span>
-    <span class="score-pill red">⚠ Mobile Score: 38/100</span>
-    <span class="score-pill amber">◑ SEO Score: 52/100</span>
-    <span class="score-pill amber">◑ CRO Score: 44/100</span>
-    <span class="score-pill green">✓ Brand Strength: 72/100</span>
-  </div>
-</div>
+  <div class="nav-sec">Overview</div>
+  <div class="nav-item active" data-page="cover"><span class="nav-num">—</span>Cover &amp; Overview</div>
+  <div class="nav-item" data-page="summary"><span class="nav-num">01</span>Executive Summary</div>
+  <div class="nav-sec">Analysis</div>
+  <div class="nav-item" data-page="strengths"><span class="nav-num">02</span>Strengths<span class="nav-badge g">6</span></div>
+  <div class="nav-item" data-page="findings"><span class="nav-num">03</span>Issues Found<span class="nav-badge">12</span></div>
+  <div class="nav-sec">Action</div>
+  <div class="nav-item" data-page="recommendations"><span class="nav-num">04</span>Recommendations<span class="nav-badge a">24</span></div>
+  <div class="nav-item" data-page="roadmap"><span class="nav-num">05</span>Roadmap</div>
+  <div class="nav-sec">Data</div>
+  <div class="nav-item" data-page="charts"><span class="nav-num">06</span>Charts &amp; Data</div>
+  <div class="nav-item" data-page="benchmark"><span class="nav-num">07</span>Competitive Bench</div>
+  <div class="nav-item" data-page="impact"><span class="nav-num">08</span>Business Impact</div>
+  <div class="nav-sec">Conclusion</div>
+  <div class="nav-item" data-page="reco"><span class="nav-num">09</span>Final Recommendation</div>
+  <div class="sb-footer">v1.0.0 · Confidential · March 2026</div>
+</nav>
 
-<!-- ═══════════════════ TABLE OF CONTENTS ═══════════════════ -->
-<div class="toc-page">
-  <div class="section-tag">REPORT CONTENTS</div>
-  <h2>Table of Contents</h2>
-  <p class="toc-sub">9 sections · Estimated reading time: 12 minutes</p>
-  <div class="toc-grid">
-    <a href="#exec" class="toc-item"><div class="toc-num">01</div><div><div class="toc-label">Executive Summary</div><div class="toc-desc">Key findings & strategic priorities</div></div></a>
-    <a href="#strengths" class="toc-item"><div class="toc-num">02</div><div><div class="toc-label">Website Strengths</div><div class="toc-desc">What is working well</div></div></a>
-    <a href="#weaknesses" class="toc-item"><div class="toc-num">03</div><div><div class="toc-label">Weaknesses & Issues</div><div class="toc-desc">UX friction, technical & CRO gaps</div></div></a>
-    <a href="#opportunities" class="toc-item"><div class="toc-num">04</div><div><div class="toc-label">Improvement Opportunities</div><div class="toc-desc">Actionable recommendations</div></div></a>
-    <a href="#evidence" class="toc-item"><div class="toc-num">05</div><div><div class="toc-label">Visual Evidence</div><div class="toc-desc">Annotated page screenshots</div></div></a>
-    <a href="#charts" class="toc-item"><div class="toc-num">06</div><div><div class="toc-label">Data Visualizations</div><div class="toc-desc">Impact charts & performance metrics</div></div></a>
-    <a href="#roadmap" class="toc-item"><div class="toc-num">07</div><div><div class="toc-label">Prioritized Roadmap</div><div class="toc-desc">3-phase 6-month execution plan</div></div></a>
-    <a href="#impact" class="toc-item"><div class="toc-num">08</div><div><div class="toc-label">Estimated Business Impact</div><div class="toc-desc">Revenue & conversion projections</div></div></a>
-    <a href="#reco" class="toc-item"><div class="toc-num">09</div><div><div class="toc-label">Final Strategic Recommendation</div><div class="toc-desc">Consulting conclusion</div></div></a>
-  </div>
-</div>
-
-<!-- ═══════════════════ 01 EXECUTIVE SUMMARY ═══════════════════ -->
-<div id="exec" class="section">
-  <div class="section-tag">SECTION 01</div>
-  <h2>Executive Summary</h2>
-  <p class="section-intro">AJStore.com is the flagship digital retail channel for Ajlan &amp; Brothers — one of Saudi Arabia's largest and most respected menswear manufacturers. While the brand heritage is formidable, the current digital experience significantly under-delivers on its potential, leaving meaningful revenue on the table.</p>
-
-  <div class="metric-banner">
-    <div class="metric-item">
-      <div class="metric-num">1.2%</div>
-      <div class="metric-label">Est. Conversion Rate</div>
-      <div class="metric-sub">Industry avg: 2.5–3.5%</div>
-    </div>
-    <div class="metric-item">
-      <div class="metric-num">~4s</div>
-      <div class="metric-label">Est. Mobile Load Time</div>
-      <div class="metric-sub">Target: &lt;2.5s LCP</div>
-    </div>
-    <div class="metric-item">
-      <div class="metric-num">38%</div>
-      <div class="metric-label">Mobile UX Score</div>
-      <div class="metric-sub">Critical failure zone</div>
-    </div>
-    <div class="metric-item">
-      <div class="metric-num">3×</div>
-      <div class="metric-label">Revenue Upside</div>
-      <div class="metric-sub">If CRO gaps are closed</div>
-    </div>
-  </div>
-
-  <div class="two-col">
-    <div>
-      <div class="callout gold">
-        <div class="callout-icon">🏆</div>
-        <div class="callout-body">
-          <h4>The Opportunity</h4>
-          <p>Ajlan &amp; Brothers has 45+ years of brand equity, a dominant position in the Saudi traditional menswear market, and presence across 25+ countries. The brand deserves a digital storefront that matches this stature. Currently, the website is not converting at the rate it should — the gap between brand reputation and digital execution is the central challenge.</p>
-        </div>
-      </div>
-      <div class="callout red">
-        <div class="callout-icon">🚨</div>
-        <div class="callout-body">
-          <h4>Critical Finding: JavaScript Dependency</h4>
-          <p>The site is built on <strong>Magento PWA Venia</strong>, which is entirely JavaScript-rendered. This creates two severe problems: (1) search engine crawlers cannot index content without JavaScript rendering, crushing organic SEO; (2) users on slower connections see a blank screen before any content loads, destroying first impressions on mobile.</p>
-        </div>
-      </div>
+<!-- TOPBAR -->
+<header class="topbar">
+  <div style="display:flex;align-items:center;gap:14px">
+    <div class="burger" id="burger" onclick="document.getElementById('sidebar').classList.toggle('open')">
+      <span></span><span></span><span></span>
     </div>
     <div>
-      <div class="callout amber">
-        <div class="callout-icon">📊</div>
-        <div class="callout-body">
-          <h4>Three Strategic Priorities</h4>
-          <ul>
-            <li><strong>Performance &amp; Technical:</strong> Fix JavaScript rendering, implement server-side rendering (SSR) or pre-rendering to unlock SEO and mobile speed</li>
-            <li><strong>Conversion Optimization:</strong> Add trust signals, urgency cues, abandoned cart recovery, and product page depth</li>
-            <li><strong>Brand Elevation:</strong> The digital experience should feel as premium as the physical stores — invest in visual storytelling, editorial content, and personalization</li>
-          </ul>
-        </div>
-      </div>
-      <div class="callout green">
-        <div class="callout-icon">✅</div>
-        <div class="callout-body">
-          <h4>What is Working</h4>
-          <p>The brand is recognized and trusted across KSA and the Gulf. Free delivery threshold (199 SAR), bilingual support (Arabic/English), and a structured product catalog provide a solid foundation to build upon. The PWA architecture, when properly optimized, can deliver excellent mobile experiences.</p>
-        </div>
-      </div>
+      <div class="tb-title" id="tbTitle">AJStore.com — Digital Audit</div>
+      <div class="tb-meta">Ajlan &amp; Brothers · March 2026 · Confidential</div>
+    </div>
+  </div>
+  <div class="tb-actions">
+    <button class="btn btn-o" onclick="openProgress()">📊 Progress</button>
+    <button class="btn btn-g" onclick="window.print()">↓ Export PDF</button>
+  </div>
+</header>
+
+<!-- MAIN -->
+<main class="main">
+
+<!-- COVER -->
+<div class="page active" id="page-cover">
+  <div class="cover-bg">
+    <div class="cg-a"></div><div class="cg-b"></div>
+    <div class="c-chip">Live Audit Report</div>
+    <h1 class="c-h1">Digital<br/>Commerce<br/><em>Audit</em></h1>
+    <p class="c-sub">UX · Conversion Rate Optimisation · Technical Performance — For the Management Team of Ajlan &amp; Brothers Company</p>
+    <div class="c-pills">
+      <span class="cp cp-r">⚠ UX 46/100</span>
+      <span class="cp cp-r">⚠ Mobile 38/100</span>
+      <span class="cp cp-a">◑ SEO 52/100</span>
+      <span class="cp cp-a">◑ CRO 44/100</span>
+      <span class="cp cp-g">✓ Brand 72/100</span>
+    </div>
+    <div class="c-ctas">
+      <button class="c-btn-p" onclick="nav('summary')">View Report →</button>
+      <button class="c-btn-s" onclick="nav('roadmap')">Jump to Roadmap</button>
+    </div>
+    <div class="c-meta">
+      <div><label>Client</label><span>Ajlan &amp; Brothers Co.</span></div>
+      <div><label>Website</label><span>ajstore.com</span></div>
+      <div><label>Date</label><span>March 2026</span></div>
+      <div><label>Issues Found</label><span>12 Identified</span></div>
+      <div><label>Recommendations</label><span>24 Actions</span></div>
+      <div><label>Revenue Upside</label><span>2.5 – 3.5×</span></div>
     </div>
   </div>
 </div>
 
-<!-- ═══════════════════ 02 STRENGTHS ═══════════════════ -->
-<div id="strengths" class="section">
-  <div class="section-tag">SECTION 02</div>
-  <h2>Website Strengths</h2>
-  <p class="section-intro">Despite the issues identified in this audit, the site has several genuine strengths that form a solid base for the recommended improvements. These should be protected and amplified.</p>
+<!-- EXECUTIVE SUMMARY -->
+<div class="page" id="page-summary">
+  <div class="s-inner">
+    <div class="s-tag">Section 01</div>
+    <h2 class="s-h">Executive Summary</h2>
+    <p class="s-lead">AJStore.com has one of the most powerful brand assets in Saudi retail yet significantly under-performs digitally. The path to closing the gap is clear, executable, and high-return.</p>
+    <div class="dash-grid" id="gaugesWrap"></div>
+    <div class="kpi-strip">
+      <div class="kpi-i"><div class="kpi-n">~1.2%</div><div class="kpi-l">Est. Conversion Rate</div><div class="kpi-s">Industry avg: 2.5–3.5%</div></div>
+      <div class="kpi-i"><div class="kpi-n">~4–6s</div><div class="kpi-l">Mobile Load Time</div><div class="kpi-s">Target LCP: &lt;2.5s</div></div>
+      <div class="kpi-i"><div class="kpi-n">38/100</div><div class="kpi-l">Mobile UX Score</div><div class="kpi-s">Critical failure zone</div></div>
+      <div class="kpi-i"><div class="kpi-n">3×</div><div class="kpi-l">Revenue Upside</div><div class="kpi-s">If all gaps closed</div></div>
+    </div>
+    <div class="callout co-r"><span class="ci">🚨</span><div><h4>Critical: JavaScript-Only Rendering</h4><p>The site is built on Magento PWA Venia with no SSR configured. Search engines see a blank page. This single issue suppresses all organic traffic and mobile performance simultaneously — the highest-urgency fix in the entire audit.</p></div></div>
+    <div class="callout co-gold"><span class="ci">🏆</span><div><h4>The Core Opportunity</h4><p>45 years of brand equity, dominant KSA market position, and an architecturally capable PWA platform. The gap between brand reputation and digital execution is the central challenge — and the central opportunity. Fixing it is a question of execution, not brand.</p></div></div>
+    <div class="callout co-g"><span class="ci">✅</span><div><h4>Three Strategic Priorities</h4><ul><li><strong>Performance &amp; Technical:</strong> Fix JS rendering, implement SSR to unlock SEO and mobile speed</li><li><strong>Conversion Optimization:</strong> Add trust signals, reviews, BNPL, abandoned cart recovery</li><li><strong>Brand Elevation:</strong> Make the digital experience as premium as the physical stores</li></ul></div></div>
+  </div>
+</div>
 
-  <div class="cards cards-3">
-    <div class="card">
-      <div class="card-tag tag-green">BRAND</div>
-      <div class="card-icon">👔</div>
-      <h3>Dominant Brand Heritage</h3>
-      <p>Ajlan &amp; Brothers' 45-year legacy as Saudi Arabia's leading traditional menswear manufacturer is a powerful conversion asset. The brand name alone carries significant trust in the KSA and Gulf markets. The logo and brand mark are well-established and recognizable.</p>
+<!-- STRENGTHS -->
+<div class="page" id="page-strengths">
+  <div class="s-inner">
+    <div class="s-tag">Section 02</div>
+    <h2 class="s-h">Website Strengths</h2>
+    <p class="s-lead">Six genuine strengths form a solid foundation. These should be protected, amplified, and used as anchors for all improvement work.</p>
+    <div class="str-grid" id="strGrid"></div>
+  </div>
+</div>
+
+<!-- FINDINGS -->
+<div class="page" id="page-findings">
+  <div class="s-inner">
+    <div class="s-tag">Section 03</div>
+    <h2 class="s-h">Issues Found</h2>
+    <p class="s-lead">12 issues identified across UX, performance, SEO, conversion, and checkout. Click any row to expand full details. Filter by severity.</p>
+    <div class="filter-bar" id="findFilters">
+      <button class="fc active" data-f="all">All Issues</button>
+      <button class="fc" data-f="CRITICAL">🔴 Critical</button>
+      <button class="fc" data-f="HIGH">🟠 High</button>
+      <button class="fc" data-f="MEDIUM">🔵 Medium</button>
+      <button class="fc" data-f="LOW">🟢 Low</button>
+      <span class="f-count" id="findCount">12 issues</span>
     </div>
-    <div class="card">
-      <div class="card-tag tag-green">CATALOG</div>
-      <div class="card-icon">📂</div>
-      <h3>Structured Product Catalog</h3>
-      <p>The product hierarchy — thobes, winter wear, readymade clothing across men, women, and children — follows logical category structures. The breadth of the catalog covering traditional and contemporary menswear is a meaningful competitive advantage in the regional market.</p>
+    <div class="findings-list" id="findList"></div>
+  </div>
+</div>
+
+<!-- RECOMMENDATIONS -->
+<div class="page" id="page-recommendations">
+  <div class="s-inner">
+    <div class="s-tag">Section 04</div>
+    <h2 class="s-h">Recommendations</h2>
+    <p class="s-lead">24 actionable improvements across 3 phases. Filter by phase or priority. Click any card for full details and success metrics.</p>
+    <div class="filter-bar" id="recFilters">
+      <button class="fc active" data-f="all">All (24)</button>
+      <button class="fc" data-f="1">⚡ Phase 1</button>
+      <button class="fc" data-f="2">🔧 Phase 2</button>
+      <button class="fc" data-f="3">🚀 Phase 3</button>
+      <button class="fc" data-f="CRITICAL">🔴 Critical</button>
+      <button class="fc" data-f="HIGH">🟠 High</button>
     </div>
-    <div class="card">
-      <div class="card-tag tag-green">TECH</div>
-      <div class="card-icon">⚡</div>
-      <h3>PWA Architecture (Potential)</h3>
-      <p>The choice of Magento PWA Studio (Venia) is architecturally sound. When properly configured with SSR/pre-rendering, PWAs deliver app-like experiences with offline capability, push notifications, and home screen installation — advantages no traditional Magento theme offers.</p>
+    <div class="rec-grid" id="recGrid"></div>
+  </div>
+</div>
+
+<!-- ROADMAP -->
+<div class="page" id="page-roadmap">
+  <div class="s-inner">
+    <div class="s-tag">Section 05</div>
+    <h2 class="s-h">Implementation Roadmap</h2>
+    <p class="s-lead">A 3-phase, 6-month plan. Check off tasks as they are completed — progress is saved to your browser. Use ← → arrow keys to navigate sections.</p>
+    <div id="progBars"></div>
+    <div class="rm-phases" id="rmPhases"></div>
+  </div>
+</div>
+
+<!-- CHARTS -->
+<div class="page" id="page-charts">
+  <div class="s-inner">
+    <div class="s-tag">Section 06</div>
+    <h2 class="s-h">Data Visualizations</h2>
+    <p class="s-lead">Animated charts illustrating issue distribution, estimated impact by improvement category, and Core Web Vitals diagnostics.</p>
+    <div class="ch-grid" id="chGrid"></div>
+  </div>
+</div>
+
+<!-- BENCHMARK -->
+<div class="page" id="page-benchmark">
+  <div class="s-inner">
+    <div class="s-tag">Section 07</div>
+    <h2 class="s-h">Competitive Benchmark</h2>
+    <p class="s-lead">Feature-by-feature comparison of AJStore.com against Namshi, Noon Fashion, and Ounass — the leading MENA e-commerce platforms.</p>
+    <div style="overflow-x:auto"><table class="bt" id="benchTable"></table></div>
+  </div>
+</div>
+
+<!-- IMPACT -->
+<div class="page" id="page-impact">
+  <div class="s-inner">
+    <div class="s-tag">Section 08</div>
+    <h2 class="s-h">Estimated Business Impact</h2>
+    <p class="s-lead">Conservative projections based on MENA e-commerce apparel benchmarks. Assumes no increase in paid acquisition spend.</p>
+    <div class="imp-grid">
+      <div class="imp-card"><div class="imp-n">+1.8%</div><div class="imp-l">Conversion Lift</div><div class="imp-note">~1.2% → ~3.0%</div></div>
+      <div class="imp-card"><div class="imp-n">+35%</div><div class="imp-l">Avg Order Value</div><div class="imp-note">Via BNPL &amp; cross-sell</div></div>
+      <div class="imp-card"><div class="imp-n">+50%</div><div class="imp-l">Organic Traffic</div><div class="imp-note">Via SSR + SEO content</div></div>
+      <div class="imp-card"><div class="imp-n">+15%</div><div class="imp-l">Recovered Revenue</div><div class="imp-note">Cart abandonment sequences</div></div>
     </div>
-    <div class="card">
-      <div class="card-tag tag-green">TRUST</div>
-      <div class="card-icon">🚚</div>
-      <h3>Free Delivery Threshold</h3>
-      <p>The free delivery offer for orders above 199 SAR (prominently announced in the header) is an effective AOV-boosting mechanism and reduces purchase friction. This is a proven CRO technique that drives customers to add items to reach the threshold.</p>
+    <div id="impactTableWrap"></div>
+  </div>
+</div>
+
+<!-- FINAL RECO -->
+<div class="page" id="page-reco">
+  <div class="reco-bg">
+    <div class="s-tag">Section 09</div>
+    <h2 class="s-h">Final Strategic Recommendation</h2>
+    <p class="s-lead">AJStore.com has the most powerful asset in Saudi e-commerce: a trusted, heritage brand with genuine product quality. The digital channel is not performing at the level this brand deserves.</p>
+    <div class="rp-grid">
+      <div class="rp-card"><div class="rp-icon">⚡</div><h3>Fix the Foundation First</h3><p>Technical issues are the ceiling on every other improvement. No CRO strategy overcomes a 5-second load time. SSR in the first 30 days simultaneously unlocks SEO and mobile conversions — the single highest-ROI action in this audit.</p></div>
+      <div class="rp-card"><div class="rp-icon">📈</div><h3>Convert Before Spending More</h3><p>Reviews, BNPL, abandoned cart sequences, and guest checkout increase conversion rates by 50–150% in apparel without increasing ad spend. Maximize the value of existing traffic before scaling acquisition budgets.</p></div>
+      <div class="rp-card"><div class="rp-icon">🏆</div><h3>Build a Brand-Worthy Digital Home</h3><p>Ajlan &amp; Brothers is a premium institution. The long-term vision should be an editorial, storytelling-rich experience that celebrates Saudi sartorial heritage — not just another online shop. Match the physical store experience digitally.</p></div>
     </div>
-    <div class="card">
-      <div class="card-tag tag-green">REACH</div>
-      <div class="card-icon">🌐</div>
-      <h3>Bilingual Experience</h3>
-      <p>Offering the site in both Arabic and English serves the diverse Saudi market. Arabic-first design acknowledges the primary audience's cultural preference, which is essential for building trust and reducing bounce rates among Arabic-speaking customers.</p>
+    <div class="quote">
+      <p class="quote-t">"The gap between where AJStore.com is today and where it should be is not a brand problem — it is an execution problem. The brand is powerful. The opportunity is significant. The roadmap is clear."</p>
+      <div class="quote-a">— Senior E-Commerce, UX &amp; CRO Consultant · March 2026</div>
     </div>
-    <div class="card">
-      <div class="card-tag tag-green">MARKET</div>
-      <div class="card-icon">🏅</div>
-      <h3>Market Position &amp; Scale</h3>
-      <p>Presence across 25+ countries, 5,000–9,999 employees, and partnerships with major conglomerates (Bahri, Marubeni, QNB) give AJStore significant brand authority. This enterprise scale creates credibility signals that smaller competitors cannot replicate.</p>
+    <div class="reco-cta">
+      <div><h3>Ready to begin Phase 1?</h3><p>Start tracking implementation directly in this report.</p></div>
+      <button class="reco-cta-btn" onclick="nav('roadmap')">Open Roadmap →</button>
     </div>
   </div>
 </div>
 
-<!-- ═══════════════════ 03 WEAKNESSES ═══════════════════ -->
-<div id="weaknesses" class="section">
-  <div class="section-tag">SECTION 03</div>
-  <h2>Weaknesses &amp; Problems</h2>
-  <p class="section-intro">The following issues have been identified through technical analysis, UX heuristics review, and competitive benchmarking. Each has been rated by severity and estimated revenue impact.</p>
+</main>
 
-  <table class="audit-table">
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>Issue</th>
-        <th>Category</th>
-        <th>Severity</th>
-        <th>Revenue Impact</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><strong>1</strong></td>
-        <td><strong>JavaScript-only rendering (Venia PWA default)</strong> — The entire site requires JavaScript to render. Without SSR or pre-rendering, search engines index an empty page. Google's crawl budget is wasted. Organic traffic is severely suppressed.</td>
-        <td>Technical / SEO</td>
-        <td class="priority-high">CRITICAL</td>
-        <td class="priority-high">Very High</td>
-      </tr>
-      <tr>
-        <td><strong>2</strong></td>
-        <td><strong>Slow mobile load time (~4–6s estimated LCP)</strong> — Venia PWA's default PageSpeed score can be as low as 9/100 on mobile without optimization. Every extra second of load time reduces conversions by 7–20%. On Saudi mobile networks, this is especially damaging.</td>
-        <td>Performance</td>
-        <td class="priority-high">CRITICAL</td>
-        <td class="priority-high">Very High</td>
-      </tr>
-      <tr>
-        <td><strong>3</strong></td>
-        <td><strong>No visible customer reviews or social proof</strong> — Product pages lack ratings, reviews, and user-generated content. In traditional menswear, fit and fabric quality are major purchase concerns. Without social proof, hesitant buyers abandon.</td>
-        <td>CRO</td>
-        <td class="priority-high">High</td>
-        <td class="priority-high">High</td>
-      </tr>
-      <tr>
-        <td><strong>4</strong></td>
-        <td><strong>Missing urgency and scarcity signals</strong> — No "low stock" indicators, countdown timers for promotions, or "X people viewing this" social proof. Urgency mechanics are industry-standard CRO levers that directly lift conversion rates.</td>
-        <td>CRO</td>
-        <td class="priority-med">Medium</td>
-        <td class="priority-med">Medium</td>
-      </tr>
-      <tr>
-        <td><strong>5</strong></td>
-        <td><strong>Weak product discovery — no filters or faceted search</strong> — With a large catalog of thobes and menswear across styles, sizes, and fabrics, customers cannot easily narrow results. Poor product discovery leads to high bounce rates and low add-to-cart rates.</td>
-        <td>UX / Navigation</td>
-        <td class="priority-high">High</td>
-        <td class="priority-high">High</td>
-      </tr>
-      <tr>
-        <td><strong>6</strong></td>
-        <td><strong>No persistent cart or guest checkout optimization</strong> — Requiring account creation before checkout is one of the #1 cart abandonment causes globally. Guest checkout with optional registration post-purchase is the established best practice.</td>
-        <td>Checkout / UX</td>
-        <td class="priority-high">High</td>
-        <td class="priority-high">High</td>
-      </tr>
-      <tr>
-        <td><strong>7</strong></td>
-        <td><strong>Thin SEO content — no category page descriptions, blog, or editorial content</strong> — Category pages lack descriptive copy, FAQs, or buying guides. Google rewards pages that demonstrate expertise. The site is invisible for non-branded search terms like "best thobe Saudi Arabia."</td>
-        <td>SEO</td>
-        <td class="priority-med">Medium</td>
-        <td class="priority-med">Medium</td>
-      </tr>
-      <tr>
-        <td><strong>8</strong></td>
-        <td><strong>Poor size guidance and fabric information</strong> — Traditional menswear buyers need detailed fit guides and fabric descriptions (cotton vs polyester weight, summer vs winter cut). Missing this content increases return rates and reduces purchase confidence.</td>
-        <td>Product Page / CRO</td>
-        <td class="priority-med">Medium</td>
-        <td class="priority-med">Medium</td>
-      </tr>
-      <tr>
-        <td><strong>9</strong></td>
-        <td><strong>No abandoned cart email / SMS recovery</strong> — If cart abandonment sequences are not configured (email + SMS within 1, 6, and 24 hours), the site is leaving 70–80% of would-be buyers without a recovery mechanism.</td>
-        <td>CRO / Retention</td>
-        <td class="priority-high">High</td>
-        <td class="priority-high">Very High</td>
-      </tr>
-      <tr>
-        <td><strong>10</strong></td>
-        <td><strong>No personalization or "recommended for you" logic</strong> — The homepage shows the same content to every visitor regardless of purchase history, browsing behavior, or location. Personalization can lift revenue per visitor by 10–30%.</td>
-        <td>UX / Personalization</td>
-        <td class="priority-low">Medium</td>
-        <td class="priority-med">Medium</td>
-      </tr>
-      <tr>
-        <td><strong>11</strong></td>
-        <td><strong>Limited payment options — no BNPL (Buy Now Pay Later)</strong> — In KSA, Tamara and Tabby (local BNPL providers) have become standard. Without BNPL, the site loses conversions on higher AOV items like premium thobes and winter coats.</td>
-        <td>Checkout</td>
-        <td class="priority-med">Medium</td>
-        <td class="priority-med">Medium</td>
-      </tr>
-      <tr>
-        <td><strong>12</strong></td>
-        <td><strong>Accessibility gaps</strong> — As a PWA built on React, ensuring proper ARIA labels, keyboard navigation, and color contrast is often overlooked. This limits reach to users with visual or motor impairments and may create legal exposure.</td>
-        <td>Accessibility</td>
-        <td class="priority-low">Low</td>
-        <td class="priority-low">Low</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-<!-- ═══════════════════ 04 OPPORTUNITIES ═══════════════════ -->
-<div id="opportunities" class="section">
-  <div class="section-tag">SECTION 04</div>
-  <h2>Improvement Opportunities</h2>
-  <p class="section-intro">The following recommendations are organized by page type and theme. Each recommendation is grounded in proven e-commerce best practices and tailored to the Saudi traditional menswear market.</p>
-
-  <!-- Homepage -->
-  <h3 style="font-family:'Playfair Display',serif;font-size:22px;margin-bottom:16px;margin-top:8px;">🏠 Homepage Improvements</h3>
-  <div class="callout blue">
-    <div class="callout-icon">💡</div>
-    <div class="callout-body">
-      <h4>Hero Section — Lead with Seasonal Storytelling</h4>
-      <ul>
-        <li>Replace generic hero banners with <strong>campaign-quality visuals</strong> tied to Saudi seasons (Eid, National Day, Hajj season, Ramadan)</li>
-        <li>Add a <strong>countdown timer</strong> during sale events to create urgency above the fold</li>
-        <li>Feature a <strong>bestseller bar</strong> below the hero: "Top 5 Thobes This Week" with product thumbnails and quick-add buttons</li>
-        <li>Implement <strong>dynamic personalization</strong>: returning customers see recently viewed items; new visitors see top-rated products</li>
-      </ul>
-    </div>
-  </div>
-  <div class="callout blue">
-    <div class="callout-icon">💡</div>
-    <div class="callout-body">
-      <h4>Trust Bar — Add Credibility Signals Immediately Visible</h4>
-      <ul>
-        <li>Add a horizontal strip: 🚚 Free Delivery 199+ SAR &nbsp;|&nbsp; 🔄 30-Day Returns &nbsp;|&nbsp; 🏅 45 Years of Quality &nbsp;|&nbsp; 🔒 Secure Checkout</li>
-        <li>Feature a "As seen in / Trusted by" section with partnerships (QNB, Bahri, etc.) to elevate brand authority</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- Category Pages -->
-  <h3 style="font-family:'Playfair Display',serif;font-size:22px;margin-bottom:16px;margin-top:28px;">📂 Category Page Improvements</h3>
-  <div class="callout amber">
-    <div class="callout-icon">🔍</div>
-    <div class="callout-body">
-      <h4>Faceted Filtering — Let Customers Self-Serve</h4>
-      <ul>
-        <li>Implement filtering by: <strong>Occasion</strong> (Daily / Formal / Wedding / Ramadan), <strong>Fabric</strong> (Cotton / Polyester / Wool / Blend), <strong>Style</strong> (Saudi / Emirati / Omani), <strong>Size</strong>, <strong>Color</strong>, <strong>Price Range</strong></li>
-        <li>Add <strong>"Sort By" options</strong>: Bestseller, New Arrivals, Price Low–High, Customer Rating</li>
-        <li>Show <strong>product count per filter</strong> to manage expectations ("Cotton (47)")</li>
-        <li>Add a <strong>side-by-side comparison tool</strong> for premium thobes (fabric, collar style, care instructions)</li>
-      </ul>
-    </div>
-  </div>
-  <div class="callout amber">
-    <div class="callout-icon">📝</div>
-    <div class="callout-body">
-      <h4>SEO Content on Category Pages</h4>
-      <ul>
-        <li>Add a 150–200 word editorial introduction to each major category describing the collection, fabrics, and occasions</li>
-        <li>Add an <strong>FAQ section</strong> at the bottom ("What is the difference between a Saudi and Emirati thobe?") to capture long-tail search traffic</li>
-        <li>Implement <strong>structured data (Schema.org)</strong> for product listings to enable rich snippets in Google search results</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- Product Pages -->
-  <h3 style="font-family:'Playfair Display',serif;font-size:22px;margin-bottom:16px;margin-top:28px;">🏷️ Product Page Improvements</h3>
-  <div class="callout gold">
-    <div class="callout-icon">⭐</div>
-    <div class="callout-body">
-      <h4>Build a Conversion-Optimized Product Page</h4>
-      <ul>
-        <li><strong>Image gallery:</strong> 5–7 images including flat lay, on-model (showing traditional Saudi male styling), detail close-ups of fabric/stitching, and lifestyle context</li>
-        <li><strong>Size guide:</strong> Interactive size calculator with measurements in cm/inches. Offer "Find My Size" quiz</li>
-        <li><strong>Fabric details panel:</strong> Weight (GSM), composition, care instructions, season suitability — essential for informed purchase decisions in premium thobes</li>
-        <li><strong>Customer reviews:</strong> Integrate a review platform (Stamped, Yotpo, or Magento-native). Show aggregate rating + filter reviews by "Fit," "Quality," "Delivery"</li>
-        <li><strong>Urgency:</strong> "Only 3 left in your size" stock indicators + "Ordered today, delivered by [date]" shipping estimates</li>
-        <li><strong>Cross-sell:</strong> "Complete the look" section showing matching ghutrah, agal, and belt accessories</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- Mobile UX -->
-  <h3 style="font-family:'Playfair Display',serif;font-size:22px;margin-bottom:16px;margin-top:28px;">📱 Mobile UX Improvements</h3>
-  <div class="callout red">
-    <div class="callout-icon">🔧</div>
-    <div class="callout-body">
-      <h4>Performance: Implement Server-Side Rendering (SSR)</h4>
-      <ul>
-        <li>Deploy <strong>Prerender.io</strong> or configure <strong>Next.js SSR</strong> on top of the Venia PWA to serve pre-rendered HTML to crawlers and first-time visitors. This single change can lift PageSpeed from ~9 to 90+ and dramatically improve Core Web Vitals.</li>
-        <li>Enable <strong>image lazy loading</strong> and use Next-gen formats (WebP/AVIF) for all product images</li>
-        <li>Implement <strong>CDN-level caching</strong> (Fastly or CloudFront) for static assets — critical for KSA users connecting to regional servers</li>
-        <li>Reduce JavaScript bundle size via <strong>code splitting</strong> and tree shaking</li>
-      </ul>
-    </div>
-  </div>
-  <div class="callout red">
-    <div class="callout-icon">👆</div>
-    <div class="callout-body">
-      <h4>Mobile UX Design Fixes</h4>
-      <ul>
-        <li>Sticky "Add to Cart" button at the bottom of the screen on mobile product pages</li>
-        <li>Bottom navigation bar for mobile (Home / Categories / Search / Wishlist / Cart)</li>
-        <li>Thumb-friendly filter drawer accessible from a fixed button</li>
-        <li>One-tap WhatsApp / phone support option visible on every page (critical for Arab market trust)</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- SEO -->
-  <h3 style="font-family:'Playfair Display',serif;font-size:22px;margin-bottom:16px;margin-top:28px;">🔍 SEO Content Strategy</h3>
-  <div class="callout green">
-    <div class="callout-icon">📈</div>
-    <div class="callout-body">
-      <h4>Content Roadmap for Organic Growth</h4>
-      <ul>
-        <li><strong>Blog / Style Guide Hub:</strong> "How to choose the right thobe for Eid," "Saudi thobe vs Emirati kandura," "The complete guide to traditional Saudi menswear" — these capture high-intent search traffic and build category authority</li>
-        <li><strong>Arabic SEO:</strong> Ensure all category pages, meta titles, and descriptions are professionally written in Arabic — not machine-translated. Arabic organic search represents 70%+ of KSA traffic</li>
-        <li><strong>Local SEO:</strong> Google Business Profile optimization for physical store locations; local landing pages for Riyadh, Jeddah, Dammam</li>
-        <li><strong>Technical SEO:</strong> Submit XML sitemap, fix canonical URLs, implement hreflang tags for AR/EN, resolve all JavaScript rendering issues for Google indexation</li>
-      </ul>
-    </div>
+<!-- MODAL -->
+<div class="modal-ov" id="modalOv" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <div class="modal-hdr"><h2 id="modalTitle">Details</h2><button class="modal-x" onclick="closeModal()">✕</button></div>
+    <div class="modal-body" id="modalBody"></div>
   </div>
 </div>
 
-<!-- ═══════════════════ 05 VISUAL EVIDENCE ═══════════════════ -->
-<div id="evidence" class="section">
-  <div class="section-tag">SECTION 05</div>
-  <h2>Visual Evidence &amp; Annotated Analysis</h2>
-  <p class="section-intro">The following annotated mockups recreate the current website's key page structures based on the observed Magento Venia implementation, highlighting specific UX issues with numbered callouts.</p>
+<!-- TOAST -->
+<div class="toast" id="toast"><span id="toastIcon">✅</span><span id="toastMsg"></span></div>
 
-  <!-- Homepage Annotation -->
-  <p style="font-weight:600;margin-bottom:12px;font-size:14px;">Fig 1 — Homepage: Critical UX Issues Identified</p>
-  <div class="screenshot-frame">
-    <div class="screenshot-bar">
-      <div class="browser-dot bd-red"></div>
-      <div class="browser-dot bd-amber"></div>
-      <div class="browser-dot bd-green"></div>
-      <div class="browser-url">https://www.ajstore.com/en/</div>
-    </div>
-    <div class="screenshot-body">
-      <div class="mock-page">
-        <div class="mock-nav">
-          <div class="mock-nav-logo">AJ Store</div>
-          <div class="mock-nav-links">
-            <span>Men</span><span>Women</span><span>Kids</span><span>Sale</span>
-          </div>
-          <div class="mock-nav-icons">🔍 ♡ 🛒</div>
-          <!-- Annotation 1 -->
-          <div class="annotation" style="top:8px;right:80px;">
-            <div style="display:flex;align-items:center;gap:6px;">
-              <div class="ann-pin danger">1</div>
-              <div class="ann-tooltip">No trust signals in header</div>
-            </div>
-          </div>
-        </div>
-        <div class="mock-hero" style="position:relative;">
-          <div class="mock-hero-text">
-            <h3>New Arrivals<br/>Thobe Collection</h3>
-            <p>Premium quality thobes for every occasion</p>
-            <div class="mock-btn">Shop Now</div>
-          </div>
-          <div class="mock-image-box">Product Image Placeholder</div>
-          <!-- Annotation 2 -->
-          <div class="annotation" style="top:20px;left:20px;">
-            <div style="display:flex;align-items:center;gap:6px;">
-              <div class="ann-pin danger">2</div>
-              <div class="ann-tooltip">No seasonal/campaign storytelling</div>
-            </div>
-          </div>
-          <!-- Annotation 3 -->
-          <div class="annotation" style="bottom:20px;left:20px;">
-            <div style="display:flex;align-items:center;gap:6px;">
-              <div class="ann-pin warn">3</div>
-              <div class="ann-tooltip">No urgency / countdown timer</div>
-            </div>
-          </div>
-          <!-- Annotation 4 -->
-          <div class="annotation" style="top:20px;right:20px;">
-            <div style="display:flex;align-items:center;gap:6px;">
-              <div class="ann-pin danger">4</div>
-              <div class="ann-tooltip">Hero image may block LCP score</div>
-            </div>
-          </div>
-        </div>
-        <div style="background:var(--cream);padding:24px 48px;display:flex;gap:16px;flex-wrap:wrap;position:relative;">
-          <div style="background:var(--sand-dark);width:140px;height:180px;border-radius:8px;"></div>
-          <div style="background:var(--sand-dark);width:140px;height:180px;border-radius:8px;"></div>
-          <div style="background:var(--sand-dark);width:140px;height:180px;border-radius:8px;"></div>
-          <div style="background:var(--sand-dark);width:140px;height:180px;border-radius:8px;"></div>
-          <!-- Annotation 5 -->
-          <div class="annotation" style="top:16px;left:16px;">
-            <div style="display:flex;align-items:center;gap:6px;">
-              <div class="ann-pin warn">5</div>
-              <div class="ann-tooltip">No product ratings visible in listing</div>
-            </div>
-          </div>
-          <!-- Annotation 6 -->
-          <div class="annotation" style="bottom:16px;right:16px;">
-            <div style="display:flex;align-items:center;gap:6px;">
-              <div class="ann-pin danger">6</div>
-              <div class="ann-tooltip">No quick-add to cart functionality</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="annotation-legend">
-      <div class="ann-legend-title">Annotation Key</div>
-      <div class="ann-legend-grid">
-        <div class="ann-item"><div class="ann-num" style="background:var(--red);">1</div><div class="ann-text"><strong>No trust strip</strong> — Free delivery, returns policy, security badges missing from header</div></div>
-        <div class="ann-item"><div class="ann-num" style="background:var(--red);">2</div><div class="ann-text"><strong>Generic hero</strong> — No seasonal campaign, no emotional brand story</div></div>
-        <div class="ann-item"><div class="ann-num" style="background:var(--amber);">3</div><div class="ann-text"><strong>No urgency cues</strong> — Sale countdown, offer expiry timers absent</div></div>
-        <div class="ann-item"><div class="ann-num" style="background:var(--red);">4</div><div class="ann-text"><strong>LCP risk</strong> — Unoptimized hero image likely the Largest Contentful Paint element</div></div>
-        <div class="ann-item"><div class="ann-num" style="background:var(--amber);">5</div><div class="ann-text"><strong>No star ratings</strong> — Product cards lack social proof indicators</div></div>
-        <div class="ann-item"><div class="ann-num" style="background:var(--red);">6</div><div class="ann-text"><strong>No quick-add</strong> — Customers must click into product page to add to cart, adding friction</div></div>
-      </div>
-    </div>
-  </div>
+<script>
+/* ── DATA ── */
+const SCORES=[
+  {l:'UX',s:46,icon:'🖱️',c:'#B83232',g:'Poor'},
+  {l:'Mobile',s:38,icon:'📱',c:'#B83232',g:'Critical'},
+  {l:'SEO',s:52,icon:'🔍',c:'#C97010',g:'Needs Work'},
+  {l:'CRO',s:44,icon:'📈',c:'#B83232',g:'Poor'},
+  {l:'Brand',s:72,icon:'🏅',c:'#2D7A4A',g:'Good'},
+  {l:'Performance',s:17,icon:'⚡',c:'#B83232',g:'Critical'},
+];
+const STRENGTHS=[
+  {cat:'Brand',icon:'👔',title:'45-Year Brand Heritage',desc:'Dominant brand recognition across KSA and Gulf markets. High baseline trust reduces customer acquisition cost and drives direct traffic.',impact:'Lowers CAC vs competitors'},
+  {cat:'Catalog',icon:'📂',title:'Structured Product Catalog',desc:'Logical category hierarchy across men, women, children — traditional and contemporary menswear with solid breadth and depth.',impact:'Solid base for filtering & SEO architecture'},
+  {cat:'Localization',icon:'🌐',title:'Bilingual Arabic/English',desc:'Arabic-first design acknowledges primary audience preference. RTL layout is properly implemented throughout.',impact:'Reduces bounce rate for Arabic-speaking customers'},
+  {cat:'CRO',icon:'🚚',title:'Free Delivery Threshold (199 SAR)',desc:'Free delivery incentive prominently announced in header. A proven mechanism to increase basket size and reduce purchase friction.',impact:'AOV-boosting mechanic already in place'},
+  {cat:'Technical',icon:'⚡',title:'PWA Architecture Potential',desc:'Magento PWA Studio foundation, when properly configured with SSR, enables push notifications, offline capability, and home screen install.',impact:'Competitive advantage over traditional Magento sites'},
+  {cat:'Authority',icon:'🏢',title:'Enterprise Scale',desc:'25+ countries, 5,000+ employees, major partnerships: Bahri, Marubeni, QNB.',impact:'Credibility signals that smaller competitors cannot replicate'},
+];
+const FINDINGS=[
+  {id:'F-001',title:'JavaScript-only rendering (Venia PWA default)',sev:'CRITICAL',cat:'Technical/SEO',rev:'Very High',ph:1,
+   desc:'The entire site requires JS to render. Without SSR, search engines index a blank page. Organic traffic is severely suppressed.',
+   fix:'Deploy Prerender.io or configure Next.js SSR. Resolves SEO and improves mobile load speed. Est. 1–2 weeks.'},
+  {id:'F-002',title:'Slow mobile load time (~4–6s estimated LCP)',sev:'CRITICAL',cat:'Performance',rev:'Very High',ph:1,
+   desc:'Venia PWA PageSpeed can score as low as 9/100 on mobile. Each extra second reduces conversions by 7–20%.',
+   fix:'WebP images, code splitting, CDN with KSA edge nodes. SSR fix provides the majority of the improvement.'},
+  {id:'F-003',title:'No customer reviews or social proof',sev:'HIGH',cat:'CRO',rev:'High',ph:2,
+   desc:'Product pages lack ratings, reviews, and UGC. In traditional menswear, fit and fabric are major purchase concerns — without social proof, buyers abandon.',
+   fix:'Integrate Stamped.io or Yotpo. Display ratings on listing pages. Automated post-purchase review requests. Est. 1–2 weeks.'},
+  {id:'F-004',title:'Missing urgency and scarcity signals',sev:'MEDIUM',cat:'CRO',rev:'Medium',ph:2,
+   desc:'No "low stock" indicators, promotion countdown timers, or "X people viewing" social proof.',
+   fix:'Add low-stock warnings (≤5 units), delivery date estimates, countdown timers on promotional pages. Est. 1 week.'},
+  {id:'F-005',title:'Weak product discovery — limited faceted filtering',sev:'HIGH',cat:'UX/Navigation',rev:'High',ph:2,
+   desc:'With a large catalog across styles, sizes, and fabrics, customers cannot effectively narrow results. Poor discovery drives high bounce rates.',
+   fix:'Deploy Elasticsearch (Algolia or Elastic Suite). Filter by occasion, fabric, style, size, color, price. Est. 3–4 weeks.'},
+  {id:'F-006',title:'No guest checkout or optimized checkout flow',sev:'HIGH',cat:'Checkout',rev:'High',ph:1,
+   desc:'Mandatory account creation before checkout is the #1 cart abandonment cause globally.',
+   fix:'Enable Magento guest checkout. Reduce to 3 steps maximum. Optional post-purchase account creation. Est. 1–3 days.'},
+  {id:'F-007',title:'Thin SEO content on category and product pages',sev:'MEDIUM',cat:'SEO',rev:'Medium',ph:2,
+   desc:'Category pages lack descriptive copy, FAQs, or buying guides. Invisible for non-branded searches like "best thobe Saudi Arabia".',
+   fix:'150–200 word intros for top 10 categories. FAQ sections. Schema.org structured data. Ongoing content calendar.'},
+  {id:'F-008',title:'Poor size guidance and fabric information',sev:'MEDIUM',cat:'Product Page',rev:'Medium',ph:2,
+   desc:'Traditional menswear buyers need fit guides and fabric details (GSM, composition, season). Missing this content increases returns.',
+   fix:'Interactive size calculator. Fabric detail panels: composition, weight, care, season suitability. Est. 2–3 weeks.'},
+  {id:'F-009',title:'No abandoned cart email/SMS recovery sequence',sev:'HIGH',cat:'CRO/Retention',rev:'Very High',ph:1,
+   desc:'Without recovery sequences (1hr, 6hr, 24hr), the site has no mechanism to recover the 75–80% of visitors who abandon their cart.',
+   fix:'Implement Klaviyo. 3-touch recovery sequence. Target 10–15% cart recovery rate. Est. 1–2 weeks.'},
+  {id:'F-010',title:'No personalization or recommendation engine',sev:'MEDIUM',cat:'UX',rev:'Medium',ph:3,
+   desc:'The homepage shows identical content to every visitor regardless of purchase history. Personalization lifts revenue per visitor by 10–30%.',
+   fix:'Integrate Nosto or Algolia Recommend. History-based recommendations. Est. 6–8 weeks.'},
+  {id:'F-011',title:'No BNPL payment options (Tamara / Tabby)',sev:'MEDIUM',cat:'Checkout',rev:'Medium',ph:1,
+   desc:'In KSA, Tamara and Tabby are now standard. Without BNPL, the site loses conversions on premium thobes (249–599 SAR range).',
+   fix:'Install Tamara + Tabby Magento extensions. Display BNPL messaging on product pages and cart. Est. 3–5 days each.'},
+  {id:'F-012',title:'Accessibility gaps (ARIA, keyboard navigation)',sev:'LOW',cat:'Accessibility',rev:'Low',ph:3,
+   desc:'As a React PWA, ARIA labels, keyboard navigation, and color contrast are often overlooked, limiting reach and creating legal exposure.',
+   fix:'WCAG 2.1 AA audit. Fix ARIA, ensure 4.5:1 contrast, test keyboard navigation. Est. 2–4 weeks.'},
+];
+const RECS=[
+  {id:'R-001',ph:1,title:'Deploy Prerender.io — fix JS rendering',cat:'Technical/SEO',pri:'CRITICAL',eff:'Medium',imp:'Very High',own:'Engineering',tl:'1–2 weeks',desc:'Deploy Prerender.io or Next.js SSR. Lifts PageSpeed from ~9 to 90+ and dramatically improves Core Web Vitals.',metrics:['Google: all pages indexed','PageSpeed mobile: 65+','LCP < 2.5s']},
+  {id:'R-002',ph:1,title:'Add trust strip above-fold',cat:'CRO/Trust',pri:'HIGH',eff:'Low',imp:'Medium',own:'UX + Frontend',tl:'2–3 days',desc:'Horizontal trust bar on every page: Free Delivery | 30-Day Returns | 45 Years Quality | Secure Checkout.',metrics:['Checkout initiation rate lift','Heatmap: 80%+ visibility']},
+  {id:'R-003',ph:1,title:'Image optimization — WebP + lazy loading',cat:'Performance',pri:'CRITICAL',eff:'Low',imp:'High',own:'Engineering',tl:'3–5 days',desc:'Convert all product images to WebP (50–80% smaller). Enable lazy loading. Implement responsive srcset.',metrics:['Average image < 100KB','LCP improvement 1–2s']},
+  {id:'R-004',ph:1,title:'Enable guest checkout',cat:'Checkout',pri:'HIGH',eff:'Low',imp:'High',own:'Engineering',tl:'1–3 days',desc:'Remove mandatory account creation. Guest checkout as primary with optional post-purchase account creation.',metrics:['Cart-to-order rate improvement','Abandonment rate decrease']},
+  {id:'R-005',ph:1,title:'Integrate Tamara + Tabby BNPL',cat:'Payment',pri:'HIGH',eff:'Low',imp:'High',own:'Engineering + Finance',tl:'3–5 days each',desc:'Install BNPL extensions. Display "Pay in 4" messaging on product pages and cart to lift AOV.',metrics:['BNPL adoption: 15–25% of orders','AOV on BNPL orders']},
+  {id:'R-006',ph:1,title:'Abandoned cart email + SMS sequence',cat:'CRO/Retention',pri:'HIGH',eff:'Medium',imp:'Very High',own:'Marketing + Engineering',tl:'1–2 weeks',desc:'3-touch sequence: 1hr reminder, 6hr reinforcement, 24hr incentive. Target 10–15% recovery rate.',metrics:['Cart recovery rate: 10–15%','Revenue from sequences']},
+  {id:'R-007',ph:1,title:'Sticky mobile Add-to-Cart button',cat:'Mobile UX',pri:'HIGH',eff:'Low',imp:'High',own:'Frontend/UX',tl:'2–3 days',desc:'Fixed bottom bar on mobile: product name, price, Add-to-Cart CTA. Removes need to scroll up.',metrics:['Mobile add-to-cart rate lift','Scroll depth heatmap']},
+  {id:'R-008',ph:1,title:'Install heatmap + session recording',cat:'Analytics',pri:'MEDIUM',eff:'Low',imp:'Medium',own:'Analytics',tl:'1 day',desc:'Install Microsoft Clarity (free) or Hotjar to validate all subsequent UX decisions with real user data.',metrics:['Data collection active across key pages','First insights reviewed in 2 weeks']},
+  {id:'R-009',ph:2,title:'Implement customer review platform',cat:'CRO/Social Proof',pri:'HIGH',eff:'Medium',imp:'High',own:'Engineering + Marketing',tl:'1–2 weeks',desc:'Integrate Stamped.io or Yotpo. Show ratings on listing pages. Filter reviews by Fit, Quality, Delivery.',metrics:['Review collection: 8%+ of orders','CR lift: reviewed vs unreviewed']},
+  {id:'R-010',ph:2,title:'Build size guide + fit calculator',cat:'Product UX',pri:'HIGH',eff:'Medium',imp:'High',own:'UX + Engineering',tl:'2–3 weeks',desc:'"Find My Size" calculator for thobes and menswear. Reduces wrong-size orders 20–30%.',metrics:['Return rate reduction','Add-to-cart rate on sized items']},
+  {id:'R-011',ph:2,title:'Advanced faceted filtering + Elasticsearch',cat:'UX/Navigation',pri:'HIGH',eff:'Medium',imp:'High',own:'Engineering',tl:'3–4 weeks',desc:'Deploy Algolia or Elastic Suite. Filter by occasion, fabric, style, size, color, price. Arabic synonyms.',metrics:['Filter usage rate','Search-to-purchase CR','Zero-results rate < 5%']},
+  {id:'R-012',ph:2,title:'Enhanced product photography (top 50 SKUs)',cat:'Product Content',pri:'HIGH',eff:'High',imp:'High',own:'Creative',tl:'4–6 weeks',desc:'6–8 images per product: flat lay, on-model front/back, detail close-up, fabric, lifestyle with ghutrah/agal.',metrics:['CR on re-photographed products','Return rate on re-shot items']},
+  {id:'R-013',ph:2,title:'Mobile bottom tab bar navigation',cat:'Mobile UX',pri:'HIGH',eff:'Medium',imp:'High',own:'UX + Frontend',tl:'2–3 weeks',desc:'Persistent bottom tab: Home | Categories | Search | Wishlist | Account. 44×44px touch targets.',metrics:['Mobile pages/session increase','Mobile CR improvement']},
+  {id:'R-014',ph:2,title:'Urgency and scarcity signals',cat:'CRO',pri:'MEDIUM',eff:'Low',imp:'Medium',own:'Engineering',tl:'1–2 weeks',desc:'"Only X left" at ≤5 units. "Y people viewing." Delivery date estimates. Countdown timers.',metrics:['Add-to-cart on low-stock items','A/B: urgency vs control']},
+  {id:'R-015',ph:2,title:'SEO category content (Arabic + English)',cat:'SEO',pri:'MEDIUM',eff:'Medium',imp:'Medium',own:'Content/SEO',tl:'Ongoing',desc:'150–200 word intros for top 10 categories. FAQ sections. Schema.org structured data.',metrics:['Organic impressions for category keywords','CTR from Google Search Console']},
+  {id:'R-016',ph:2,title:'Fabric and product details panel',cat:'Product Page',pri:'MEDIUM',eff:'Medium',imp:'Medium',own:'Product Data',tl:'2–3 weeks',desc:'Tabbed panel: fabric composition, GSM/weight, season suitability, care instructions, collar style.',metrics:['Return rate reduction','Time on product page']},
+  {id:'R-017',ph:2,title:'CDN + edge caching deployment',cat:'Performance',pri:'HIGH',eff:'Medium',imp:'High',own:'DevOps',tl:'1–2 weeks',desc:'Deploy Fastly or CloudFront with KSA/UAE edge nodes. Full-page caching. Target TTFB <400ms for GCC.',metrics:['TTFB < 400ms for KSA users','PageSpeed improvement']},
+  {id:'R-018',ph:2,title:'"Complete the Look" cross-sell',cat:'CRO/AOV',pri:'MEDIUM',eff:'Medium',imp:'Medium',own:'Engineering + Merch',tl:'2–3 weeks',desc:'Curated pairings: thobes + ghutrah, agal, belt. Target 15–20% of PDP visitors engage with cross-sell.',metrics:['Cross-sell CTR','AOV change','Units per transaction']},
+  {id:'R-019',ph:3,title:'Full SSR migration (Next.js / Nuxt.js)',cat:'Technical',pri:'HIGH',eff:'High',imp:'Very High',own:'Engineering',tl:'8–12 weeks',desc:'Full SSR headless frontend connected to Magento via GraphQL API. Definitive fix for all CWV and SEO.',metrics:['PageSpeed mobile: 88+','LCP < 2.5s','100% pages indexed']},
+  {id:'R-020',ph:3,title:'AI personalization engine',cat:'Personalization',pri:'MEDIUM',eff:'High',imp:'High',own:'Engineering + Marketing',tl:'6–8 weeks',desc:'Integrate Nosto or Algolia Recommend. History-based recommendations. Target 15–25% revenue from recs.',metrics:['Revenue from recommendations','Repeat purchase rate']},
+  {id:'R-021',ph:3,title:'Editorial content hub — "Saudi Style Guide"',cat:'SEO/Brand',pri:'MEDIUM',eff:'High',imp:'High',own:'Content Team',tl:'Ongoing',desc:'Blog: style guides, fabric education, occasion guides. 2 articles/week Arabic, 1/week English.',metrics:['Organic traffic from blog','Blog-to-category CTR']},
+  {id:'R-022',ph:3,title:'Homepage campaign redesign',cat:'UX/Brand',pri:'MEDIUM',eff:'High',imp:'High',own:'UX + Design',tl:'8–10 weeks',desc:'Campaign-quality seasonal hero. Bestseller bar. Brand story. UGC Instagram feed. Cultural calendar.',metrics:['Homepage bounce rate','Category visits from homepage']},
+  {id:'R-023',ph:3,title:'Loyalty programme',cat:'Retention',pri:'MEDIUM',eff:'High',imp:'High',own:'Product + Marketing',tl:'10–12 weeks',desc:'Points on purchases. Birthday rewards. Ramadan exclusives. Early access. Target: +30% repeat purchase.',metrics:['Loyalty enrollment rate','Repeat purchase rate']},
+  {id:'R-024',ph:3,title:'PWA install prompt + push notifications',cat:'Mobile/PWA',pri:'LOW',eff:'Medium',imp:'Medium',own:'Engineering',tl:'2–3 weeks',desc:'Home screen install prompt after 3+ page views. Push notifications for new arrivals, cart recovery.',metrics:['PWA install rate: 5–10%','Push opt-in rate']},
+];
+const TASKS={
+  1:[
+    {id:'t1-1',txt:'Deploy Prerender.io — fix JS rendering'},
+    {id:'t1-2',txt:'Enable WebP images + lazy loading'},
+    {id:'t1-3',txt:'Enable guest checkout'},
+    {id:'t1-4',txt:'Add trust strip above-fold'},
+    {id:'t1-5',txt:'Integrate Tamara + Tabby BNPL'},
+    {id:'t1-6',txt:'Sticky mobile Add-to-Cart button'},
+    {id:'t1-7',txt:'Install Hotjar / Clarity heatmaps'},
+    {id:'t1-8',txt:'Configure abandoned cart sequences'},
+  ],
+  2:[
+    {id:'t2-1',txt:'Implement customer review platform'},
+    {id:'t2-2',txt:'Build size guide + fit calculator'},
+    {id:'t2-3',txt:'Advanced faceted filtering + search'},
+    {id:'t2-4',txt:'Mobile bottom tab bar navigation'},
+    {id:'t2-5',txt:'Enhanced photography — top 50 SKUs'},
+    {id:'t2-6',txt:'Urgency + scarcity signals'},
+    {id:'t2-7',txt:'SEO category content (AR + EN)'},
+    {id:'t2-8',txt:'CDN + edge caching deployment'},
+    {id:'t2-9',txt:'Fabric details panel on product pages'},
+    {id:'t2-10',txt:'"Complete the Look" cross-sell'},
+  ],
+  3:[
+    {id:'t3-1',txt:'Full SSR migration (Next.js)'},
+    {id:'t3-2',txt:'Homepage campaign redesign'},
+    {id:'t3-3',txt:'Launch editorial content hub'},
+    {id:'t3-4',txt:'AI personalization engine'},
+    {id:'t3-5',txt:'Loyalty programme'},
+    {id:'t3-6',txt:'PWA install + push notifications'},
+  ],
+};
+const BENCH={
+  headers:['Feature','Category','AJStore.com','Namshi','Noon Fashion','Ounass'],
+  rows:[
+    ['Customer Reviews','CRO','MISSING','STRONG','STRONG','STRONG'],
+    ['Size Guide','Product UX','MISSING','STRONG','PRESENT','STRONG'],
+    ['BNPL (Tamara/Tabby)','Payment','MISSING','STRONG','STRONG','STRONG'],
+    ['Faceted Filtering','Navigation','WEAK','STRONG','STRONG','STRONG'],
+    ['Guest Checkout','Checkout','UNCLEAR','STRONG','STRONG','STRONG'],
+    ['Mobile PageSpeed','Performance','9–25','68–75','55–70','72–82'],
+    ['Abandoned Cart Recovery','CRO','MISSING','STRONG','STRONG','STRONG'],
+    ['Wishlist','UX','BASIC','STRONG','PRESENT','STRONG'],
+    ['Arabic Content Quality','Localization','GOOD','GOOD','GOOD','MODERATE'],
+    ['Brand Heritage Story','Brand','POTENTIAL','WEAK','WEAK','STRONG'],
+    ['Product Video','Content','MISSING','PRESENT','WEAK','STRONG'],
+    ['Live Chat / WhatsApp','Support','UNCLEAR','PRESENT','PRESENT','STRONG'],
+  ],
+};
+const IMPACT_TBL=[
+  {kpi:'Conversion Rate (Desktop)',c:'~1.2%',p1:'~1.6%',p2:'~2.2%',p3:'~3.0%'},
+  {kpi:'Conversion Rate (Mobile)',c:'~0.7%',p1:'~1.1%',p2:'~1.7%',p3:'~2.4%'},
+  {kpi:'Mobile PageSpeed',c:'9–25',p1:'65–75',p2:'75–85',p3:'88–95'},
+  {kpi:'Organic Search Traffic',c:'Baseline',p1:'+20%',p2:'+40%',p3:'+60–80%'},
+  {kpi:'Cart Abandonment Rate',c:'~75–80%',p1:'~65%',p2:'~55%',p3:'~45%'},
+  {kpi:'Average Order Value',c:'Baseline',p1:'+10%',p2:'+20%',p3:'+30–40%'},
+  {kpi:'Repeat Purchase Rate',c:'Baseline',p1:'—',p2:'+15%',p3:'+30%'},
+];
 
-  <!-- Product Page Annotation -->
-  <p style="font-weight:600;margin-bottom:12px;font-size:14px;">Fig 2 — Product Detail Page: Missing Conversion Elements</p>
-  <div class="screenshot-frame">
-    <div class="screenshot-bar">
-      <div class="browser-dot bd-red"></div>
-      <div class="browser-dot bd-amber"></div>
-      <div class="browser-dot bd-green"></div>
-      <div class="browser-url">https://www.ajstore.com/en/product/classic-saudi-thobe</div>
-    </div>
-    <div class="screenshot-body">
-      <div class="mock-page" style="padding:32px 48px;background:var(--cream);display:grid;grid-template-columns:1fr 1fr;gap:40px;min-height:320px;position:relative;">
-        <div>
-          <div style="background:var(--sand-dark);border-radius:10px;height:280px;display:flex;align-items:center;justify-content:center;color:#aaa;font-size:13px;">Product Photography</div>
-          <div style="display:flex;gap:8px;margin-top:10px;">
-            <div style="background:var(--sand-dark);border-radius:6px;width:56px;height:56px;"></div>
-            <div style="background:var(--sand-dark);border-radius:6px;width:56px;height:56px;"></div>
-            <div style="background:var(--sand-dark);border-radius:6px;width:56px;height:56px;"></div>
-          </div>
-        </div>
-        <div>
-          <div style="font-size:11px;color:#888;margin-bottom:6px;">Men / Thobes / Classic Collection</div>
-          <div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:700;margin-bottom:8px;">Classic Saudi Thobe — White</div>
-          <div style="font-size:22px;font-weight:700;color:var(--ink);margin-bottom:16px;">SAR 249</div>
-          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;">
-            <div style="border:1px solid var(--border);border-radius:6px;padding:6px 14px;font-size:13px;">S</div>
-            <div style="border:2px solid var(--ink);border-radius:6px;padding:6px 14px;font-size:13px;font-weight:600;">M</div>
-            <div style="border:1px solid var(--border);border-radius:6px;padding:6px 14px;font-size:13px;">L</div>
-            <div style="border:1px solid var(--border);border-radius:6px;padding:6px 14px;font-size:13px;">XL</div>
-          </div>
-          <div style="background:var(--gold);border-radius:8px;padding:14px;text-align:center;font-weight:700;font-size:15px;margin-bottom:12px;">Add to Cart</div>
-          <div style="background:var(--sand);border-radius:8px;padding:10px;font-size:12px;color:#888;text-align:center;">Product description text here...</div>
-        </div>
-        <!-- Annotations -->
-        <div class="annotation" style="top:16px;left:16px;">
-          <div style="display:flex;align-items:center;gap:6px;">
-            <div class="ann-pin warn">A</div>
-            <div class="ann-tooltip">Only 3 images — need 6–8 angles</div>
-          </div>
-        </div>
-        <div class="annotation" style="top:16px;right:16px;">
-          <div style="display:flex;align-items:center;gap:6px;">
-            <div class="ann-pin danger">B</div>
-            <div class="ann-tooltip">No star ratings / review count</div>
-          </div>
-        </div>
-        <div class="annotation" style="bottom:80px;right:16px;">
-          <div style="display:flex;align-items:center;gap:6px;">
-            <div class="ann-pin danger">C</div>
-            <div class="ann-tooltip">No size guide link — major friction for thobes</div>
-          </div>
-        </div>
-        <div class="annotation" style="bottom:20px;right:16px;">
-          <div style="display:flex;align-items:center;gap:6px;">
-            <div class="ann-pin warn">D</div>
-            <div class="ann-tooltip">No fabric/care info panel</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="annotation-legend">
-      <div class="ann-legend-title">Product Page Issues</div>
-      <div class="ann-legend-grid">
-        <div class="ann-item"><div class="ann-num" style="background:var(--amber);">A</div><div class="ann-text"><strong>Insufficient imagery</strong> — Thobes need front, back, collar, sleeve, fabric close-up, and styled shots</div></div>
-        <div class="ann-item"><div class="ann-num" style="background:var(--red);">B</div><div class="ann-text"><strong>No reviews</strong> — The single highest-impact CRO addition for apparel pages</div></div>
-        <div class="ann-item"><div class="ann-num" style="background:var(--red);">C</div><div class="ann-text"><strong>No size guide</strong> — Returns are costly; a size guide reduces wrong-size orders by 20–30%</div></div>
-        <div class="ann-item"><div class="ann-num" style="background:var(--amber);">D</div><div class="ann-text"><strong>No fabric details</strong> — Fabric composition, weight, and seasonality are purchase-critical for thobes</div></div>
-      </div>
-    </div>
-  </div>
-</div>
+/* ── STATE ── */
+let curPage='cover', chartsGone=false, gaugesGone=false;
+const getProg=()=>{try{return JSON.parse(localStorage.getItem('aj-prog')||'{}')}catch{return{}}};
+const setProg=d=>{try{localStorage.setItem('aj-prog',JSON.stringify(d))}catch{}};
 
-<!-- ═══════════════════ 06 DATA VISUALIZATIONS ═══════════════════ -->
-<div id="charts" class="section">
-  <div class="section-tag">SECTION 06</div>
-  <h2>Data Visualizations</h2>
-  <p class="section-intro">The following charts provide a visual overview of the audit findings, issue distribution, and estimated impact of each improvement category.</p>
+/* ── NAVIGATION ── */
+const PAGE_TITLES={cover:'AJStore.com — Digital Audit',summary:'01 — Executive Summary',strengths:'02 — Website Strengths',findings:'03 — Issues Found',recommendations:'04 — Recommendations',roadmap:'05 — Implementation Roadmap',charts:'06 — Data Visualizations',benchmark:'07 — Competitive Benchmark',impact:'08 — Business Impact',reco:'09 — Final Recommendation'};
+const PAGES=['cover','summary','strengths','findings','recommendations','roadmap','charts','benchmark','impact','reco'];
 
-  <div class="two-col" style="gap:24px;margin-bottom:32px;">
+function nav(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
+  const pg=document.getElementById('page-'+id);
+  if(pg)pg.classList.add('active');
+  const ni=document.querySelector(`[data-page="${id}"]`);
+  if(ni)ni.classList.add('active');
+  curPage=id;
+  document.getElementById('tbTitle').textContent=PAGE_TITLES[id]||'AJStore Audit';
+  window.scrollTo({top:0,behavior:'smooth'});
+  if(id==='summary'&&!gaugesGone){setTimeout(animGauges,200);gaugesGone=true}
+  if(id==='charts'&&!chartsGone){setTimeout(animCharts,200);chartsGone=true}
+  if(window.innerWidth<=860)document.getElementById('sidebar').classList.remove('open');
+}
+document.querySelectorAll('.nav-item').forEach(el=>el.addEventListener('click',()=>nav(el.dataset.page)));
+document.addEventListener('keydown',e=>{
+  if(['INPUT','TEXTAREA'].includes(e.target.tagName))return;
+  const i=PAGES.indexOf(curPage);
+  if(e.key==='ArrowRight'&&i<PAGES.length-1)nav(PAGES[i+1]);
+  if(e.key==='ArrowLeft'&&i>0)nav(PAGES[i-1]);
+  if(e.key==='Escape')closeModal();
+});
 
-    <!-- Chart 1: Impact by Category -->
-    <div class="chart-container">
-      <div class="chart-title">Estimated Conversion Impact by Improvement Category</div>
-      <div class="bar-chart">
-        <div class="bar-row">
-          <div class="bar-label">SSR / Performance</div>
-          <div class="bar-track"><div class="bar-fill red-bar" style="width:92%;"><span>+0.8%CR</span></div></div>
-        </div>
-        <div class="bar-row">
-          <div class="bar-label">Reviews &amp; Social Proof</div>
-          <div class="bar-track"><div class="bar-fill amber-bar" style="width:78%;"><span>+0.6%CR</span></div></div>
-        </div>
-        <div class="bar-row">
-          <div class="bar-label">Abandoned Cart Recovery</div>
-          <div class="bar-track"><div class="bar-fill gold-bar" style="width:84%;"><span>Recover 15%</span></div></div>
-        </div>
-        <div class="bar-row">
-          <div class="bar-label">BNPL Integration</div>
-          <div class="bar-track"><div class="bar-fill green-bar" style="width:55%;"><span>+0.3%CR</span></div></div>
-        </div>
-        <div class="bar-row">
-          <div class="bar-label">Product Page Depth</div>
-          <div class="bar-track"><div class="bar-fill blue-bar" style="width:66%;"><span>+0.4%CR</span></div></div>
-        </div>
-        <div class="bar-row">
-          <div class="bar-label">SEO Content Strategy</div>
-          <div class="bar-track"><div class="bar-fill amber-bar" style="width:70%;"><span>+40% traffic</span></div></div>
-        </div>
-        <div class="bar-row">
-          <div class="bar-label">Mobile UX Overhaul</div>
-          <div class="bar-track"><div class="bar-fill red-bar" style="width:88%;"><span>+0.7%CR</span></div></div>
-        </div>
-      </div>
-      <p style="font-size:11px;color:#999;margin-top:14px;">CR = Conversion Rate lift. Estimates based on industry benchmarks for MENA e-commerce apparel.</p>
-    </div>
-
-    <!-- Chart 2: Issue Type Distribution -->
-    <div class="chart-container">
-      <div class="chart-title">Issue Distribution by Category</div>
-      <div class="donut-wrap">
-        <svg width="160" height="160" viewBox="0 0 160 160">
-          <circle cx="80" cy="80" r="60" fill="none" stroke="#f0ece4" stroke-width="28"/>
-          <!-- Performance 25% -->
-          <circle cx="80" cy="80" r="60" fill="none" stroke="#B83232" stroke-width="28"
-            stroke-dasharray="94.2 282.6" stroke-dashoffset="0" transform="rotate(-90 80 80)"/>
-          <!-- CRO 30% -->
-          <circle cx="80" cy="80" r="60" fill="none" stroke="#D4780A" stroke-width="28"
-            stroke-dasharray="113.1 263.7" stroke-dashoffset="-94.2" transform="rotate(-90 80 80)"/>
-          <!-- UX 20% -->
-          <circle cx="80" cy="80" r="60" fill="none" stroke="#C49A3C" stroke-width="28"
-            stroke-dasharray="75.4 301.6" stroke-dashoffset="-207.3" transform="rotate(-90 80 80)"/>
-          <!-- SEO 15% -->
-          <circle cx="80" cy="80" r="60" fill="none" stroke="#2456A4" stroke-width="28"
-            stroke-dasharray="56.5 319.6" stroke-dashoffset="-282.7" transform="rotate(-90 80 80)"/>
-          <!-- Content 10% -->
-          <circle cx="80" cy="80" r="60" fill="none" stroke="#2D7A4A" stroke-width="28"
-            stroke-dasharray="37.7 339.3" stroke-dashoffset="-339.2" transform="rotate(-90 80 80)"/>
-          <text x="80" y="85" text-anchor="middle" font-family="Playfair Display" font-size="20" font-weight="700" fill="#1A1410">12</text>
-          <text x="80" y="98" text-anchor="middle" font-size="9" fill="#888">Issues</text>
+/* ── GAUGES ── */
+function buildGauges(){
+  document.getElementById('gaugesWrap').innerHTML=SCORES.map(s=>{
+    const r=44,c=2*Math.PI*r,dash=c*(s.s/100);
+    const gc=s.s>=70?'g-ok':s.s>=50?'g-warn':'g-bad';
+    return`<div class="sc">
+      <div class="sc-top"><div class="sc-label">${s.l}</div><div class="sc-icon">${s.icon}</div></div>
+      <div class="sc-ring">
+        <svg width="96" height="96" viewBox="0 0 100 100">
+          <circle class="ring-track" cx="50" cy="50" r="${r}"/>
+          <circle class="ring-fill" cx="50" cy="50" r="${r}" stroke="${s.c}"
+            stroke-dasharray="${c}" stroke-dashoffset="${c}" data-d="${c-dash}"
+            transform="rotate(-90 50 50)" id="rg-${s.l}"/>
         </svg>
-        <div class="donut-legend">
-          <div class="legend-item"><div class="legend-dot" style="background:#B83232;"></div><span>Technical / Performance <strong>(25%)</strong></span></div>
-          <div class="legend-item"><div class="legend-dot" style="background:#D4780A;"></div><span>CRO / Conversion <strong>(30%)</strong></span></div>
-          <div class="legend-item"><div class="legend-dot" style="background:#C49A3C;"></div><span>UX / Navigation <strong>(20%)</strong></span></div>
-          <div class="legend-item"><div class="legend-dot" style="background:#2456A4;"></div><span>SEO &amp; Content <strong>(15%)</strong></span></div>
-          <div class="legend-item"><div class="legend-dot" style="background:#2D7A4A;"></div><span>Checkout &amp; Payment <strong>(10%)</strong></span></div>
+        <div>
+          <div class="sc-num" style="color:${s.c}">${s.s}</div>
+          <div class="sc-denom">/100</div>
+          <div class="sc-grade ${gc}">${s.g}</div>
         </div>
       </div>
-    </div>
-  </div>
+    </div>`;
+  }).join('');
+}
+function animGauges(){
+  document.querySelectorAll('.ring-fill').forEach(el=>el.style.strokeDashoffset=el.dataset.d);
+}
 
-  <!-- Chart 3: Performance Scores -->
-  <div class="chart-container" style="margin-bottom:24px;">
-    <div class="chart-title">Estimated Core Web Vitals — Current vs. Target</div>
-    <table class="audit-table">
-      <thead>
-        <tr>
-          <th>Metric</th>
-          <th>Current (Estimated)</th>
-          <th>Google's "Good" Threshold</th>
-          <th>Post-Optimization Target</th>
-          <th>Status</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>LCP (Largest Contentful Paint)</strong></td>
-          <td class="priority-high">~5.5s (Mobile)</td>
-          <td>≤ 2.5s</td>
-          <td class="priority-low">1.8–2.2s</td>
-          <td class="priority-high">⚠ FAIL</td>
-        </tr>
-        <tr>
-          <td><strong>FID / INP (Interactivity)</strong></td>
-          <td class="priority-high">~280ms</td>
-          <td>≤ 200ms</td>
-          <td class="priority-low">&lt; 100ms</td>
-          <td class="priority-high">⚠ FAIL</td>
-        </tr>
-        <tr>
-          <td><strong>CLS (Cumulative Layout Shift)</strong></td>
-          <td class="priority-med">~0.18</td>
-          <td>≤ 0.1</td>
-          <td class="priority-low">&lt; 0.05</td>
-          <td class="priority-med">◑ NEEDS WORK</td>
-        </tr>
-        <tr>
-          <td><strong>TTFB (Time to First Byte)</strong></td>
-          <td class="priority-med">~800ms</td>
-          <td>≤ 800ms</td>
-          <td class="priority-low">&lt; 400ms</td>
-          <td class="priority-med">◑ BORDERLINE</td>
-        </tr>
-        <tr>
-          <td><strong>PageSpeed Score (Mobile)</strong></td>
-          <td class="priority-high">~9–25/100</td>
-          <td>≥ 90</td>
-          <td class="priority-low">85–95</td>
-          <td class="priority-high">⚠ CRITICAL</td>
-        </tr>
-        <tr>
-          <td><strong>SEO Crawl-ability</strong></td>
-          <td class="priority-high">~0% (JS-only render)</td>
-          <td>Full content indexable</td>
-          <td class="priority-low">100%</td>
-          <td class="priority-high">⚠ CRITICAL</td>
-        </tr>
-      </tbody>
+/* ── STRENGTHS ── */
+function buildStrengths(){
+  document.getElementById('strGrid').innerHTML=STRENGTHS.map(s=>`
+    <div class="str-card">
+      <div class="str-cat">${s.cat}</div>
+      <div class="str-icon">${s.icon}</div>
+      <h3>${s.title}</h3>
+      <p>${s.desc}</p>
+      <div class="str-impact">→ ${s.impact}</div>
+    </div>`).join('');
+}
+
+/* ── FINDINGS ── */
+function scCol(s){return{CRITICAL:'#B83232',HIGH:'#C97010',MEDIUM:'#2456A4',LOW:'#2D7A4A'}[s]||'#999'}
+function scTag(s){return{CRITICAL:'t-c',HIGH:'t-h',MEDIUM:'t-m',LOW:'t-l'}[s]||''}
+function buildFindings(){
+  document.getElementById('findList').innerHTML=FINDINGS.map(f=>`
+    <div class="fc-card" id="fcc-${f.id}" onclick="toggleFind('${f.id}',event)">
+      <div class="fc-hdr">
+        <div class="sev-dot" style="background:${scCol(f.sev)}"></div>
+        <div class="fc-id mono">${f.id}</div>
+        <div class="fc-title">${f.title}</div>
+        <div class="fc-tags">
+          <span class="tag ${scTag(f.sev)}">${f.sev}</span>
+          <span class="tag" style="background:var(--sand);color:var(--ink-2)">${f.cat}</span>
+        </div>
+        <div class="fc-arrow">⌄</div>
+      </div>
+      <div class="fc-body">
+        <div class="fc-body-inner">
+          <div class="fc-bs"><h4>Description</h4><p>${f.desc}</p></div>
+          <div class="fc-bs"><h4>Recommended Fix</h4><p>${f.fix}</p>
+            <div class="imp-row">
+              <span class="imp-b" style="background:var(--sand);color:var(--ink-2)">📅 Phase ${f.ph}</span>
+              <span class="imp-b" style="background:${f.rev==='Very High'?'var(--red-pale)':f.rev==='High'?'var(--amber-pale)':'var(--blue-pale)'};color:${f.rev==='Very High'?'var(--red)':f.rev==='High'?'var(--amber)':'var(--blue)'}">💰 ${f.rev} Impact</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>`).join('');
+  document.querySelectorAll('#findFilters .fc').forEach(b=>b.addEventListener('click',()=>{
+    document.querySelectorAll('#findFilters .fc').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    let count=0;
+    FINDINGS.forEach(f=>{
+      const el=document.getElementById('fcc-'+f.id);
+      const show=b.dataset.f==='all'||f.sev===b.dataset.f;
+      el.classList.toggle('hidden',!show);
+      if(show)count++;
+    });
+    document.getElementById('findCount').textContent=count+' issue'+(count!==1?'s':'');
+  }));
+}
+function toggleFind(id,e){
+  if(e.target.closest('.fc-body'))return;
+  document.getElementById('fcc-'+id).classList.toggle('open');
+}
+
+/* ── RECS ── */
+function buildRecs(){
+  document.getElementById('recGrid').innerHTML=RECS.map(r=>`
+    <div class="rc p${r.ph}" id="rcc-${r.id}" onclick="openRecModal('${r.id}')">
+      <div class="rc-top">
+        <span class="rc-id mono">${r.id}</span>
+        <span class="rc-pl pl${r.ph}">Phase ${r.ph}</span>
+      </div>
+      <h3>${r.title}</h3>
+      <p>${r.desc}</p>
+      <div class="rc-meta">
+        <span>⚡ ${r.eff}</span><span>📈 ${r.imp}</span><span>⏱ ${r.tl}</span>
+      </div>
+      <div class="rc-owner">👤 ${r.own}</div>
+    </div>`).join('');
+  document.querySelectorAll('#recFilters .fc').forEach(b=>b.addEventListener('click',()=>{
+    document.querySelectorAll('#recFilters .fc').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    RECS.forEach(r=>{
+      const el=document.getElementById('rcc-'+r.id);
+      const f=b.dataset.f;
+      const show=f==='all'||(f==='1'&&r.ph===1)||(f==='2'&&r.ph===2)||(f==='3'&&r.ph===3)||r.pri===f;
+      el.classList.toggle('hidden',!show);
+    });
+  }));
+}
+function openRecModal(id){
+  const r=RECS.find(x=>x.id===id);if(!r)return;
+  document.getElementById('modalTitle').textContent=r.id+' — '+r.title;
+  document.getElementById('modalBody').innerHTML=`
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px">
+      <span class="tag" style="background:var(--sand);color:var(--ink-2)">${r.cat}</span>
+      <span class="rc-pl pl${r.ph}">Phase ${r.ph}</span>
+      <span class="tag ${scTag(r.pri)}">${r.pri}</span>
+    </div>
+    <p>${r.desc}</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0">
+      ${[['Effort',r.eff],['Impact',r.imp],['Timeline',r.tl],['Owner',r.own]].map(([l,v])=>`
+      <div style="background:var(--sand);padding:11px;border-radius:8px">
+        <div style="font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--ink-3);margin-bottom:3px">${l}</div>
+        <div style="font-weight:600;font-size:13px">${v}</div>
+      </div>`).join('')}
+    </div>
+    <h3>Success Metrics</h3>
+    <div class="m-metrics">${r.metrics.map(m=>`<div class="m-metric"><span>${m}</span><span>Target</span></div>`).join('')}</div>`;
+  document.getElementById('modalOv').classList.add('open');
+}
+
+/* ── ROADMAP ── */
+const PH_META=[
+  {n:1,cls:'rp1',pc:'pf1',tl:'0–30 Days',name:'Quick Wins',desc:'High impact · Low effort'},
+  {n:2,cls:'rp2',pc:'pf2',tl:'1–3 Months',name:'UX Overhaul',desc:'Medium effort · High impact'},
+  {n:3,cls:'rp3',pc:'pf3',tl:'3–6 Months',name:'Strategic Elevation',desc:'Higher effort · Long-term value'},
+];
+function buildRoadmap(){
+  const prog=getProg();
+  document.getElementById('progBars').innerHTML=PH_META.map(p=>{
+    const t=TASKS[p.n],done=t.filter(x=>prog[x.id]).length,pct=Math.round(done/t.length*100);
+    return`<div class="prog-wrap">
+      <div class="prog-label"><span><strong>Phase ${p.n}:</strong> ${p.name}</span><span class="mono" id="plbl-${p.n}">${done}/${t.length} tasks · ${pct}%</span></div>
+      <div class="prog-track"><div class="prog-fill ${p.pc}" id="pbar-${p.n}" style="width:0" data-t="${pct}%"></div></div>
+    </div>`;
+  }).join('');
+  document.getElementById('rmPhases').innerHTML=PH_META.map(p=>`
+    <div class="rm-phase ${p.cls}">
+      <div class="rp-tl">${p.tl}</div>
+      <h3>${p.name}</h3>
+      <div class="rp-desc">${p.desc}</div>
+      <ul class="rp-tasks" id="rptl-${p.n}">
+        ${TASKS[p.n].map(t=>`
+          <li class="rpt${prog[t.id]?' done':''}" id="rpti-${t.id}">
+            <div class="rpt-ck" onclick="toggleTask('${t.id}',event)">${prog[t.id]?'✓':''}</div>
+            <span class="rpt-txt">${t.txt}</span>
+          </li>`).join('')}
+      </ul>
+    </div>`).join('');
+  setTimeout(()=>document.querySelectorAll('.prog-fill[data-t]').forEach(el=>el.style.width=el.dataset.t),300);
+}
+function toggleTask(id,e){
+  e.stopPropagation();
+  const prog=getProg();
+  prog[id]=!prog[id];
+  setProg(prog);
+  const item=document.getElementById('rpti-'+id);
+  item.classList.toggle('done',!!prog[id]);
+  item.querySelector('.rpt-ck').textContent=prog[id]?'✓':'';
+  // update all progress bars
+  PH_META.forEach(p=>{
+    const t=TASKS[p.n],done=t.filter(x=>prog[x.id]).length,pct=Math.round(done/t.length*100);
+    const bar=document.getElementById('pbar-'+p.n);
+    const lbl=document.getElementById('plbl-'+p.n);
+    if(bar)bar.style.width=pct+'%';
+    if(lbl)lbl.textContent=`${done}/${t.length} tasks · ${pct}%`;
+  });
+  showToast(prog[id]?'✅':'↩️',prog[id]?'Task marked complete':'Task unmarked');
+}
+
+/* ── CHARTS ── */
+function buildCharts(){
+  document.getElementById('chGrid').innerHTML=`
+    <div class="ch-card">
+      <div class="ch-title">Estimated Conversion Lift by Improvement</div>
+      <div class="ch-sub">Percentage of max potential impact · MENA apparel benchmarks</div>
+      <div class="bc-chart" id="bcChart"></div>
+    </div>
+    <div class="ch-card">
+      <div class="ch-title">Issue Distribution by Category</div>
+      <div class="ch-sub">12 total issues across 5 categories</div>
+      <div class="dn-wrap">
+        <svg width="156" height="156" viewBox="0 0 160 160" id="donutSvg">
+          <circle cx="80" cy="80" r="56" fill="none" stroke="var(--sand-2)" stroke-width="26"/>
+        </svg>
+        <div class="dn-legend" id="dnLegend"></div>
+      </div>
+    </div>
+    <div class="ch-card full">
+      <div class="ch-title">Core Web Vitals — Current vs Target</div>
+      <div class="ch-sub">Estimated metrics for Magento Venia PWA without SSR optimization</div>
+      <div id="cwvWrap"></div>
+    </div>`;
+  // Bar chart
+  const bars=[
+    {l:'SSR / Performance',w:'92%',v:'+0.8% CR',c:'bfr'},
+    {l:'Mobile UX Overhaul',w:'88%',v:'+0.7% CR',c:'bfr'},
+    {l:'Abandoned Cart',w:'84%',v:'Recover 15%',c:'bfgold'},
+    {l:'Reviews & Proof',w:'78%',v:'+0.6% CR',c:'bfa'},
+    {l:'SEO Content',w:'70%',v:'+40% traffic',c:'bfa'},
+    {l:'Product Page Depth',w:'66%',v:'+0.4% CR',c:'bfb'},
+    {l:'BNPL Integration',w:'55%',v:'+0.3% CR',c:'bfg'},
+  ];
+  document.getElementById('bcChart').innerHTML=bars.map(b=>`
+    <div class="bc-row">
+      <div class="bc-lbl">${b.l}</div>
+      <div class="bc-track"><div class="bc-fill ${b.c}" style="width:0" data-w="${b.w}"><span>${b.v}</span></div></div>
+    </div>`).join('');
+  // Donut
+  const segs=[
+    {l:'CRO / Conversion',p:30,c:'#C97010'},
+    {l:'Technical / Performance',p:25,c:'#B83232'},
+    {l:'UX / Navigation',p:20,c:'#C49A3C'},
+    {l:'SEO & Content',p:15,c:'#2456A4'},
+    {l:'Checkout & Payment',p:10,c:'#2D7A4A'},
+  ];
+  const svg=document.getElementById('donutSvg');
+  const r=56,circ=2*Math.PI*r;
+  let off=0;
+  segs.forEach(s=>{
+    const len=circ*(s.p/100);
+    const el=document.createElementNS('http://www.w3.org/2000/svg','circle');
+    el.setAttribute('cx','80');el.setAttribute('cy','80');el.setAttribute('r',String(r));
+    el.setAttribute('fill','none');el.setAttribute('stroke',s.c);el.setAttribute('stroke-width','26');
+    el.setAttribute('stroke-dasharray',`0 ${circ}`);
+    el.setAttribute('data-da',`${len} ${circ-len}`);
+    el.setAttribute('data-do',String(-off));
+    el.setAttribute('transform','rotate(-90 80 80)');
+    off+=len;svg.appendChild(el);
+  });
+  [['80','83','22','700',SCORES.length>0?'12':''],['80','97','9','400','Issues']].forEach(([x,y,fs,fw,t])=>{
+    const tx=document.createElementNS('http://www.w3.org/2000/svg','text');
+    tx.setAttribute('x',x);tx.setAttribute('y',y);tx.setAttribute('text-anchor','middle');
+    tx.setAttribute('font-family','Playfair Display');tx.setAttribute('font-size',fs);
+    tx.setAttribute('font-weight',fw);tx.setAttribute('fill','var(--ink)');tx.textContent=t;
+    svg.appendChild(tx);
+  });
+  document.getElementById('dnLegend').innerHTML=segs.map(s=>`
+    <div class="dl-i"><div class="dl-dot" style="background:${s.c}"></div><span>${s.l} <strong>(${s.p}%)</strong></span></div>`).join('');
+  // CWV table
+  const cwv=[
+    ['LCP (Largest Contentful Paint)','~5.5s','≤ 2.5s','1.8–2.2s','FAIL'],
+    ['INP (Interaction to Next Paint)','~280ms','≤ 200ms','< 100ms','FAIL'],
+    ['CLS (Cumulative Layout Shift)','~0.18','≤ 0.1','< 0.05','NEEDS WORK'],
+    ['TTFB (Time to First Byte)','~800ms','≤ 800ms','< 400ms','BORDERLINE'],
+    ['PageSpeed Score (Mobile)','9–25','≥ 90','88–95','CRITICAL'],
+    ['SEO Crawl-ability','~0% (JS-only)','100% indexable','100%','CRITICAL'],
+  ];
+  document.getElementById('cwvWrap').innerHTML=`<table class="bt">
+    <thead><tr><th>Metric</th><th>Current</th><th>Good Threshold</th><th>Post-Fix Target</th><th>Status</th></tr></thead>
+    <tbody>${cwv.map(r=>`<tr><td><strong>${r[0]}</strong></td>
+      <td style="color:var(--red);font-weight:600">${r[1]}</td>
+      <td>${r[2]}</td>
+      <td style="color:var(--green);font-weight:600">${r[3]}</td>
+      <td style="color:${r[4]==='FAIL'||r[4]==='CRITICAL'?'var(--red)':r[4]==='NEEDS WORK'||r[4]==='BORDERLINE'?'var(--amber)':'var(--green)'};font-weight:600">⚠ ${r[4]}</td>
+    </tr>`).join('')}</tbody></table>`;
+}
+function animCharts(){
+  document.querySelectorAll('.bc-fill[data-w]').forEach(el=>el.style.width=el.dataset.w);
+  document.querySelectorAll('#donutSvg circle[data-da]').forEach(el=>{
+    el.setAttribute('stroke-dasharray',el.getAttribute('data-da'));
+    el.setAttribute('stroke-dashoffset',el.getAttribute('data-do'));
+    el.style.transition='stroke-dasharray 1s ease,stroke-dashoffset 1s ease';
+  });
+}
+
+/* ── BENCHMARK ── */
+function buildBench(){
+  const sHTML=s=>{
+    const m={STRONG:'<span class="bs bs-ok">✅ Strong</span>',PRESENT:'<span class="bs" style="color:var(--blue)">✓ Present</span>',MODERATE:'<span class="bs bs-wn">⚠ Moderate</span>',WEAK:'<span class="bs bs-wn">⚠ Weak</span>',MISSING:'<span class="bs bs-ms">✕ Missing</span>',UNCLEAR:'<span class="bs bs-wn">? Unclear</span>',BASIC:'<span class="bs bs-wn">~ Basic</span>',GOOD:'<span class="bs bs-ok">✓ Good</span>',POTENTIAL:'<span class="bs" style="color:var(--gold)">◆ Potential</span>'};
+    return m[s]||`<span class="bs ${s.includes('9–25')||s.includes('9-25')?'bs-ms':'bs-ok'}">${s}</span>`;
+  };
+  document.getElementById('benchTable').innerHTML=`
+    <thead><tr>${BENCH.headers.map(h=>`<th>${h}</th>`).join('')}</tr></thead>
+    <tbody>${BENCH.rows.map(r=>`<tr>
+      <td><strong>${r[0]}</strong></td><td style="font-size:11px;color:var(--ink-3)">${r[1]}</td>
+      <td>${sHTML(r[2])}</td><td>${sHTML(r[3])}</td><td>${sHTML(r[4])}</td><td>${sHTML(r[5])}</td>
+    </tr>`).join('')}</tbody>`;
+}
+
+/* ── IMPACT TABLE ── */
+function buildImpact(){
+  document.getElementById('impactTableWrap').innerHTML=`
+    <table class="bt">
+      <thead><tr><th>KPI</th><th>Current</th><th>After Phase 1</th><th>After Phase 2</th><th>After Phase 3</th></tr></thead>
+      <tbody>${IMPACT_TBL.map(r=>`<tr>
+        <td><strong>${r.kpi}</strong></td>
+        <td>${r.c}</td>
+        <td style="color:var(--amber);font-weight:${r.p1==='—'?'400':'600'}">${r.p1}</td>
+        <td style="color:var(--amber);font-weight:600">${r.p2}</td>
+        <td style="color:var(--green);font-weight:700">${r.p3}</td>
+      </tr>`).join('')}</tbody>
     </table>
-  </div>
+    <div class="callout co-gold" style="margin-top:20px"><span class="ci">💰</span>
+      <div><h4>Overall Revenue Impact Estimate</h4>
+      <p>Combining a conversion rate improvement from ~1.2% to ~3.0%, +35% AOV, 15% cart recovery lift, and 50% organic traffic growth — the cumulative impact over 12 months is estimated at <strong>2.5×–3.5× current digital revenue</strong>. This assumes no increase in paid acquisition spend.</p>
+      </div></div>`;
+}
 
-  <!-- Chart 4: Competitive Benchmark -->
-  <div class="chart-container">
-    <div class="chart-title">Competitive Benchmark — AJStore vs. Key Regional Competitors</div>
-    <table class="audit-table">
-      <thead>
-        <tr>
-          <th>Feature</th>
-          <th>AJStore.com</th>
-          <th>Namshi (MENA)</th>
-          <th>Noon Fashion</th>
-          <th>Ounass (UAE)</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Customer Reviews</td>
-          <td class="priority-high">❌ None</td>
-          <td class="priority-low">✅ Full system</td>
-          <td class="priority-low">✅ Full system</td>
-          <td class="priority-low">✅ Full system</td>
-        </tr>
-        <tr>
-          <td>Size Guide</td>
-          <td class="priority-high">❌ Missing</td>
-          <td class="priority-low">✅ Interactive</td>
-          <td class="priority-low">✅ Present</td>
-          <td class="priority-low">✅ Detailed</td>
-        </tr>
-        <tr>
-          <td>BNPL Options</td>
-          <td class="priority-high">❌ None</td>
-          <td class="priority-low">✅ Tabby/Tamara</td>
-          <td class="priority-low">✅ Postpay</td>
-          <td class="priority-low">✅ Tabby</td>
-        </tr>
-        <tr>
-          <td>Faceted Filtering</td>
-          <td class="priority-med">⚠ Limited</td>
-          <td class="priority-low">✅ Advanced</td>
-          <td class="priority-low">✅ Advanced</td>
-          <td class="priority-low">✅ Advanced</td>
-        </tr>
-        <tr>
-          <td>Wishlist / Save</td>
-          <td class="priority-med">⚠ Basic</td>
-          <td class="priority-low">✅ Sharable</td>
-          <td class="priority-low">✅ Present</td>
-          <td class="priority-low">✅ Advanced</td>
-        </tr>
-        <tr>
-          <td>Mobile PageSpeed</td>
-          <td class="priority-high">❌ ~9–25</td>
-          <td class="priority-low">✅ 68–75</td>
-          <td class="priority-low">✅ 55–70</td>
-          <td class="priority-low">✅ 72–82</td>
-        </tr>
-        <tr>
-          <td>Arabic Content Quality</td>
-          <td class="priority-low">✅ Good</td>
-          <td class="priority-low">✅ Good</td>
-          <td class="priority-low">✅ Good</td>
-          <td class="priority-med">⚠ Variable</td>
-        </tr>
-        <tr>
-          <td>Brand Heritage Story</td>
-          <td class="priority-low">✅ Strong (offline)</td>
-          <td class="priority-med">⚠ Marketplace</td>
-          <td class="priority-med">⚠ Marketplace</td>
-          <td class="priority-low">✅ Luxury narrative</td>
-        </tr>
-      </tbody>
-    </table>
-    <p style="font-size:11px;color:#999;margin-top:12px;">Based on competitive UX analysis conducted March 2026. ✅ = Strong &nbsp;⚠ = Needs improvement &nbsp;❌ = Missing</p>
-  </div>
-</div>
+/* ── PROGRESS MODAL ── */
+function openProgress(){
+  const prog=getProg();
+  const total=Object.values(TASKS).flat().length;
+  const done=Object.values(TASKS).flat().filter(t=>prog[t.id]).length;
+  let html=`<div style="background:var(--ink);color:#fff;padding:13px 15px;border-radius:var(--radius);margin-bottom:18px;display:flex;justify-content:space-between;align-items:center">
+    <span style="font-weight:600">Overall Progress</span>
+    <span style="color:var(--gold-l);font-family:'DM Mono',monospace;font-size:16px;font-weight:700">${done}/${total}</span>
+  </div>`;
+  PH_META.forEach(p=>{
+    const t=TASKS[p.n],d=t.filter(x=>prog[x.id]).length;
+    html+=`<h3 style="margin:${p.n>1?'18px':0} 0 6px;font-size:14px">Phase ${p.n} — ${p.name} (${d}/${t.length})</h3>`;
+    html+=`<div class="m-metrics">${t.map(task=>`<div class="m-metric"><span>${task.txt}</span><span style="color:${prog[task.id]?'var(--green)':'var(--ink-3)'}">${prog[task.id]?'✅ Done':'⬜ Pending'}</span></div>`).join('')}</div>`;
+  });
+  document.getElementById('modalTitle').textContent='Implementation Progress';
+  document.getElementById('modalBody').innerHTML=html;
+  document.getElementById('modalOv').classList.add('open');
+}
+function closeModal(){document.getElementById('modalOv').classList.remove('open')}
 
-<!-- ═══════════════════ 07 ROADMAP ═══════════════════ -->
-<div id="roadmap" class="section">
-  <div class="section-tag">SECTION 07</div>
-  <h2>Prioritized Implementation Roadmap</h2>
-  <p class="section-intro">Recommendations are organized into three execution phases based on effort, impact, and strategic sequence. Phase 1 delivers quick commercial wins. Phases 2–3 build sustainable competitive advantages.</p>
+/* ── TOAST ── */
+let tt=null;
+function showToast(icon,msg){
+  const t=document.getElementById('toast');
+  document.getElementById('toastIcon').textContent=icon;
+  document.getElementById('toastMsg').textContent=msg;
+  t.classList.add('show');
+  if(tt)clearTimeout(tt);
+  tt=setTimeout(()=>t.classList.remove('show'),2400);
+}
 
-  <div class="roadmap">
-    <div class="roadmap-phase phase-1">
-      <div class="phase-header">
-        <div class="phase-timeline">Phase 1 · 0–30 Days</div>
-        <div class="phase-title">Quick Wins</div>
-        <div class="phase-desc">High impact · Low effort</div>
-      </div>
-      <ul class="phase-tasks">
-        <li><div class="task-icon">🔧</div><div>Deploy <strong>Prerender.io</strong> to fix JavaScript rendering — unlock SEO and improve load speed dramatically</div></li>
-        <li><div class="task-icon">🔒</div><div>Add <strong>trust strip</strong> (free delivery, returns, secure checkout, 45-year brand) above fold on all pages</div></li>
-        <li><div class="task-icon">⚡</div><div>Enable <strong>image optimization</strong> — convert all product images to WebP, add lazy loading</div></li>
-        <li><div class="task-icon">🛒</div><div>Enable <strong>guest checkout</strong> — remove mandatory account creation before purchase</div></li>
-        <li><div class="task-icon">💳</div><div>Integrate <strong>Tamara / Tabby BNPL</strong> — standard for KSA market, immediate AOV lift</div></li>
-        <li><div class="task-icon">📱</div><div>Add <strong>sticky mobile "Add to Cart"</strong> button on product pages</div></li>
-        <li><div class="task-icon">📬</div><div>Configure <strong>abandoned cart email sequence</strong> (1hr, 6hr, 24hr)</div></li>
-        <li><div class="task-icon">📊</div><div>Install <strong>heatmap &amp; session recording</strong> (Hotjar / Microsoft Clarity) to capture real user behavior data</div></li>
-      </ul>
-    </div>
-
-    <div class="roadmap-phase phase-2">
-      <div class="phase-header">
-        <div class="phase-timeline">Phase 2 · 1–3 Months</div>
-        <div class="phase-title">UX Overhaul</div>
-        <div class="phase-desc">Medium effort · High impact</div>
-      </div>
-      <ul class="phase-tasks">
-        <li><div class="task-icon">⭐</div><div>Implement <strong>customer review platform</strong> (Stamped.io or Yotpo) across all product pages</div></li>
-        <li><div class="task-icon">📐</div><div>Build interactive <strong>size guide &amp; fit calculator</strong> for all thobe and menswear categories</div></li>
-        <li><div class="task-icon">🔍</div><div>Implement <strong>advanced faceted filtering</strong> — by occasion, fabric, style, size, price, and color</div></li>
-        <li><div class="task-icon">📸</div><div>Commission <strong>enhanced product photography</strong> — lifestyle shots, fabric close-ups, model shots for top 50 SKUs</div></li>
-        <li><div class="task-icon">📱</div><div>Redesign <strong>mobile navigation</strong> — add bottom tab bar, filter drawer, one-tap WhatsApp support</div></li>
-        <li><div class="task-icon">🔎</div><div>Upgrade <strong>site search</strong> — implement Elasticsearch with autocomplete, synonyms ("thobe" = "thawb"), and zero-results handling</div></li>
-        <li><div class="task-icon">🏷️</div><div>Add <strong>urgency signals</strong> — low stock warnings, "X people viewing," delivery date estimates</div></li>
-        <li><div class="task-icon">📝</div><div>Write <strong>SEO category page content</strong> and FAQ sections for top 10 category pages (Arabic &amp; English)</div></li>
-      </ul>
-    </div>
-
-    <div class="roadmap-phase phase-3">
-      <div class="phase-header">
-        <div class="phase-timeline">Phase 3 · 3–6 Months</div>
-        <div class="phase-title">Strategic Elevation</div>
-        <div class="phase-desc">Higher effort · Long-term value</div>
-      </div>
-      <ul class="phase-tasks">
-        <li><div class="task-icon">🎯</div><div><strong>Personalization engine</strong> — implement AI-driven product recommendations based on browsing and purchase history</div></li>
-        <li><div class="task-icon">📖</div><div>Launch <strong>editorial content hub</strong> — "The Saudi Style Guide" — blog, lookbooks, seasonal style guides to capture organic search</div></li>
-        <li><div class="task-icon">🎨</div><div>Full <strong>homepage redesign</strong> — campaign-quality hero visuals, brand storytelling, seasonal promotions calendar</div></li>
-        <li><div class="task-icon">📲</div><div>Enable <strong>PWA home screen install</strong> and <strong>push notifications</strong> for new arrivals and promotions</div></li>
-        <li><div class="task-icon">🏅</div><div>Launch <strong>loyalty programme</strong> — points on purchase, birthday rewards, Ramadan-exclusive benefits</div></li>
-        <li><div class="task-icon">🔗</div><div>Implement <strong>full SSR (Next.js or Nuxt.js)</strong> for complete crawlability and optimal Core Web Vitals</div></li>
-        <li><div class="task-icon">🌍</div><div>Expand to <strong>UAE &amp; Kuwait market</strong> — localized storefronts with local payment methods, currencies, and shipping</div></li>
-        <li><div class="task-icon">📊</div><div>Implement <strong>advanced analytics</strong> — GA4 enhanced e-commerce, attribution modelling, customer lifetime value tracking</div></li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-<!-- ═══════════════════ 08 BUSINESS IMPACT ═══════════════════ -->
-<div id="impact" class="section">
-  <div class="section-tag">SECTION 08</div>
-  <h2>Estimated Business Impact</h2>
-  <p class="section-intro">The following projections are based on industry benchmarks for MENA e-commerce apparel and the specific improvements recommended in this report. Actual results will depend on implementation quality and baseline traffic volumes.</p>
-
-  <div class="impact-grid">
-    <div class="impact-card positive">
-      <div class="impact-num">+1.5–2%</div>
-      <div class="impact-label">Conversion Rate Lift</div>
-      <div class="impact-direction">From ~1.2% → 2.7–3.2%</div>
-    </div>
-    <div class="impact-card positive">
-      <div class="impact-num">+25–40%</div>
-      <div class="impact-label">Average Order Value</div>
-      <div class="impact-direction">Via BNPL, cross-sell, and upsell</div>
-    </div>
-    <div class="impact-card positive">
-      <div class="impact-num">+40–60%</div>
-      <div class="impact-label">Organic Traffic</div>
-      <div class="impact-direction">Via SSR fix + SEO content strategy</div>
-    </div>
-    <div class="impact-card positive">
-      <div class="impact-num">+15%</div>
-      <div class="impact-label">Recovered Revenue</div>
-      <div class="impact-direction">From abandoned cart sequences</div>
-    </div>
-  </div>
-
-  <table class="audit-table">
-    <thead>
-      <tr>
-        <th>KPI</th>
-        <th>Current Baseline</th>
-        <th>Post Phase 1</th>
-        <th>Post Phase 2</th>
-        <th>Post Phase 3</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><strong>Conversion Rate (Desktop)</strong></td>
-        <td>~1.2%</td>
-        <td class="text-amber">~1.6%</td>
-        <td class="text-amber">~2.2%</td>
-        <td class="text-green">~3.0%</td>
-      </tr>
-      <tr>
-        <td><strong>Conversion Rate (Mobile)</strong></td>
-        <td>~0.7%</td>
-        <td class="text-amber">~1.1%</td>
-        <td class="text-amber">~1.7%</td>
-        <td class="text-green">~2.4%</td>
-      </tr>
-      <tr>
-        <td><strong>Mobile PageSpeed Score</strong></td>
-        <td class="text-red">~9–25</td>
-        <td class="text-amber">~65–75</td>
-        <td class="text-amber">~75–85</td>
-        <td class="text-green">~88–95</td>
-      </tr>
-      <tr>
-        <td><strong>Organic Search Traffic</strong></td>
-        <td>Baseline (suppressed)</td>
-        <td class="text-amber">+20% (crawl fixed)</td>
-        <td class="text-amber">+40%</td>
-        <td class="text-green">+60–80%</td>
-      </tr>
-      <tr>
-        <td><strong>Cart Abandonment Rate</strong></td>
-        <td>~75–80%</td>
-        <td class="text-amber">~65%</td>
-        <td class="text-amber">~55%</td>
-        <td class="text-green">~45%</td>
-      </tr>
-      <tr>
-        <td><strong>Average Order Value (SAR)</strong></td>
-        <td>Baseline</td>
-        <td class="text-amber">+10%</td>
-        <td class="text-amber">+20%</td>
-        <td class="text-green">+30–40%</td>
-      </tr>
-      <tr>
-        <td><strong>Customer Repeat Purchase Rate</strong></td>
-        <td>Baseline</td>
-        <td>—</td>
-        <td class="text-amber">+15%</td>
-        <td class="text-green">+30%</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <div style="margin-top:28px;" class="callout gold">
-    <div class="callout-icon">💰</div>
-    <div class="callout-body">
-      <h4>Overall Revenue Impact Estimate</h4>
-      <p>Combining a conversion rate improvement from ~1.2% to ~3.0%, a 25–40% increase in AOV, a 15% abandoned cart recovery lift, and a 60% increase in organic traffic — the cumulative revenue impact over 12 months is estimated at <strong>2.5×–3.5× current digital revenue</strong>. This assumes no increase in paid acquisition spend; the improvements drive more revenue from existing and organic traffic.</p>
-    </div>
-  </div>
-</div>
-
-<!-- ═══════════════════ 09 FINAL RECOMMENDATION ═══════════════════ -->
-<div id="reco" class="final-reco">
-  <div class="section-tag">SECTION 09</div>
-  <h2>Final Strategic Recommendation</h2>
-  <p class="section-intro">AJStore.com has the most powerful asset in Saudi e-commerce: a trusted, heritage brand with genuine product quality and wide market recognition. The digital channel is not yet performing at the level this brand deserves — but the path to closing that gap is clear, executable, and high-return.</p>
-
-  <div class="gold-divider" style="background:linear-gradient(90deg,var(--gold),transparent);"></div>
-
-  <p style="color:rgba(255,255,255,0.8);font-size:16px;max-width:720px;line-height:1.8;margin-bottom:40px;">
-    The single most important action is to <strong style="color:var(--gold-light);">fix the JavaScript rendering issue immediately</strong>. This is a technical problem costing Ajlan &amp; Brothers thousands of SAR daily in suppressed organic traffic. It can be resolved in 1–2 weeks. After that, the focus should shift to <strong style="color:var(--gold-light);">conversion optimization fundamentals</strong>: reviews, size guides, BNPL, and abandoned cart recovery — changes that pay for themselves within weeks.
-    <br/><br/>
-    The longer-term opportunity is to <strong style="color:var(--gold-light);">make the digital store as premium as the brand itself</strong>. Customers who walk into an Ajlan &amp; Brothers store experience quality, craftsmanship, and heritage. That same experience should be felt the moment a customer lands on ajstore.com.
-  </p>
-
-  <div class="reco-pillars">
-    <div class="reco-pillar">
-      <div class="reco-pillar-icon">⚡</div>
-      <h3>Fix the Foundation First</h3>
-      <p>Technical issues — JavaScript rendering, Core Web Vitals, mobile speed — are the ceiling on all other improvements. No amount of CRO will overcome a 5-second load time. Prioritize SSR or Prerender.io in the first 30 days. This unlocks SEO and mobile conversions simultaneously.</p>
-    </div>
-    <div class="reco-pillar">
-      <div class="reco-pillar-icon">📈</div>
-      <h3>Convert More of What You Have</h3>
-      <p>Before increasing ad spend, maximize conversion from existing traffic. Reviews, BNPL, abandoned cart sequences, and guest checkout are proven to increase conversion rates by 50–150% in apparel. These are low-cost, high-return actions that should be deployed in the first 60 days.</p>
-    </div>
-    <div class="reco-pillar">
-      <div class="reco-pillar-icon">🏆</div>
-      <h3>Build a Brand-Worthy Digital Home</h3>
-      <p>Ajlan &amp; Brothers is a premium institution, not a commodity retailer. The long-term digital vision should be an editorial, storytelling-rich experience that celebrates Saudi sartorial heritage — positioning AJStore.com as the destination for authentic traditional menswear, not just another online shop.</p>
-    </div>
-  </div>
-
-  <div style="margin-top:48px;border:1px solid rgba(196,154,60,0.3);border-radius:12px;padding:32px;background:rgba(196,154,60,0.05);">
-    <p style="font-family:'Playfair Display',serif;font-size:22px;font-weight:600;color:var(--gold-light);margin-bottom:12px;">"The gap between where AJStore.com is today and where it should be is not a brand problem — it is an execution problem. The brand is powerful. The opportunity is significant. The roadmap is clear."</p>
-    <p style="font-size:13px;color:rgba(255,255,255,0.45);">— Senior E-Commerce, UX &amp; CRO Consultant · March 2026</p>
-  </div>
-</div>
-
-<!-- ═══════════════════ FOOTER ═══════════════════ -->
-<div class="report-footer">
-  <div>
-    <div class="footer-brand">Ajlan &amp; Brothers — AJStore.com Digital Audit</div>
-    <div style="margin-top:4px;">Confidential · For Internal Use Only · March 2026</div>
-  </div>
-  <div style="text-align:right;">
-    <div>UX · CRO · Technical Performance</div>
-    <div style="margin-top:4px;">9 Sections · 12 Issues Identified · 24 Recommendations</div>
-  </div>
-</div>
-
+/* ── INIT ── */
+buildGauges();buildStrengths();buildFindings();buildRecs();buildRoadmap();buildCharts();buildBench();buildImpact();
+setTimeout(()=>showToast('⌨️','Use ← → arrow keys to navigate'),800);
+</script>
 </body>
 </html>
