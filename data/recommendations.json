@@ -1,0 +1,501 @@
+{
+  "meta": {
+    "total_recommendations": 24,
+    "generated": "2026-03-14",
+    "version": "1.0.0"
+  },
+  "recommendations": [
+    {
+      "id": "R-001",
+      "phase": 1,
+      "title": "Deploy Prerender.io or enable SSR to fix JavaScript rendering",
+      "category": "Technical/SEO",
+      "priority": "CRITICAL",
+      "effort": "Medium",
+      "impact": "Very High",
+      "estimated_timeline": "1-2 weeks",
+      "description": "Deploy Prerender.io middleware or configure Next.js SSR on top of Venia PWA. This makes the site fully crawlable by search engines and dramatically improves mobile load speed by serving pre-rendered HTML.",
+      "success_metrics": [
+        "Google Search Console — all pages indexed",
+        "PageSpeed mobile score: 65+",
+        "LCP < 2.5s on mobile"
+      ],
+      "owner": "Engineering",
+      "dependencies": [],
+      "resources": [
+        "https://prerender.io",
+        "https://developer.magento.com/guides/v2.4/frontend-dev-guide/"
+      ]
+    },
+    {
+      "id": "R-002",
+      "phase": 1,
+      "title": "Add trust strip above-fold on all pages",
+      "category": "CRO/Trust",
+      "priority": "HIGH",
+      "effort": "Low",
+      "impact": "Medium",
+      "estimated_timeline": "2-3 days",
+      "description": "Add a horizontal trust bar visible on every page: Free Delivery 199+ SAR | 30-Day Returns | 45 Years of Quality | Secure Checkout. This reduces purchase anxiety and improves conversion from first-time visitors.",
+      "success_metrics": [
+        "A/B test: measure checkout initiation rate before/after",
+        "Heatmap: confirm strip is seen by 80%+ of visitors"
+      ],
+      "owner": "UX/Design + Frontend",
+      "dependencies": [],
+      "resources": []
+    },
+    {
+      "id": "R-003",
+      "phase": 1,
+      "title": "Enable image optimization — WebP conversion and lazy loading",
+      "category": "Performance",
+      "priority": "CRITICAL",
+      "effort": "Low",
+      "impact": "High",
+      "estimated_timeline": "3-5 days",
+      "description": "Convert all product images to WebP format (50-80% smaller than JPEG). Enable lazy loading for images below the fold. Implement responsive images with srcset. Configure Magento's image optimization pipeline.",
+      "success_metrics": [
+        "Average image size < 100KB",
+        "PageSpeed image audit: Pass",
+        "LCP improvement of 1-2 seconds"
+      ],
+      "owner": "Engineering",
+      "dependencies": ["R-001"],
+      "resources": [
+        "https://developer.chrome.com/docs/lighthouse/performance/uses-webp-images/"
+      ]
+    },
+    {
+      "id": "R-004",
+      "phase": 1,
+      "title": "Enable guest checkout and optimize checkout flow",
+      "category": "Checkout",
+      "priority": "HIGH",
+      "effort": "Low",
+      "impact": "High",
+      "estimated_timeline": "1-3 days",
+      "description": "Remove mandatory account creation before purchase. Implement guest checkout as the primary option with optional post-purchase account creation. Reduce checkout to maximum 3 steps.",
+      "success_metrics": [
+        "Cart-to-order conversion rate improvement",
+        "Checkout abandonment rate decrease",
+        "Guest vs registered ratio tracking"
+      ],
+      "owner": "Engineering + Product",
+      "dependencies": [],
+      "resources": [
+        "https://developer.adobe.com/commerce/php/tutorials/frontend/custom-checkout/"
+      ]
+    },
+    {
+      "id": "R-005",
+      "phase": 1,
+      "title": "Integrate Tamara and Tabby BNPL payment options",
+      "category": "Checkout/Payment",
+      "priority": "HIGH",
+      "effort": "Low",
+      "impact": "High",
+      "estimated_timeline": "3-5 days per provider",
+      "description": "Install Tamara and Tabby Magento extensions. BNPL is now standard in KSA e-commerce. Display 'Pay in 4 with Tamara' messaging on product pages and cart to increase AOV on premium thobes (249-599 SAR range).",
+      "success_metrics": [
+        "BNPL adoption rate (target: 15-25% of orders)",
+        "AOV on BNPL orders vs standard",
+        "Conversion rate on high-AOV products"
+      ],
+      "owner": "Engineering + Finance",
+      "dependencies": [],
+      "resources": [
+        "https://merchant.tamara.co/",
+        "https://www.tabby.ai/business"
+      ]
+    },
+    {
+      "id": "R-006",
+      "phase": 1,
+      "title": "Configure abandoned cart email and SMS recovery sequence",
+      "category": "CRO/Retention",
+      "priority": "HIGH",
+      "effort": "Medium",
+      "impact": "Very High",
+      "estimated_timeline": "1-2 weeks",
+      "description": "Implement a 3-touch abandoned cart recovery sequence: Email at 1 hour (reminder), Email/SMS at 6 hours (value reinforcement), Email at 24 hours (incentive offer — e.g., 10% off). Use Klaviyo or Dotdigital for MENA market.",
+      "success_metrics": [
+        "Cart recovery rate (target: 10-15%)",
+        "Revenue attributed to recovery sequences",
+        "Email open rate > 30%"
+      ],
+      "owner": "Marketing + Engineering",
+      "dependencies": ["R-004"],
+      "resources": [
+        "https://www.klaviyo.com",
+        "https://dotdigital.com"
+      ]
+    },
+    {
+      "id": "R-007",
+      "phase": 1,
+      "title": "Add sticky 'Add to Cart' button on mobile product pages",
+      "category": "Mobile UX",
+      "priority": "HIGH",
+      "effort": "Low",
+      "impact": "High",
+      "estimated_timeline": "2-3 days",
+      "description": "Implement a fixed bottom bar on mobile that shows product name, price, and an 'Add to Cart' CTA. This removes the need to scroll back up to add to cart — a critical mobile UX improvement.",
+      "success_metrics": [
+        "Mobile add-to-cart rate improvement",
+        "Scroll depth on mobile product pages"
+      ],
+      "owner": "Frontend/UX",
+      "dependencies": [],
+      "resources": []
+    },
+    {
+      "id": "R-008",
+      "phase": 1,
+      "title": "Install heatmap and session recording tools",
+      "category": "Analytics",
+      "priority": "MEDIUM",
+      "effort": "Low",
+      "impact": "Medium",
+      "estimated_timeline": "1 day",
+      "description": "Install Microsoft Clarity (free) or Hotjar to capture real user behavior — heatmaps, scroll maps, and session recordings. This data will validate and refine all subsequent UX decisions with evidence rather than assumptions.",
+      "success_metrics": [
+        "Data collection active across all key pages",
+        "First heatmap insights reviewed within 2 weeks"
+      ],
+      "owner": "Analytics/Marketing",
+      "dependencies": [],
+      "resources": [
+        "https://clarity.microsoft.com",
+        "https://www.hotjar.com"
+      ]
+    },
+    {
+      "id": "R-009",
+      "phase": 2,
+      "title": "Implement customer review platform",
+      "category": "CRO/Social Proof",
+      "priority": "HIGH",
+      "effort": "Medium",
+      "impact": "High",
+      "estimated_timeline": "1-2 weeks",
+      "description": "Integrate Stamped.io, Yotpo, or Judge.me with the Magento store. Display aggregate star ratings on product listing pages. Enable review filtering by 'Fit,' 'Quality,' and 'Delivery' on product pages. Send automated post-purchase review request emails.",
+      "success_metrics": [
+        "Review collection rate > 8% of orders",
+        "Average product rating visible on listing pages",
+        "Conversion rate lift on reviewed products vs unreviewed"
+      ],
+      "owner": "Engineering + Marketing",
+      "dependencies": [],
+      "resources": [
+        "https://stamped.io",
+        "https://www.yotpo.com"
+      ]
+    },
+    {
+      "id": "R-010",
+      "phase": 2,
+      "title": "Build interactive size guide and fit calculator",
+      "category": "Product Page/CRO",
+      "priority": "HIGH",
+      "effort": "Medium",
+      "impact": "High",
+      "estimated_timeline": "2-3 weeks",
+      "description": "Create a dedicated size guide page for each garment category (thobes, shirts, trousers). Build an interactive 'Find My Size' calculator where customers input height, weight, and chest measurement to get a size recommendation. Add size guide link on all product pages. Reduces returns by 20-30%.",
+      "success_metrics": [
+        "Size guide page traffic",
+        "Return rate reduction on sized items",
+        "Add-to-cart rate on products with size guide"
+      ],
+      "owner": "UX/Design + Engineering",
+      "dependencies": [],
+      "resources": []
+    },
+    {
+      "id": "R-011",
+      "phase": 2,
+      "title": "Implement advanced faceted filtering and search",
+      "category": "UX/Navigation",
+      "priority": "HIGH",
+      "effort": "Medium",
+      "impact": "High",
+      "estimated_timeline": "3-4 weeks",
+      "description": "Deploy Elasticsearch with Magento (Elastic Suite or Algolia). Enable filtering by: Occasion (Daily/Formal/Wedding/Ramadan), Fabric (Cotton/Polyester/Wool), Style (Saudi/Emirati/Omani), Size, Color, Price Range. Add search autocomplete, synonyms ('thobe' = 'thawb'), and zero-results handling.",
+      "success_metrics": [
+        "Filter usage rate",
+        "Search-to-purchase conversion rate",
+        "Bounce rate on category pages",
+        "Zero-results search rate < 5%"
+      ],
+      "owner": "Engineering",
+      "dependencies": [],
+      "resources": [
+        "https://www.algolia.com/products/ai-search/",
+        "https://elasticsuite.io"
+      ]
+    },
+    {
+      "id": "R-012",
+      "phase": 2,
+      "title": "Commission enhanced product photography",
+      "category": "Product Page",
+      "priority": "HIGH",
+      "effort": "High",
+      "impact": "High",
+      "estimated_timeline": "4-6 weeks (production)",
+      "description": "For top 50 SKUs: shoot 6-8 images per product including: flat lay, front on-model, back on-model, collar/sleeve detail, fabric close-up, and lifestyle context shot. Include model shots that show traditional Saudi male styling (ghutrah, agal). This is the highest-impact content investment for apparel conversion.",
+      "success_metrics": [
+        "Conversion rate on re-photographed products vs baseline",
+        "Return rate on re-photographed products",
+        "Time-on-page for product detail pages"
+      ],
+      "owner": "Marketing/Creative",
+      "dependencies": [],
+      "resources": []
+    },
+    {
+      "id": "R-013",
+      "phase": 2,
+      "title": "Redesign mobile navigation with bottom tab bar",
+      "category": "Mobile UX",
+      "priority": "HIGH",
+      "effort": "Medium",
+      "impact": "High",
+      "estimated_timeline": "2-3 weeks",
+      "description": "Replace hamburger-only navigation with a persistent bottom tab bar for mobile: Home | Categories | Search | Wishlist | Account. Add a slide-in filter drawer accessible from a fixed button. Ensure all touch targets are 44×44px minimum. Add one-tap WhatsApp support button visible on every page.",
+      "success_metrics": [
+        "Mobile pages-per-session increase",
+        "Mobile conversion rate improvement",
+        "Navigation usage heatmap"
+      ],
+      "owner": "UX/Design + Frontend",
+      "dependencies": [],
+      "resources": []
+    },
+    {
+      "id": "R-014",
+      "phase": 2,
+      "title": "Add urgency and scarcity signals",
+      "category": "CRO",
+      "priority": "MEDIUM",
+      "effort": "Low",
+      "impact": "Medium",
+      "estimated_timeline": "1-2 weeks",
+      "description": "Implement: 'Only X left in your size' low-stock warnings (trigger at ≤5 units), 'Y people viewing this product' social proof, delivery date estimate ('Order today, delivered by Thursday'), and countdown timers on promotional pages.",
+      "success_metrics": [
+        "Add-to-cart rate on low-stock items",
+        "Conversion rate on urgency-shown vs control products (A/B test)"
+      ],
+      "owner": "Engineering + Marketing",
+      "dependencies": [],
+      "resources": []
+    },
+    {
+      "id": "R-015",
+      "phase": 2,
+      "title": "Write SEO category page content (Arabic and English)",
+      "category": "SEO",
+      "priority": "MEDIUM",
+      "effort": "Medium",
+      "impact": "Medium",
+      "estimated_timeline": "Ongoing (2 pages/week)",
+      "description": "Write 150-200 word editorial introductions for top 10 category pages in both Arabic and English. Add FAQ sections ('What is the difference between a Saudi and Emirati thobe?'). Implement structured data (Schema.org/Product) for rich snippets. Write meta titles and descriptions for all category and product pages.",
+      "success_metrics": [
+        "Organic impressions for category keywords",
+        "Click-through rate from Google Search Console",
+        "Category page ranking for target keywords"
+      ],
+      "owner": "Content/SEO Team",
+      "dependencies": ["R-001"],
+      "resources": [
+        "https://schema.org/Product"
+      ]
+    },
+    {
+      "id": "R-016",
+      "phase": 2,
+      "title": "Add fabric and product details panel on product pages",
+      "category": "Product Page",
+      "priority": "MEDIUM",
+      "effort": "Medium",
+      "impact": "Medium",
+      "estimated_timeline": "2-3 weeks",
+      "description": "Create a tabbed information panel below the add-to-cart section showing: Fabric Composition (e.g., 100% Egyptian Cotton), GSM/Weight, Season Suitability (Summer/Winter/All-season), Care Instructions, Country of Origin, Collar Style, Sleeve Length. This information is critical for thobe purchase decisions.",
+      "success_metrics": [
+        "Return rate reduction",
+        "Time spent on product page",
+        "Add-to-cart rate"
+      ],
+      "owner": "Product Data + Engineering",
+      "dependencies": [],
+      "resources": []
+    },
+    {
+      "id": "R-017",
+      "phase": 2,
+      "title": "Implement CDN and edge caching",
+      "category": "Performance",
+      "priority": "HIGH",
+      "effort": "Medium",
+      "impact": "High",
+      "estimated_timeline": "1-2 weeks",
+      "description": "Deploy Fastly or AWS CloudFront as CDN with edge nodes in KSA/UAE (Riyadh, Dubai). Configure full-page caching for static and semi-static pages. Implement Varnish caching for Magento. Target TTFB < 400ms for GCC users.",
+      "success_metrics": [
+        "TTFB < 400ms for KSA users",
+        "PageSpeed score improvement",
+        "Server response time monitoring"
+      ],
+      "owner": "Engineering/DevOps",
+      "dependencies": [],
+      "resources": [
+        "https://www.fastly.com",
+        "https://aws.amazon.com/cloudfront/"
+      ]
+    },
+    {
+      "id": "R-018",
+      "phase": 2,
+      "title": "Add 'Complete the Look' cross-sell on product pages",
+      "category": "CRO/AOV",
+      "priority": "MEDIUM",
+      "effort": "Medium",
+      "impact": "Medium",
+      "estimated_timeline": "2-3 weeks",
+      "description": "Add a 'Complete the Look' section below the product description showing curated accessory pairings: thobes paired with ghutrah, agal, and belt options. This drives AOV lift by surfacing complementary products in a contextually relevant way. Target: 15-20% of product page visitors engage with cross-sell.",
+      "success_metrics": [
+        "Cross-sell click-through rate",
+        "Average order value change",
+        "Units per transaction"
+      ],
+      "owner": "Engineering + Merchandising",
+      "dependencies": [],
+      "resources": []
+    },
+    {
+      "id": "R-019",
+      "phase": 3,
+      "title": "Implement full server-side rendering (Next.js or Nuxt.js)",
+      "category": "Technical",
+      "priority": "HIGH",
+      "effort": "High",
+      "impact": "Very High",
+      "estimated_timeline": "8-12 weeks",
+      "description": "Migrate from client-side-only Venia PWA to a full SSR implementation using Next.js (React) or Nuxt.js (Vue) as the frontend layer, connected to Magento via GraphQL API (headless commerce). This is the definitive fix for all Core Web Vitals and SEO issues.",
+      "success_metrics": [
+        "PageSpeed mobile score > 88",
+        "LCP < 2.5s",
+        "100% pages indexed by Google",
+        "Organic traffic growth"
+      ],
+      "owner": "Engineering",
+      "dependencies": ["R-001", "R-017"],
+      "resources": [
+        "https://nextjs.org",
+        "https://developer.adobe.com/commerce/frontend-core/guide/architecture/"
+      ]
+    },
+    {
+      "id": "R-020",
+      "phase": 3,
+      "title": "Deploy AI-powered personalization engine",
+      "category": "Personalization",
+      "priority": "MEDIUM",
+      "effort": "High",
+      "impact": "High",
+      "estimated_timeline": "6-8 weeks",
+      "description": "Integrate Nosto, Algolia Recommend, or Adobe Sensei for real-time personalization. Returning customers see recently viewed items and recommendations based on purchase history. New visitors see bestsellers. Implement personalized email product recommendations. Target: 15-25% of revenue from recommended products.",
+      "success_metrics": [
+        "Revenue attributed to recommendations",
+        "Click-through rate on recommended products",
+        "Repeat purchase rate"
+      ],
+      "owner": "Engineering + Marketing",
+      "dependencies": ["R-009", "R-011"],
+      "resources": [
+        "https://www.nosto.com",
+        "https://www.algolia.com/products/recommendations/"
+      ]
+    },
+    {
+      "id": "R-021",
+      "phase": 3,
+      "title": "Launch editorial content hub — 'The Saudi Style Guide'",
+      "category": "SEO/Brand",
+      "priority": "MEDIUM",
+      "effort": "High",
+      "impact": "High",
+      "estimated_timeline": "Ongoing (launch in 8 weeks)",
+      "description": "Create a blog/editorial section targeting high-intent organic search terms. Content pillars: (1) Style guides ('How to dress for Eid'), (2) Fabric education ('The complete guide to thobe fabrics'), (3) Occasion guides ('What to wear for Saudi National Day'), (4) Care guides. Produce 2 articles/week in Arabic, 1/week in English.",
+      "success_metrics": [
+        "Organic traffic from blog content",
+        "Blog-to-category page CTR",
+        "Time on site from organic visitors"
+      ],
+      "owner": "Content Team",
+      "dependencies": ["R-015"],
+      "resources": []
+    },
+    {
+      "id": "R-022",
+      "phase": 3,
+      "title": "Full homepage campaign-quality redesign",
+      "category": "UX/Brand",
+      "priority": "MEDIUM",
+      "effort": "High",
+      "impact": "High",
+      "estimated_timeline": "8-10 weeks",
+      "description": "Redesign the homepage to deliver a premium, editorial brand experience. Implement: campaign-quality seasonal hero with parallax, bestseller bar, brand story section, curated category tiles, user-generated content (Instagram feed), editorial lookbook feature, trust indicators, and newsletter signup. Align with Saudi cultural calendar (Eid, Ramadan, National Day).",
+      "success_metrics": [
+        "Homepage bounce rate reduction",
+        "Category page visits from homepage",
+        "Newsletter signup rate"
+      ],
+      "owner": "UX/Design + Engineering",
+      "dependencies": ["R-001", "R-003"],
+      "resources": []
+    },
+    {
+      "id": "R-023",
+      "phase": 3,
+      "title": "Launch loyalty programme",
+      "category": "Retention",
+      "priority": "MEDIUM",
+      "effort": "High",
+      "impact": "High",
+      "estimated_timeline": "10-12 weeks",
+      "description": "Design and implement a loyalty programme: earn points on purchases, birthday rewards, Ramadan-exclusive benefits, early access to new collections. Use Smile.io or Yotpo Loyalty (Magento compatible). Target: 30% increase in repeat purchase rate within 6 months of launch.",
+      "success_metrics": [
+        "Loyalty programme enrollment rate",
+        "Repeat purchase rate (enrolled vs non-enrolled)",
+        "Customer lifetime value increase"
+      ],
+      "owner": "Product + Marketing + Engineering",
+      "dependencies": ["R-009"],
+      "resources": [
+        "https://smile.io",
+        "https://www.yotpo.com/platform/loyalty/"
+      ]
+    },
+    {
+      "id": "R-024",
+      "phase": 3,
+      "title": "Enable PWA home screen install and push notifications",
+      "category": "Mobile/PWA",
+      "priority": "LOW",
+      "effort": "Medium",
+      "impact": "Medium",
+      "estimated_timeline": "2-3 weeks",
+      "description": "Configure the Venia PWA to prompt home screen installation on mobile after 3+ page views. Implement push notification campaigns for: new arrivals, price drops, and abandoned cart (as a supplement to email). GDPR/PDPL-compliant opt-in flow. Target: 5-10% of mobile users install the PWA.",
+      "success_metrics": [
+        "PWA installation rate",
+        "Push notification opt-in rate",
+        "Revenue from push notification campaigns"
+      ],
+      "owner": "Engineering + Marketing",
+      "dependencies": ["R-001", "R-019"],
+      "resources": [
+        "https://web.dev/progressive-web-apps/"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "name": "ajstore-audit-report",
+  "version": "1.0.0",
+  "description": "UX, CRO & Technical Performance Audit Report for ajstore.com — Ajlan & Brothers Company",
+  "author": "Digital Consulting Team",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "dev": "npx live-server docs/ --port=3000 --open=/report.html",
+    "build": "node scripts/build.js",
+    "validate": "node scripts/validate-data.js",
+    "lint": "npx htmlhint docs/report.html",
+    "export-pdf": "node scripts/export-pdf.js",
+    "test": "node tests/audit-data.test.js"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "htmlhint": "^1.1.4"
+  },
+  "dependencies": {},
+  "keywords": [
+    "ux-audit",
+    "cro",
+    "ecommerce",
+    "performance-audit",
+    "ajlan-brothers",
+    "ajstore"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

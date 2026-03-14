@@ -1,0 +1,238 @@
+{
+  "meta": {
+    "client": "Ajlan & Brothers Company",
+    "website": "https://www.ajstore.com",
+    "report_date": "2026-03-14",
+    "version": "1.0.0",
+    "total_issues": 12,
+    "auditor": "Digital Consulting Team"
+  },
+  "scores": {
+    "ux": { "score": 46, "max": 100, "grade": "F", "label": "Poor" },
+    "mobile": { "score": 38, "max": 100, "grade": "F", "label": "Critical" },
+    "seo": { "score": 52, "max": 100, "grade": "D", "label": "Needs Work" },
+    "cro": { "score": 44, "max": 100, "grade": "F", "label": "Poor" },
+    "brand": { "score": 72, "max": 100, "grade": "C", "label": "Moderate" },
+    "performance_mobile_pagespeed": { "score": 17, "max": 100, "grade": "F", "label": "Critical" }
+  },
+  "core_web_vitals": {
+    "lcp": {
+      "metric": "Largest Contentful Paint",
+      "current": "5.5s",
+      "good_threshold": "2.5s",
+      "target": "1.8-2.2s",
+      "status": "FAIL"
+    },
+    "inp": {
+      "metric": "Interaction to Next Paint",
+      "current": "280ms",
+      "good_threshold": "200ms",
+      "target": "<100ms",
+      "status": "FAIL"
+    },
+    "cls": {
+      "metric": "Cumulative Layout Shift",
+      "current": 0.18,
+      "good_threshold": 0.1,
+      "target": 0.05,
+      "status": "NEEDS_WORK"
+    },
+    "ttfb": {
+      "metric": "Time to First Byte",
+      "current": "800ms",
+      "good_threshold": "800ms",
+      "target": "<400ms",
+      "status": "BORDERLINE"
+    }
+  },
+  "findings": [
+    {
+      "id": "F-001",
+      "title": "JavaScript-only rendering (Venia PWA default)",
+      "category": "Technical/SEO",
+      "severity": "CRITICAL",
+      "revenue_impact": "Very High",
+      "description": "The entire site requires JavaScript to render. Without SSR or pre-rendering, search engines index an empty page. Google's crawl budget is wasted and organic traffic is severely suppressed.",
+      "root_cause": "Magento PWA Studio (Venia) default configuration ships as a client-side only SPA with no server-side rendering enabled.",
+      "affected_pages": ["All pages"],
+      "estimated_fix_effort": "Low-Medium (1-2 weeks)",
+      "fix_phase": 1
+    },
+    {
+      "id": "F-002",
+      "title": "Slow mobile load time (~4-6s estimated LCP)",
+      "category": "Performance",
+      "severity": "CRITICAL",
+      "revenue_impact": "Very High",
+      "description": "Venia PWA's default PageSpeed score can be as low as 9/100 on mobile. Every extra second of load time reduces conversions by 7-20%.",
+      "root_cause": "Unoptimized JavaScript bundle size, no CDN edge caching, uncompressed images, no lazy loading.",
+      "affected_pages": ["All pages", "Homepage", "Product pages"],
+      "estimated_fix_effort": "Medium (2-4 weeks)",
+      "fix_phase": 1
+    },
+    {
+      "id": "F-003",
+      "title": "No customer reviews or social proof",
+      "category": "CRO",
+      "severity": "HIGH",
+      "revenue_impact": "High",
+      "description": "Product pages lack ratings, reviews, and user-generated content. In traditional menswear, fit and fabric quality are major purchase concerns. Without social proof, hesitant buyers abandon.",
+      "root_cause": "No review platform integrated. Magento native reviews not configured or not displayed.",
+      "affected_pages": ["Product pages"],
+      "estimated_fix_effort": "Low (1 week)",
+      "fix_phase": 2
+    },
+    {
+      "id": "F-004",
+      "title": "Missing urgency and scarcity signals",
+      "category": "CRO",
+      "severity": "MEDIUM",
+      "revenue_impact": "Medium",
+      "description": "No 'low stock' indicators, countdown timers for promotions, or 'X people viewing this' social proof. Urgency mechanics are industry-standard CRO levers.",
+      "root_cause": "Not configured in Magento/Venia. No urgency plugin installed.",
+      "affected_pages": ["Product pages", "Cart"],
+      "estimated_fix_effort": "Low (3-5 days)",
+      "fix_phase": 2
+    },
+    {
+      "id": "F-005",
+      "title": "Weak product discovery — limited filters and faceted search",
+      "category": "UX/Navigation",
+      "severity": "HIGH",
+      "revenue_impact": "High",
+      "description": "With a large catalog of thobes and menswear across styles, sizes, and fabrics, customers cannot easily narrow results. Poor product discovery leads to high bounce rates.",
+      "root_cause": "Default Magento layered navigation not fully configured. Elasticsearch not deployed.",
+      "affected_pages": ["Category pages", "Search results"],
+      "estimated_fix_effort": "Medium (2-3 weeks)",
+      "fix_phase": 2
+    },
+    {
+      "id": "F-006",
+      "title": "No persistent cart or guest checkout optimization",
+      "category": "Checkout/UX",
+      "severity": "HIGH",
+      "revenue_impact": "High",
+      "description": "Requiring account creation before checkout is one of the #1 cart abandonment causes globally. Guest checkout with optional post-purchase registration is the established best practice.",
+      "root_cause": "Magento checkout configuration. Guest checkout may be disabled or not prominently offered.",
+      "affected_pages": ["Cart", "Checkout"],
+      "estimated_fix_effort": "Low (1-3 days)",
+      "fix_phase": 1
+    },
+    {
+      "id": "F-007",
+      "title": "Thin SEO content on category and product pages",
+      "category": "SEO",
+      "severity": "MEDIUM",
+      "revenue_impact": "Medium",
+      "description": "Category pages lack descriptive copy, FAQs, or buying guides. The site is invisible for non-branded search terms like 'best thobe Saudi Arabia'.",
+      "root_cause": "Content strategy gap. No editorial team producing category-level SEO content.",
+      "affected_pages": ["Category pages", "Homepage"],
+      "estimated_fix_effort": "Medium (ongoing)",
+      "fix_phase": 2
+    },
+    {
+      "id": "F-008",
+      "title": "Poor size guidance and fabric information",
+      "category": "Product Page/CRO",
+      "severity": "MEDIUM",
+      "revenue_impact": "Medium",
+      "description": "Traditional menswear buyers need detailed fit guides and fabric descriptions. Missing this content increases return rates and reduces purchase confidence.",
+      "root_cause": "Product data incomplete in Magento PIM. No size guide pages created.",
+      "affected_pages": ["Product pages"],
+      "estimated_fix_effort": "Medium (2-3 weeks)",
+      "fix_phase": 2
+    },
+    {
+      "id": "F-009",
+      "title": "No abandoned cart email/SMS recovery sequence",
+      "category": "CRO/Retention",
+      "severity": "HIGH",
+      "revenue_impact": "Very High",
+      "description": "Without cart abandonment sequences (email + SMS at 1, 6, and 24 hours), the site leaves 70-80% of would-be buyers without a recovery mechanism.",
+      "root_cause": "No email marketing automation configured. No transactional SMS provider integrated.",
+      "affected_pages": ["Cart", "Checkout"],
+      "estimated_fix_effort": "Low-Medium (1-2 weeks)",
+      "fix_phase": 1
+    },
+    {
+      "id": "F-010",
+      "title": "No personalization or recommendation engine",
+      "category": "UX/Personalization",
+      "severity": "MEDIUM",
+      "revenue_impact": "Medium",
+      "description": "The homepage shows the same content to every visitor regardless of purchase history or browsing behavior. Personalization can lift revenue per visitor by 10-30%.",
+      "root_cause": "No recommendation engine (e.g., Algolia Recommend, Nosto) integrated.",
+      "affected_pages": ["Homepage", "Product pages", "Cart"],
+      "estimated_fix_effort": "High (6-8 weeks)",
+      "fix_phase": 3
+    },
+    {
+      "id": "F-011",
+      "title": "Limited payment options — no BNPL",
+      "category": "Checkout",
+      "severity": "MEDIUM",
+      "revenue_impact": "Medium",
+      "description": "In KSA, Tamara and Tabby (local BNPL providers) have become standard. Without BNPL, the site loses conversions on higher AOV items like premium thobes.",
+      "root_cause": "Tamara/Tabby payment modules not installed in Magento.",
+      "affected_pages": ["Product pages", "Cart", "Checkout"],
+      "estimated_fix_effort": "Low (3-5 days per provider)",
+      "fix_phase": 1
+    },
+    {
+      "id": "F-012",
+      "title": "Accessibility gaps",
+      "category": "Accessibility",
+      "severity": "LOW",
+      "revenue_impact": "Low",
+      "description": "As a PWA built on React, ensuring ARIA labels, keyboard navigation, and color contrast is often overlooked. This limits reach and may create legal exposure.",
+      "root_cause": "No accessibility audit performed during development. Venia defaults may not meet WCAG 2.1 AA.",
+      "affected_pages": ["All pages"],
+      "estimated_fix_effort": "Medium (2-4 weeks)",
+      "fix_phase": 3
+    }
+  ],
+  "strengths": [
+    {
+      "id": "S-001",
+      "title": "45-Year Brand Heritage",
+      "category": "Brand",
+      "description": "Dominant brand recognition across KSA and Gulf markets. High baseline trust.",
+      "impact": "Reduces customer acquisition cost; increases direct traffic"
+    },
+    {
+      "id": "S-002",
+      "title": "Structured Product Catalog",
+      "category": "Catalog",
+      "description": "Logical category hierarchy covering men, women, children across traditional and contemporary menswear.",
+      "impact": "Provides solid foundation for enhanced filtering and SEO"
+    },
+    {
+      "id": "S-003",
+      "title": "Bilingual Arabic/English Experience",
+      "category": "Localization",
+      "description": "Arabic-first design acknowledges primary audience cultural preference.",
+      "impact": "Reduces bounce rate for Arabic-speaking customers; improves trust"
+    },
+    {
+      "id": "S-004",
+      "title": "Free Delivery Threshold (199 SAR)",
+      "category": "CRO",
+      "description": "Free delivery incentive drives customers to increase basket size.",
+      "impact": "AOV-boosting mechanism already in place"
+    },
+    {
+      "id": "S-005",
+      "title": "PWA Architecture",
+      "category": "Technical",
+      "description": "Magento PWA Studio provides the foundation for app-like experiences when properly optimized.",
+      "impact": "Enables push notifications, offline capability, home screen install"
+    },
+    {
+      "id": "S-006",
+      "title": "Enterprise Scale & Brand Authority",
+      "category": "Brand",
+      "description": "25+ countries, 5,000-9,999 employees, major corporate partnerships (Bahri, Marubeni, QNB).",
+      "impact": "Credibility signals that smaller competitors cannot replicate"
+    }
+  ]
+}

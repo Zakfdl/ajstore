@@ -1,0 +1,77 @@
+name: Audit Report CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate-and-test:
+    name: Validate Data & Run Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Validate data files
+        run: node scripts/validate-data.js
+
+      - name: Run test suite
+        run: npm test
+
+      - name: Run build
+        run: npm run build
+
+      - name: Upload dist artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: audit-report-dist
+          path: dist/
+          retention-days: 30
+
+  lint-html:
+    name: Lint HTML Report
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm install
+      - name: Lint report HTML
+        run: npx htmlhint docs/report.html --config .htmlhintrc || true
+
+  size-check:
+    name: File Size Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check report.html is not empty
+        run: |
+          SIZE=$(wc -c < docs/report.html)
+          echo "report.html size: ${SIZE} bytes"
+          if [ "$SIZE" -lt 10000 ]; then
+            echo "❌ report.html is too small (${SIZE} bytes) — may be corrupt"
+            exit 1
+          fi
+          echo "✅ report.html size OK"
+      - name: Check all data files exist
+        run: |
+          for f in data/audit-findings.json data/recommendations.json data/competitive-benchmark.json data/roadmap.json; do
+            if [ ! -f "$f" ]; then
+              echo "❌ Missing: $f"
+              exit 1
+            fi
+            echo "✅ Found: $f"
+          done

@@ -1,0 +1,8 @@
+# This directory is reserved for screenshot and image assets.
+# Place any annotated screenshots or visual evidence here.
+# Supported formats: PNG, JPEG, WebP, SVG
+#
+# Naming convention:
+#   page-{pagename}-{issue-id}.png     e.g. page-homepage-F001.png
+#   annotation-{description}.png       e.g. annotation-missing-reviews.png
+#   competitor-{name}-{feature}.png    e.g. competitor-namshi-reviews.png
