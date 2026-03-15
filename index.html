@@ -589,7 +589,23 @@ const RECS=[
   {id:'R-002',ph:1,title:'Add trust strip above-fold',cat:'CRO/Trust',pri:'HIGH',eff:'Low',imp:'Medium',own:'UX + Frontend',tl:'2–3 days',desc:'Horizontal trust bar on every page: Free Delivery | 30-Day Returns | 45 Years Quality | Secure Checkout.',metrics:['Checkout initiation rate lift','Heatmap: 80%+ visibility']},
   {id:'R-003',ph:1,title:'Image optimization — WebP + lazy loading',cat:'Performance',pri:'CRITICAL',eff:'Low',imp:'High',own:'Engineering',tl:'3–5 days',desc:'Convert all product images to WebP (50–80% smaller). Enable lazy loading. Implement responsive srcset.',metrics:['Average image < 100KB','LCP improvement 1–2s']},
   {id:'R-004',ph:1,title:'Enable guest checkout',cat:'Checkout',pri:'HIGH',eff:'Low',imp:'High',own:'Engineering',tl:'1–3 days',desc:'Remove mandatory account creation. Guest checkout as primary with optional post-purchase account creation.',metrics:['Cart-to-order rate improvement','Abandonment rate decrease']},
-  {id:'R-005',ph:1,title:'Integrate Tamara + Tabby BNPL',cat:'Payment',pri:'HIGH',eff:'Low',imp:'High',own:'Engineering + Finance',tl:'3–5 days each',desc:'Install BNPL extensions. Display "Pay in 4" messaging on product pages and cart to lift AOV.',metrics:['BNPL adoption: 15–25% of orders','AOV on BNPL orders']},
+  {
+id:'R-005',
+ph:1,
+title:'Improve BNPL visibility (Tamara + Tabby)',
+cat:'Checkout UX',
+pri:'HIGH',
+eff:'Low',
+imp:'High',
+own:'UX + Frontend',
+tl:'2–4 days',
+desc:'Tamara and Tabby are already integrated but not consistently visible across the customer journey. Add BNPL messaging on the homepage, display both providers on product pages, and reinforce "Pay in 4" messaging in cart to increase awareness and improve conversion on higher-AOV products.',
+metrics:[
+'BNPL awareness increase',
+'BNPL usage rate',
+'AOV for BNPL orders'
+]
+},
   {id:'R-006',ph:1,title:'Abandoned cart email + SMS sequence',cat:'CRO/Retention',pri:'HIGH',eff:'Medium',imp:'Very High',own:'Marketing + Engineering',tl:'1–2 weeks',desc:'3-touch sequence: 1hr reminder, 6hr reinforcement, 24hr incentive. Target 10–15% recovery rate.',metrics:['Cart recovery rate: 10–15%','Revenue from sequences']},
   {id:'R-007',ph:1,title:'Sticky mobile Add-to-Cart button',cat:'Mobile UX',pri:'HIGH',eff:'Low',imp:'High',own:'Frontend/UX',tl:'2–3 days',desc:'Fixed bottom bar on mobile: product name, price, Add-to-Cart CTA. Removes need to scroll up.',metrics:['Mobile add-to-cart rate lift','Scroll depth heatmap']},
   {id:'R-008',ph:1,title:'Install heatmap + session recording',cat:'Analytics',pri:'MEDIUM',eff:'Low',imp:'Medium',own:'Analytics',tl:'1 day',desc:'Install Microsoft Clarity (free) or Hotjar to validate all subsequent UX decisions with real user data.',metrics:['Data collection active across key pages','First insights reviewed in 2 weeks']},
