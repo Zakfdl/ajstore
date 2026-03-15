@@ -167,17 +167,17 @@
       "fix_phase": 3
     },
     {
-      "id": "F-011",
-      "title": "Limited payment options — no BNPL",
-      "category": "Checkout",
-      "severity": "MEDIUM",
-      "revenue_impact": "Medium",
-      "description": "In KSA, Tamara and Tabby (local BNPL providers) have become standard. Without BNPL, the site loses conversions on higher AOV items like premium thobes.",
-      "root_cause": "Tamara/Tabby payment modules not installed in Magento.",
-      "affected_pages": ["Product pages", "Cart", "Checkout"],
-      "estimated_fix_effort": "Low (3-5 days per provider)",
-      "fix_phase": 1
-    },
+  "id": "F-011",
+  "title": "Inconsistent BNPL messaging and placement",
+  "category": "Checkout",
+  "severity": "MEDIUM",
+  "revenue_impact": "Medium",
+  "description": "Tabby and Tamara are already available, but customers are not informed consistently throughout the journey. There is no clear BNPL visibility on the homepage, and product pages highlight Tabby only, while Tamara appears mainly at checkout. This can reduce trust, awareness, and financing-driven conversions.",
+  "root_cause": "BNPL integration exists, but merchandising and UX placement are incomplete.",
+  "affected_pages": ["Homepage", "Product pages", "Checkout"],
+  "estimated_fix_effort": "Low (2-5 days)",
+  "fix_phase": 1
+},
     {
       "id": "F-012",
       "title": "Accessibility gaps",
